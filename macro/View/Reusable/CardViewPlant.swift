@@ -7,38 +7,45 @@
 
 import SwiftUI
 
-struct CardViewPlant: View {
-    var body: some View {
-        CardViewReusable()
-    }
-}
-
-struct CardViewPlant_Previews: PreviewProvider {
-    static var previews: some View {
-        CardViewPlant()
-    }
-}
-
 struct CardViewReusable : View {
+    
+    @State var dataTanaman: Tanaman
     
     var body: some View{
         VStack(spacing : 15){
                 VStack{
                     VStack{
-                        Image("Icon")
+                        Image(dataTanaman.imageTanaman)
                             .resizable()
                             .padding([.top, .leading, .trailing])
                     }
                     
                     VStack(alignment: .leading){
-                            Text("Bayam Hijau")
+                        Text(dataTanaman.namaTanaman)
                                 .foregroundColor(.black)
                                 .font(.system(size : 17))
                                 .padding(.horizontal, 8)
-                            Text("Easy")
-                                .foregroundColor(.green)
-                                .font(.system(size : 14))
-                                .padding(.horizontal, 8)
+                        
+                        if dataTanaman.difficultyTanaman == "Easy"{
+                            Text(dataTanaman.difficultyTanaman)
+                                    .foregroundColor(.green)
+                                    .font(.system(size : 14))
+                                    .padding(.horizontal, 8)
+                        }
+                        else if dataTanaman.difficultyTanaman == "Medium"{
+                            Text(dataTanaman.difficultyTanaman)
+                                .foregroundColor(.yellow)
+                                    .font(.system(size : 14))
+                                    .padding(.horizontal, 8)
+                        }
+                        else if dataTanaman.difficultyTanaman == "Hard"{
+                            Text(dataTanaman.difficultyTanaman)
+                                .foregroundColor(.red)
+                                    .font(.system(size : 14))
+                                    .padding(.horizontal, 8)
+
+                        }
+                        
                         }
                     .frame(width: (UIScreen.main.bounds.width - 48) / 2 - 8, height: 63, alignment: .leading)
                         .background(Color.white)
