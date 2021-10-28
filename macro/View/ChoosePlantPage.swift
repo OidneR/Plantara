@@ -10,25 +10,40 @@ import SwiftUI
 struct ChoosePlantPage: View {
     @State var viewModel: ChoosePlantViewModel = ChoosePlantViewModel()
     @State var Grid : [Int] = []
+    @State var namaTanaman: String = ""
+    
+    init() {
+        UINavigationBar.appearance().backgroundColor = UIColor(Color("Abu"))
+    }
     
     var body: some View {
-        NavigationView{
-            VStack{
-                CardView(viewModel: self.$viewModel.data, Grid: self.$Grid)
-            }
-            .onAppear{
-                self.generateGrid()}
-            
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarTitle("Choose Plant")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {print("Hello World")}) {
-                        Image(systemName: "chevron.left")
-                        Text("Back")
+        if #available(iOS 15.0, *) {
+            NavigationView{
+                VStack{
+                    CardView(viewModel: self.$viewModel.data, Grid: self.$Grid)
+                }
+                .onAppear{
+                    self.generateGrid()}
+                
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarTitle("Pilih Tanaman")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {print("Hello World")}) {
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(Color("Brown"))
+                            Text("Kembali")
+                                .foregroundColor(Color("Brown"))
+                        }
                     }
                 }
             }
+            .foregroundColor(.yellow)
+            .searchable(text: $namaTanaman, placement: .navigationBarDrawer(displayMode: .always)){
+                
+            }
+        } else {
+            // Fallback on earlier versions
         }
     }
     
