@@ -18,32 +18,21 @@ struct ChoosePlantPage: View {
     
     var body: some View {
         if #available(iOS 15.0, *) {
-            NavigationView{
-                VStack{
-                    CardView(viewModel: self.$viewModel.data, Grid: self.$Grid)
-                }
-                .onAppear{
-                    self.generateGrid()}
-                
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarTitle("Pilih Tanaman")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {print("Hello World")}) {
-                            Image(systemName: "chevron.left")
-                                .foregroundColor(Color("Brown"))
-                            Text("Kembali")
-                                .foregroundColor(Color("Brown"))
+            VStack{
+                CardView(viewModel: self.$viewModel.data, Grid: self.$Grid)
+                    .navigationBarTitle("Pilih Tanaman")
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button("Ha"){
+                                print("hehe")
+                            }
                         }
                     }
-                }
             }
-            .foregroundColor(.yellow)
-            .searchable(text: $namaTanaman, placement: .navigationBarDrawer(displayMode: .always)){
-                
-            }
+            .onAppear{
+                self.generateGrid()}
         } else {
-            // Fallback on earlier versions
+            
         }
     }
     

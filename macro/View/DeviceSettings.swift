@@ -17,96 +17,71 @@ struct DeviceSettings: View {
     
     @State var allowNotif: Bool = true
     
-//    init() {
-//        // for navigation bar title color
-////        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
-//
-//        // For navigation bar background color
-////        UINavigationBar.appearance().backgroundColor = UIColor(named: "warnaTanah")
-//
-//    }
-    
     var body: some View {
-        
-        NavigationView{
-            Form{
-                Section(){
-                    HStack{
-                        Text("Device Name")
-                        TextField("Device Bayem 1", text: $deviceName)
-                            .multilineTextAlignment(.trailing)
-                    }
-                    Picker(selection: $plantAgeSelection, label: Text("Plant Name")) {
-                        ForEach(0..<plantAge.count){
-                            Text(self.plantAge[$0])
-                        }
-                    }
-                }.listRowBackground(Color.gray)
-            
-                
-                Section(){
-                    HStack{
-                        Text("Plant Location")
-                        TextField("Ruang Tamu", text: $plantLocation)
-                            .multilineTextAlignment(.trailing)
-                    }
-                    
-                    Picker(selection: $plantAgeSelection, label: Text("Plant Age")) {
-                        ForEach(0..<plantAge.count){
-                            Text(self.plantAge[$0])
-                        }
-                    }
+        Form{
+            Section(){
+                HStack{
+                    Text("Device Name")
+                    TextField("Device Bayem 1", text: $deviceName)
+                        .multilineTextAlignment(.trailing)
                 }
-                
-                Section(){
-                    Toggle(isOn: $allowNotif) {
-                        Text("Allow Notification")
+                Picker(selection: $plantAgeSelection, label: Text("Plant Name")) {
+                    ForEach(0..<plantAge.count){
+                        Text(self.plantAge[$0])
                     }
-                }
-                
-                Section(){
-                    Toggle(isOn: $allowNotif) {
-                        Text("Soil Moisture")
-                    }
-                    Toggle(isOn: $allowNotif) {
-                        Text("Temperature")
-                    }
-                    Toggle(isOn: $allowNotif) {
-                        Text("Sunlight Meter")
-                    }
-                    Toggle(isOn: $allowNotif) {
-                        Text("Air Humidity")
-                    }
-                }
-                
-                Section(footer: Text("If you do not recognise this device, remove it and see some butterfly 😎")){
-                    Button {
-                        
-                    } label: {
-                        Text("Remove Device")
-                    }.foregroundColor(.red)
                 }
             }
             
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarTitle("Device Settings")
-            .font(.system(size: 17))
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "chevron.left")
-                        Text("Back")
-                    }.foregroundColor(Color.blue)
+            Section(){
+                HStack{
+                    Text("Plant Location")
+                    TextField("Ruang Tamu", text: $plantLocation)
+                        .multilineTextAlignment(.trailing)
                 }
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        
-                    } label: {
-                        Text("Done")
-                    }.foregroundColor(Color.blue)
+                Picker(selection: $plantAgeSelection, label: Text("Plant Age")) {
+                    ForEach(0..<plantAge.count){
+                        Text(self.plantAge[$0])
+                    }
+                }
+            }
+            
+            Section(){
+                Toggle(isOn: $allowNotif) {
+                    Text("Allow Notification")
+                }
+            }
+            
+            Section(){
+                Toggle(isOn: $allowNotif) {
+                    Text("Soil Moisture")
+                }
+                Toggle(isOn: $allowNotif) {
+                    Text("Temperature")
+                }
+                Toggle(isOn: $allowNotif) {
+                    Text("Sunlight Meter")
+                }
+                Toggle(isOn: $allowNotif) {
+                    Text("Air Humidity")
+                }
+            }
+            
+            Section(footer: Text("If you do not recognise this device, remove it and see some butterfly 😎")){
+                Button {
+                    
+                } label: {
+                    Text("Remove Device")
+                }.foregroundColor(.red)
+            }
+        }
+        .navigationBarTitle("Device Settings")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                HStack{
+                    Button("Selesai"){
+                        print("oke de")
+                    }
                 }
             }
         }
