@@ -12,5 +12,8 @@ class ChoosePlantViewModel: ObservableObject{
                                       Tanaman(namaTanaman: "Tomat Ceri", imageTanaman: "iconTomat", difficultyTanaman: "Medium"),
                                       Tanaman(namaTanaman: "Cabai", imageTanaman: "iconCabai", difficultyTanaman: "Hard"),
                                       Tanaman(namaTanaman: "Pakcoy", imageTanaman: "iconPakcoy", difficultyTanaman: "Easy"),
-                                      Tanaman(namaTanaman: "Sawi", imageTanaman: "iconSawi", difficultyTanaman: "Easy")]
+                                      Tanaman(namaTanaman: "Sawi", imageTanaman: "iconSawi", difficultyTanaman: "Easy"),
+                                      Tanaman(namaTanaman: "Kangkung", imageTanaman: "iconKangkung", difficultyTanaman: "Easy"),
+                                      Tanaman(namaTanaman: "Selada", imageTanaman: "iconSelada", difficultyTanaman: "Medium"),
+                                      Tanaman(namaTanaman: "Kemangi", imageTanaman: "iconKemangi", difficultyTanaman: "Hard")]
 }

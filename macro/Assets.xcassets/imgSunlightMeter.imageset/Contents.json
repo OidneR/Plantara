@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Sawi.png",
+      "filename" : "imgSunlightMeter.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "sunlightMeter2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "sunlightMeter3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

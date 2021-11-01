@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Tanaman{
+struct Tanaman: Hashable{
     let namaTanaman: String
     let imageTanaman: String
     let difficultyTanaman: String
