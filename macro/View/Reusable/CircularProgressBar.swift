@@ -2,7 +2,10 @@
 //  CircularProgressBar.swift
 //  macro
 //
-//  Created by Michelle Aurelia on 28/10/21.
+
+//  Created by Michael Tanakoman on 27/10/21.
+
+
 //
 
 import SwiftUI
@@ -78,5 +81,3 @@ struct Outline: View {
     }
   }
 }
-
-
