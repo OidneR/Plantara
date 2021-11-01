@@ -17,44 +17,48 @@ struct ChoosePlantPage: View {
     }
     
     var body: some View {
-        if #available(iOS 15.0, *) {
-            VStack{
-                CardView(viewModel: self.$viewModel.data, Grid: self.$Grid)
+            if #available(iOS 15.0, *) {
+                NavigationView{
+                    VStack{
+                        CardView(viewModel: self.$viewModel.data, Grid: self.$Grid)
+                    }
+                    .onAppear{
+                        self.generateGrid()}
+                    
+                    .navigationBarTitleDisplayMode(.inline)
                     .navigationBarTitle("Pilih Tanaman")
                     .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button("Ha"){
-                                print("hehe")
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button(action: {print("Hello World")}) {
+                                Image(systemName: "chevron.left")
+                                    .foregroundColor(Color("Brown"))
+                                Text("Kembali")
+                                    .foregroundColor(Color("Brown"))
                             }
                         }
                     }
-
-            }
-            .onAppear{
-                self.generateGrid()}
-
                 }
+                .foregroundColor(.black)
+                .searchable(text: $namaTanaman, placement: .navigationBarDrawer(displayMode: .always)){
+                    CardView(viewModel: $viewModel.data, Grid: $Grid)
+                        .searchCompletion(namaTanaman)
+                }
+                .foregroundColor(.black)
+            } else {
+                // Fallback on earlier versions
             }
-            .foregroundColor(.black)
-            .searchable(text: $namaTanaman, placement: .navigationBarDrawer(displayMode: .always)){
-                CardView(viewModel: $viewModel.data, Grid: $Grid)
-                    .searchCompletion(namaTanaman)
-            }
-            .foregroundColor(.black)
-        } else {
-            
         }
-    }
     
     func generateGrid(){
         Grid = []
         for i in stride(from: 0, to: self.viewModel.data.count, by: 2){
             if i != self.viewModel.data.count{
                 self.Grid.append(i)
+                }
             }
         }
-    }
 }
+
 
 struct ChoosePlantPage_Previews: PreviewProvider {
     static var previews: some View {
