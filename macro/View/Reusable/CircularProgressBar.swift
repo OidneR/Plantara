@@ -17,14 +17,6 @@ struct CircularProgressBar: View {
             Label()
             Outline(percentage: $percentage)
           }
-
- /*         Button(action: {
-            self.percentage = CGFloat(85)
-          }) {
-              Text("Press Me!")
-              .fontWeight(.bold)
-          }.padding(.top, 30) */
-
         }
       }
     }
