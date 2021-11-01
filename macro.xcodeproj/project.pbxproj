@@ -19,6 +19,7 @@
 		B8BC16422726CA0300F5538E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BC16412726CA0300F5538E /* Preview Assets.xcassets */; };
 		B8BC16442726CA0300F5538E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC16432726CA0300F5538E /* Persistence.swift */; };
 		B8BC16472726CA0300F5538E /* macro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8BC16452726CA0300F5538E /* macro.xcdatamodeld */; };
+		BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF599600272AAA2500429D5D /* DeviceSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		B8BC16412726CA0300F5538E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8BC16432726CA0300F5538E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B8BC16462726CA0300F5538E /* macro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = macro.xcdatamodel; sourceTree = "<group>"; };
+		BF599600272AAA2500429D5D /* DeviceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		84CBFD552729475000448758 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BF599600272AAA2500429D5D /* DeviceSettings.swift */,
 				84CBFD5B2729481400448758 /* ChoosePlantPage.swift */,
 				84CBFD5A2729478400448758 /* Reusable */,
 			);
@@ -116,6 +119,8 @@
 		B8BC16392726CA0200F5538E /* macro */ = {
 			isa = PBXGroup;
 			children = (
+				56AC300C272A9972006413AC /* DeviceDetailPage.swift */,
+				56AC300E272A9A15006413AC /* CircularProgressBar.swift */,
 				84CBFD592729476F00448758 /* Constant */,
 				84CBFD582729476800448758 /* Helper */,
 				84CBFD572729476200448758 /* Model */,
@@ -215,10 +220,13 @@
 				84CBFD5E272948B100448758 /* ChoosePlantViewModel.swift in Sources */,
 				84CBFD542729302000448758 /* ListDetailTanaman.swift in Sources */,
 				B8BC16472726CA0300F5538E /* macro.xcdatamodeld in Sources */,
+				56AC300D272A9972006413AC /* DeviceDetailPage.swift in Sources */,
 				B8BC16442726CA0300F5538E /* Persistence.swift in Sources */,
 				B8BC163D2726CA0200F5538E /* ContentView.swift in Sources */,
 				B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */,
+				BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */,
 				84CBFD5C2729481400448758 /* ChoosePlantPage.swift in Sources */,
+				56AC300F272A9A15006413AC /* CircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
