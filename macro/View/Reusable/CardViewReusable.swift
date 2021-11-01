@@ -45,8 +45,7 @@ struct CardViewReusable : View {
                                     .padding(.horizontal, 8)
 
                         }
-                        
-                        }
+                    }
                     .frame(width: (UIScreen.main.bounds.width - 48) / 2 - 8, height: 63, alignment: .leading)
                         .background(Color.white)
                 }
