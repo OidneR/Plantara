@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		84816DAC272FD09800323D13 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84816DAB272FD09800323D13 /* CardView.swift */; };
+		84816DAE272FDB9400323D13 /* Warna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84816DAD272FDB9400323D13 /* Warna.swift */; };
 		84CBFD5227281D7900448758 /* CardViewReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD5127281D7900448758 /* CardViewReusable.swift */; };
 		84CBFD542729302000448758 /* ListDetailTanaman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD532729302000448758 /* ListDetailTanaman.swift */; };
 		84CBFD5C2729481400448758 /* ChoosePlantPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD5B2729481400448758 /* ChoosePlantPage.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		84816DAB272FD09800323D13 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		84816DAD272FDB9400323D13 /* Warna.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warna.swift; sourceTree = "<group>"; };
 		84CBFD5127281D7900448758 /* CardViewReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewReusable.swift; sourceTree = "<group>"; };
 		84CBFD532729302000448758 /* ListDetailTanaman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailTanaman.swift; sourceTree = "<group>"; };
 		84CBFD5B2729481400448758 /* ChoosePlantPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlantPage.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		84CBFD592729476F00448758 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				84816DAD272FDB9400323D13 /* Warna.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84CBFD5227281D7900448758 /* CardViewReusable.swift in Sources */,
+				84816DAE272FDB9400323D13 /* Warna.swift in Sources */,
 				84816DAC272FD09800323D13 /* CardView.swift in Sources */,
 				84CBFD5E272948B100448758 /* ChoosePlantViewModel.swift in Sources */,
 				84CBFD542729302000448758 /* ListDetailTanaman.swift in Sources */,
