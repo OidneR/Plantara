@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84CBFD5227281D7900448758 /* CardViewPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD5127281D7900448758 /* CardViewPlant.swift */; };
+		84816DAC272FD09800323D13 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84816DAB272FD09800323D13 /* CardView.swift */; };
+		84CBFD5227281D7900448758 /* CardViewReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD5127281D7900448758 /* CardViewReusable.swift */; };
 		84CBFD542729302000448758 /* ListDetailTanaman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD532729302000448758 /* ListDetailTanaman.swift */; };
 		84CBFD5C2729481400448758 /* ChoosePlantPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD5B2729481400448758 /* ChoosePlantPage.swift */; };
 		84CBFD5E272948B100448758 /* ChoosePlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD5D272948B100448758 /* ChoosePlantViewModel.swift */; };
@@ -20,7 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		84CBFD5127281D7900448758 /* CardViewPlant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewPlant.swift; sourceTree = "<group>"; };
+		84816DAB272FD09800323D13 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		84CBFD5127281D7900448758 /* CardViewReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewReusable.swift; sourceTree = "<group>"; };
 		84CBFD532729302000448758 /* ListDetailTanaman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailTanaman.swift; sourceTree = "<group>"; };
 		84CBFD5B2729481400448758 /* ChoosePlantPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlantPage.swift; sourceTree = "<group>"; };
 		84CBFD5D272948B100448758 /* ChoosePlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlantViewModel.swift; sourceTree = "<group>"; };
@@ -86,7 +88,8 @@
 		84CBFD5A2729478400448758 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
-				84CBFD5127281D7900448758 /* CardViewPlant.swift */,
+				84CBFD5127281D7900448758 /* CardViewReusable.swift */,
+				84816DAB272FD09800323D13 /* CardView.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -203,7 +206,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84CBFD5227281D7900448758 /* CardViewPlant.swift in Sources */,
+				84CBFD5227281D7900448758 /* CardViewReusable.swift in Sources */,
+				84816DAC272FD09800323D13 /* CardView.swift in Sources */,
 				84CBFD5E272948B100448758 /* ChoosePlantViewModel.swift in Sources */,
 				84CBFD542729302000448758 /* ListDetailTanaman.swift in Sources */,
 				B8BC16472726CA0300F5538E /* macro.xcdatamodeld in Sources */,
