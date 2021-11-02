@@ -58,8 +58,8 @@ struct CardDevice: View {
                     //INI BAGIAN KIRI (CAHAYA SAMA AIR)
                     VStack (alignment: .leading){
                         HStack{
-                            ProgressBar(progress: valueProgressBar, color: Color.orange, image: "sun.max", lineWidth: 7.0)
-                                .frame(width: 30, height: 30)
+                           // ProgressBar(progress: valueProgressBar, color: Color.orange, image: "sun.max", lineWidth: 7.0)
+                               // .frame(width: 30, height: 30)
                             
                             VStack (alignment: .leading){
                                 Text("Sinar Matahari")
@@ -77,8 +77,8 @@ struct CardDevice: View {
                         }.padding(.bottom, 5)
                         
                         HStack{
-                            ProgressBar(progress: valueProgressBar, color: Color.blue, image: "humidity.fill", lineWidth: 7.0)
-                                .frame(width: 30, height: 30)
+                            //ProgressBar(progress: valueProgressBar, color: Color.blue, image: "humidity.fill", lineWidth: 7.0)
+                                //.frame(width: 30, height: 30)
                             
                             VStack (alignment: .leading){
                                 Text("Kelembapan Udara")
@@ -99,8 +99,8 @@ struct CardDevice: View {
                     //INI BAGIAN KANAN (SUHU SAMA SOIL)
                     VStack(alignment: .leading){
                         HStack{
-                            ProgressBar(progress: valueProgressBar, color: Color.red, image: "thermometer", lineWidth: 7.0)
-                                .frame(width: 30, height: 30)
+                            //ProgressBar(progress: valueProgressBar, color: Color.red, image: "thermometer", lineWidth: 7.0)
+                                //.frame(width: 30, height: 30)
                             
                             VStack (alignment: .leading){
                                 Text("Suhu")
@@ -118,8 +118,8 @@ struct CardDevice: View {
                         }.padding(.bottom, 5)
                         
                         HStack{
-                            ProgressBar(progress: valueProgressBar, color: Color.green, image: "drop.fill", lineWidth: 7.0)
-                                .frame(width: 30, height: 30)
+                           // ProgressBar(progress: valueProgressBar, color: Color.green, image: "drop.fill", lineWidth: 7.0)
+                                //.frame(width: 30, height: 30)
                             
                             VStack (alignment: .leading){
                                 Text("Kelembapan Tanah")
