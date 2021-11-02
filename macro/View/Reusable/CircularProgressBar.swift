@@ -11,7 +11,13 @@
 import SwiftUI
 
 struct CircularProgressBar: View {
-  @State var percentage: CGFloat = 0
+    @State var percentage: CGFloat = 50
+    @State var circularProgressBarStyle: progressBarStyle = .tanah
+    @State var icon: String = ""
+    @State var amount: String = ""
+    @State var backgroundColor: Color = Warna.primary
+    @State var barBackgroundColor: Color = Warna.primary
+    @State var barColor: Color = Warna.SunlightNormal
     var body: some View {
       ZStack {
         VStack {
@@ -48,7 +54,7 @@ struct Background: View {
 }
 
 struct Label: View {
-  var percentage: CGFloat = 0
+  var percentage: CGFloat = 50
   var body: some View {
     VStack {
       Image(systemName: "sun.max")

@@ -28,6 +28,7 @@
 		B88E47F9272FE6F900BDE109 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B88E47EF272FE6F900BDE109 /* Lato-ThinItalic.ttf */; };
 		B88E47FA272FE6F900BDE109 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B88E47F0272FE6F900BDE109 /* Lato-LightItalic.ttf */; };
 		B88E47FB272FE6F900BDE109 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B88E47F1272FE6F900BDE109 /* Lato-Regular.ttf */; };
+		B88E47FE273123E000BDE109 /* DeviceDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47FD273123E000BDE109 /* DeviceDetailModal.swift */; };
 		B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC163A2726CA0200F5538E /* macroApp.swift */; };
 		B8BC163D2726CA0200F5538E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC163C2726CA0200F5538E /* ContentView.swift */; };
 		B8BC163F2726CA0300F5538E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BC163E2726CA0300F5538E /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		B88E47F0272FE6F900BDE109 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		B88E47F1272FE6F900BDE109 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		B88E47FC272FE79300BDE109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B88E47FD273123E000BDE109 /* DeviceDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailModal.swift; sourceTree = "<group>"; };
 		B8BC16372726CA0200F5538E /* macro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BC163A2726CA0200F5538E /* macroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macroApp.swift; sourceTree = "<group>"; };
 		B8BC163C2726CA0200F5538E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				84CBFD532729302000448758 /* ListDetailTanaman.swift */,
+				B88E47FD273123E000BDE109 /* DeviceDetailModal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */,
 				B88E47DE272FE12300BDE109 /* CardDevice.swift in Sources */,
 				BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */,
+				B88E47FE273123E000BDE109 /* DeviceDetailModal.swift in Sources */,
 				B88E47E6272FE14E00BDE109 /* SetupDevice.swift in Sources */,
 				84CBFD5C2729481400448758 /* ChoosePlantPage.swift in Sources */,
 				B88E47E0272FE12800BDE109 /* CircularProgressBar.swift in Sources */,
