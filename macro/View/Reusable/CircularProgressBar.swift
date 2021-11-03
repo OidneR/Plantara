@@ -19,28 +19,28 @@ struct CircularProgressBar: View {
     @State var diameter: Double
     var body: some View {
         ZStack {
-            Background(color: Warna.primary, isCardView: false, diameter: $diameter)
+            Background(color: Warna.primary, isCardView: isCardView, diameter: $diameter)
             switch circularProgressBarStyle {
             case .suhu:
-                Label(amount: "\(amount)", icon: "imgTemperature")
+                Label(amount: "\(amount)", icon: "imgTemperature", diameter: $diameter,isCardView: $isCardView)
                 Outline(percentage: $percentage, color: Warna.TempNormal, diameter: $diameter)
                 if(percentage>100){
                     OverOutline(percentage: $percentage, color: Warna.TempOver, diameter: $diameter)
                 }
             case .sinar:
-                Label(amount: "\(amount)", icon: "imgSunlightMeter")
+                Label(amount: "\(amount)", icon: "imgSunlightMeter", diameter: $diameter,isCardView: $isCardView)
                 Outline(percentage: $percentage, color: Warna.SunlightNormal, diameter: $diameter)
                 if(percentage>100){
                     OverOutline(percentage: $percentage, color: Warna.SunlightOver, diameter: $diameter)
                 }
             case .tanah:
-                Label(amount: "\(amount)", icon: "imgSoilMoisture")
+                Label(amount: "\(amount)", icon: "imgSoilMoisture", diameter: $diameter,isCardView: $isCardView)
                 Outline(percentage: $percentage, color: Warna.SoilMoistNormal, diameter: $diameter)
                 if(percentage>100){
                     OverOutline(percentage: $percentage, color: Warna.SoilMoistOver, diameter: $diameter)
                 }
             case .udara:
-                Label(amount: "\(amount)", icon: "imgAirHumidity")
+                Label(amount: "\(amount)", icon: "imgAirHumidity", diameter: $diameter,isCardView: $isCardView)
                 Outline(percentage: $percentage, color: Warna.AirHumidNormal, diameter: $diameter)
                 if(percentage>100){
                     OverOutline(percentage: $percentage, color: Warna.AirHumidOver, diameter: $diameter)
@@ -77,14 +77,18 @@ struct Background: View {
 struct Label: View {
     @State var amount: String
     @State var icon: String
+    @Binding var diameter: Double
+    @Binding var isCardView: Bool
     var body: some View {
         VStack {
             Image(icon)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(maxHeight: 45)
+                .frame(maxHeight: (45 * ( diameter / 125 )))
+            if(!isCardView){
+                Text(amount).font(.system(size: 18))
+            }
             
-            Text(amount).font(.system(size: 18))
         }
     }
 }

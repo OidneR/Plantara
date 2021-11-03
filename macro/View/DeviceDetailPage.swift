@@ -82,7 +82,7 @@ struct DeviceDetailPage: View {
 
 
             HStack {
-                CircularProgressBar(percentage: $percentage, circularProgressBarStyle: .tanah, amount: 40, isCardView: false, diameter: 100)
+                CircularProgressBar(percentage: $percentage, circularProgressBarStyle: .tanah, amount: 40, isCardView: true, diameter: 30)
                 .frame(width: 100, height: 100)
                 .padding(.trailing, 10)
 
