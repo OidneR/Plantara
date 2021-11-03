@@ -13,7 +13,7 @@ struct macroApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CircularProgressBar()
+            MainPage()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
