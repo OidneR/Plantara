@@ -14,6 +14,7 @@ struct DeviceDetailPage_Previews:PreviewProvider {
 }
 
 struct DeviceDetailPage: View {
+    @State var percentage:CGFloat = 0
   var body: some View {
     NavigationView {
       VStack (alignment: .leading) {
@@ -32,10 +33,16 @@ struct DeviceDetailPage: View {
           VStack (alignment: .leading){
 
             HStack {
-              CircularProgressBar()
-                .frame(width: 100, height: 100)
-                .padding(.trailing, 10)
-
+                
+                CircularProgressBar(percentage: $percentage, circularProgressBarStyle: .suhu, amount: 40, isCardView: false, diameter: 100)
+                    .frame(maxWidth: 100, maxHeight: 100)
+                    .padding(.trailing, 10)
+                    .onAppear {
+                        withAnimation(.easeIn(duration: 5)){
+                            percentage = 80
+                        }
+                    }
+                
 
               VStack (alignment: .leading) {
                 Text("Soil Moisture")
@@ -55,7 +62,7 @@ struct DeviceDetailPage: View {
 
 
             HStack {
-              CircularProgressBar()
+                CircularProgressBar(percentage: $percentage, circularProgressBarStyle: .sinar, amount: 40, isCardView: false, diameter: 100)
                 .frame(width: 100, height: 100)
                 .padding(.trailing, 10)
 
@@ -75,7 +82,7 @@ struct DeviceDetailPage: View {
 
 
             HStack {
-              CircularProgressBar()
+                CircularProgressBar(percentage: $percentage, circularProgressBarStyle: .tanah, amount: 40, isCardView: false, diameter: 100)
                 .frame(width: 100, height: 100)
                 .padding(.trailing, 10)
 
@@ -93,7 +100,7 @@ struct DeviceDetailPage: View {
             }.padding(.top, 20)
 
             HStack {
-              CircularProgressBar()
+                CircularProgressBar(percentage: $percentage, circularProgressBarStyle: .udara, amount: 40, isCardView: false, diameter: 100)
                 .frame(width: 100, height: 100)
                 .padding(.trailing, 10)
 
