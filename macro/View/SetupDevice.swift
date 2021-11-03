@@ -11,7 +11,6 @@ struct SetupDevice: View {
     @State var deviceName: String = ""
     @State var lokasiTanaman: String = ""
     @State var selectedDate = Date()
-    var insertND = InsertNewDevice()
     let passItem: String
     
     var body: some View {
@@ -51,7 +50,7 @@ struct SetupDevice: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        insertND.insertDataDevice(namaDevice: deviceName, namaTanaman: passItem, lokasiTanaman: lokasiTanaman, tanggalMenanam: selectedDate)
+                        //insertND.insertDataDevice(namaDevice: deviceName, namaTanaman: passItem, lokasiTanaman: lokasiTanaman, tanggalMenanam: selectedDate)
                     } label: {
                         Text("Selesai")
                     }
