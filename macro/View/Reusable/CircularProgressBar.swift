@@ -79,7 +79,7 @@ struct Outline: View {
         .overlay(
           Circle()
             .trim(from: 0, to: (percentage * 0.01))
-            .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
+            .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
             .fill(AngularGradient(gradient: .init(colors: colors), center: .center, startAngle: .zero, endAngle: .init(degrees: 360)))
             .rotationEffect(Angle(degrees: -90))
         )
