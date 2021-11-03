@@ -13,20 +13,19 @@ struct MainPage: View {
             ZStack{
                 ScrollView{
                     CardDevice()
-                        //.padding(.horizontal, 20)
                 }
                 
                 VStack{
                     Spacer()
-                    Button("Tambah Perangkat"){
-                        print("Hello")
+                    NavigationLink(destination: ChoosePlantPage()) {
+                        Text("Tambah Perangkat")
+                            .frame(maxWidth: .infinity ,maxHeight: 50)
+                            .foregroundColor(.white)
+                            .font(.system(size: 20 ,weight: .regular))
+                            .background(RoundedRectangle(cornerRadius: 10)
+                                            .fill(Warna.Secondary)
+                            .padding(.horizontal, 20))
                     }
-                    .frame(maxWidth: .infinity ,maxHeight: 50)
-                    .foregroundColor(.white)
-                    .font(.system(size: 20 ,weight: .regular))
-                    .background(RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color(#colorLiteral(red: 0.6157478094, green: 0.2447247803, blue: 0.1348765492, alpha: 1))))
-                    .padding(.horizontal, 20)
                 }
             }
             .navigationTitle("Semua Perangkat")
@@ -36,11 +35,6 @@ struct MainPage: View {
 
 struct MainPage_Previews: PreviewProvider {
     static var previews: some View {
-        if #available(iOS 15.0, *) {
-            MainPage()
-                .previewInterfaceOrientation(.portrait)
-        } else {
-            // Fallback on earlier versions
-        }
+        MainPage()
     }
 }

@@ -11,30 +11,30 @@ struct SetupDevice: View {
     @State var deviceName: String = ""
     @State var lokasiTanaman: String = ""
     @State var selectedDate = Date()
+    var insertND = InsertNewDevice()
+    let passItem: String
     
     var body: some View {
-        NavigationView{
+        VStack{
             Form{
                 Section(){
                     HStack{
                         Text("Nama Perangkat")
-                        TextField("Device Bayam", text: $deviceName)
+                        TextField("Device \(passItem)", text: $deviceName)
                             .multilineTextAlignment(.trailing)
                     }
                     
                     HStack{
                         Text("Tanaman")
-                        NavigationLink(destination: DeviceSettings(), label: {
-                                Spacer()
-                                Text("Bayam Hijau")
-                        })
+                        Spacer()
+                        Text(passItem)
                     }
                 }
                 
                 Section(){
                     HStack{
                         Text("Lokasi Tanaman")
-                        TextField("Taman", text: $lokasiTanaman)
+                        TextField("Your Location", text: $lokasiTanaman)
                             .multilineTextAlignment(.trailing)
                     }
                     
@@ -47,22 +47,30 @@ struct SetupDevice: View {
             }
             
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarTitle("Setup Device")
+            .navigationBarTitle("Pengaturan Perangkat")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        print("ini selesai")
+                        insertND.insertDataDevice(namaDevice: deviceName, namaTanaman: passItem, lokasiTanaman: lokasiTanaman, tanggalMenanam: selectedDate)
                     } label: {
                         Text("Selesai")
-                    }.foregroundColor(Color.blue)
+                    }
+                    .foregroundColor(toolbarButtonColor)
+                    .disabled(self.deviceName.isEmpty || self.lokasiTanaman.isEmpty)
                 }
             }
         }
     }
-}
-
-struct SetupDevice_Previews: PreviewProvider {
-    static var previews: some View {
-        SetupDevice()
+    
+    var deviceNameValid: Bool{
+        return !deviceName.isEmpty
+    }
+    
+    var lokasiTanamanValid: Bool{
+        return !lokasiTanaman.isEmpty
+    }
+    
+    var toolbarButtonColor: Color{
+        return deviceNameValid && lokasiTanamanValid ? Color.blue : Color.gray
     }
 }
