@@ -57,7 +57,7 @@ struct Label: View {
   var percentage: CGFloat = 50
   var body: some View {
     VStack {
-      Image(systemName: "sun.max")
+      Image(systemName: "drop.fill")
         .resizable()
         .frame(width: 30, height: 30)
 
