@@ -15,7 +15,6 @@ struct macroApp: App {
         WindowGroup {
             MainPage()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-
         }
     }
 }

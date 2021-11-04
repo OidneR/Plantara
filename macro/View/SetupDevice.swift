@@ -50,7 +50,7 @@ struct SetupDevice: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        //insertND.insertDataDevice(namaDevice: deviceName, namaTanaman: passItem, lokasiTanaman: lokasiTanaman, tanggalMenanam: selectedDate)
+                        
                     } label: {
                         Text("Selesai")
                     }
