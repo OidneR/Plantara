@@ -4,7 +4,7 @@ struct CardDevice: View {
     
     @State var deviceName = "Device Bayam 1"
     @State var jenisTanaman = "Bayem lah ya"
-    @State var valueProgressBar: CGFloat = 120
+    @State var valueProgressBar: CGFloat = 0
     
     var body: some View {
         NavigationLink(destination: DeviceDetailPage()) {
@@ -63,6 +63,9 @@ struct CardDevice: View {
                     VStack (alignment: .leading){
                         HStack{
                             CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: 0, isCardView: true, diameter: 25)
+                                .onAppear(){
+                                    valueProgressBar = 140
+                                }
                             
                             VStack (alignment: .leading){
                                 Text("Sinar Matahari")
