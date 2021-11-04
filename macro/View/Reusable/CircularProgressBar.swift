@@ -26,29 +26,53 @@ struct CircularProgressBar: View {
             case .suhu:
                 Label(amount: "\(amount)", icon: "imgTemperature", diameter: $diameter,isCardView: $isCardView)
                 Outline(percentage: $percentage, color: Warna.TempNormal, diameter: $diameter)
+                    .animation(.easeIn(duration: 2))
                 if(percentage>100){
-                    OverOutline(percentage: $percentage, color: Warna.TempOver, diameter: $diameter)
+                    OverOutline(percentage: $overPersentage, color: Warna.TempOver, diameter: $diameter)
+                        .onAppear {
+                            withAnimation(.easeIn(duration: 2)) {
+                                overPersentage = percentage
+                            }
+                        }
                 }
                 
             case .sinar:
                 Label(amount: "\(amount)", icon: "imgSunlightMeter", diameter: $diameter,isCardView: $isCardView)
                 Outline(percentage: $percentage, color: Warna.SunlightNormal, diameter: $diameter)
+                    .animation(.easeIn(duration: 2))
                 if(percentage>100){
-                    OverOutline(percentage: $percentage, color: Warna.SunlightOver, diameter: $diameter)
+                    OverOutline(percentage: $overPersentage, color: Warna.SunlightOver, diameter: $diameter)
+                        .onAppear {
+                            withAnimation(.easeIn(duration: 2)) {
+                                overPersentage = percentage
+                            }
+                        }
                 }
                 
             case .tanah:
                 Label(amount: "\(amount)", icon: "imgSoilMoisture", diameter: $diameter,isCardView: $isCardView)
                 Outline(percentage: $percentage, color: Warna.SoilMoistNormal, diameter: $diameter)
+                    .animation(.easeIn(duration: 2))
                 if(percentage>100){
-                    OverOutline(percentage: $percentage, color: Warna.SoilMoistOver, diameter: $diameter)
+                    OverOutline(percentage: $overPersentage, color: Warna.SoilMoistOver, diameter: $diameter)
+                        .onAppear {
+                            withAnimation(.easeIn(duration: 2)) {
+                                overPersentage = percentage
+                            }
+                        }
                 }
                 
             case .udara:
                 Label(amount: "\(amount)", icon: "imgAirHumidity", diameter: $diameter,isCardView: $isCardView)
                 Outline(percentage: $percentage, color: Warna.AirHumidNormal, diameter: $diameter)
+                    .animation(.easeIn(duration: 2))
                 if(percentage>100){
-                    OverOutline(percentage: $percentage, color: Warna.AirHumidOver, diameter: $diameter)
+                    OverOutline(percentage: $overPersentage, color: Warna.AirHumidOver, diameter: $diameter)
+                        .onAppear {
+                            withAnimation(.easeIn(duration: 2)) {
+                                overPersentage = percentage
+                            }
+                        }
                 }
             }
         }.onTapGesture {
