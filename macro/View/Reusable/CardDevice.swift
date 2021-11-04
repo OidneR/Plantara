@@ -58,13 +58,15 @@ struct CardDevice: View {
                 .padding(.leading, 5)
 
                 //INI BAGIAN BAWAH YANG SENSORNYA
-                HStack (spacing: 20){
+                HStack{
                     //INI BAGIAN KIRI (CAHAYA SAMA AIR)
                     VStack (alignment: .leading){
                         HStack{
                             CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: 0, isCardView: true, diameter: 25)
                                 .onAppear(){
-                                    valueProgressBar = 140
+                                    withAnimation(.easeIn(duration: 2)) {
+                                        valueProgressBar = 140
+                                    }
                                 }
                             
                             VStack (alignment: .leading){
@@ -144,8 +146,7 @@ struct CardDevice: View {
                         }
                     }
                 }
-                //.frame(maxWidth: .infinity)
-                .padding(.horizontal, 30)
+                .padding(.horizontal, 20)
                 .padding(.bottom, 20)
             }
             .frame(maxWidth: .infinity)

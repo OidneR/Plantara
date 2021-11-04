@@ -70,6 +70,6 @@ struct SetupDevice: View {
     }
     
     var toolbarButtonColor: Color{
-        return deviceNameValid && lokasiTanamanValid ? Color.blue : Color.gray
+        return deviceNameValid && lokasiTanamanValid ? Warna.Secondary : Color.gray
     }
 }

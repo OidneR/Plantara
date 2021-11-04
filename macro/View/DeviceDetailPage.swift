@@ -14,7 +14,7 @@ struct DeviceDetailPage_Previews:PreviewProvider {
 }
 
 struct DeviceDetailPage: View {
-    @State var valueProgressBarSuhu: CGFloat = 140
+    @State var valueProgressBarSuhu: CGFloat = 0
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -22,6 +22,7 @@ struct DeviceDetailPage: View {
             Image("biji")
                 .frame(maxWidth: .infinity, maxHeight: 194)
                 .background(Color("BackgroundCardPlant"))
+                .animation(nil)
             
             VStack(alignment: .leading){
                 Text("Bayam Hijau")
@@ -29,19 +30,19 @@ struct DeviceDetailPage: View {
                     .fontWeight(.bold)
                     .padding(.leading, 24)
                     .padding(.top, 24)
+                    .animation(nil)
                 
                 ScrollView (showsIndicators: false){
                     VStack (alignment: .leading){
-                        
                         HStack {
                             CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .suhu, amount: 40, isCardView: false, diameter: 100)
                                 .frame(maxWidth: 100, maxHeight: 100)
                                 .padding(.trailing, 10)
-//                                .onAppear {
-//                                    withAnimation(.easeIn(duration: 2)){
-//                                        valueProgressBarSuhu = 140
-//                                    }
-//                                }
+                                .onAppear {
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarSuhu = 140
+                                    }
+                                }
                             
                             
                             VStack (alignment: .leading) {
@@ -125,15 +126,16 @@ struct DeviceDetailPage: View {
                                 .foregroundColor(Color.red)
                             }
                         }.padding(.top, 20)
-                    }.padding(.leading, 30)
+                    }
+                    .padding(.leading, 30)
                 }
             }
             .frame(maxWidth: .infinity)
             .background(RoundedRectangle(cornerRadius: 30)
                             .fill(Color.white)
                             .ignoresSafeArea()
+                            .animation(nil)
             )
-            
         }
         .background(RoundedRectangle(cornerRadius: 0)
                         .fill(Warna.primary)
