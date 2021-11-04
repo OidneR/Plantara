@@ -18,7 +18,7 @@ struct ChoosePlantPage: View {
     
     var body: some View {
             if #available(iOS 15.0, *) {
-                NavigationView{
+                VStack{
                     VStack{
                         CardView(viewModel: self.$viewModel.data, Grid: self.$Grid)
                     }
@@ -27,21 +27,6 @@ struct ChoosePlantPage: View {
                     
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationBarTitle("Pilih Tanaman")
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button(action: {print("Hello World")}) {
-                                Image(systemName: "chevron.left")
-                                    .foregroundColor(Color("Brown"))
-                                Text("Kembali")
-                                    .foregroundColor(Color("Brown"))
-                            }
-                        }
-                    }
-                }
-                .foregroundColor(.black)
-                .searchable(text: $namaTanaman, placement: .navigationBarDrawer(displayMode: .always)){
-                    CardView(viewModel: $viewModel.data, Grid: $Grid)
-                        .searchCompletion(namaTanaman)
                 }
                 .foregroundColor(.black)
             } else {
