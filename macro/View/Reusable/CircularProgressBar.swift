@@ -11,79 +11,122 @@
 import SwiftUI
 
 struct CircularProgressBar: View {
-    @State var percentage: CGFloat = 50
-    @State var circularProgressBarStyle: progressBarStyle = .tanah
-    @State var icon: String = ""
-    @State var amount: String = ""
-    @State var backgroundColor: Color = Warna.primary
-    @State var barBackgroundColor: Color = Warna.primary
-    @State var barColor: Color = Warna.SunlightNormal
+    @Binding var percentage: CGFloat
+    @State var circularProgressBarStyle: progressBarStyle
+    @State var amount: Double
+    @State var isCardView: Bool
+    @State var overPersentage: CGFloat = 0
+    @State var diameter: Double
+    
     var body: some View {
-      ZStack {
-        VStack {
-          ZStack {
-            Background()
-            Label()
-            Outline(percentage: $percentage)
-          }
+        ZStack {
+            Background(color: Warna.primary, isCardView: isCardView, diameter: $diameter)
+            
+            switch circularProgressBarStyle {
+            case .suhu:
+                Label(amount: "\(amount)", icon: "imgTemperature", diameter: $diameter,isCardView: $isCardView)
+                Outline(percentage: $percentage, color: Warna.TempNormal, diameter: $diameter)
+                if(percentage>100){
+                    OverOutline(percentage: $percentage, color: Warna.TempOver, diameter: $diameter)
+                }
+                
+            case .sinar:
+                Label(amount: "\(amount)", icon: "imgSunlightMeter", diameter: $diameter,isCardView: $isCardView)
+                Outline(percentage: $percentage, color: Warna.SunlightNormal, diameter: $diameter)
+                if(percentage>100){
+                    OverOutline(percentage: $percentage, color: Warna.SunlightOver, diameter: $diameter)
+                }
+                
+            case .tanah:
+                Label(amount: "\(amount)", icon: "imgSoilMoisture", diameter: $diameter,isCardView: $isCardView)
+                Outline(percentage: $percentage, color: Warna.SoilMoistNormal, diameter: $diameter)
+                if(percentage>100){
+                    OverOutline(percentage: $percentage, color: Warna.SoilMoistOver, diameter: $diameter)
+                }
+                
+            case .udara:
+                Label(amount: "\(amount)", icon: "imgAirHumidity", diameter: $diameter,isCardView: $isCardView)
+                Outline(percentage: $percentage, color: Warna.AirHumidNormal, diameter: $diameter)
+                if(percentage>100){
+                    OverOutline(percentage: $percentage, color: Warna.AirHumidOver, diameter: $diameter)
+                }
+            }
+        }.onTapGesture {
+            percentage = percentage * -1
         }
-      }
-    }
-}
-
-struct CircularProgressBar_Previews: PreviewProvider {
-    static var previews: some View {
-      CircularProgressBar()
     }
 }
 
 struct Background: View {
-  var colors: [Color] = [Color.yellow]
-  var body: some View {
-    ZStack {
-      Circle()
-        .fill(Color.green)
-        .frame(width: 100, height: 100)
-        .overlay(
-          Circle()
-            .stroke(style: StrokeStyle(lineWidth: 12))
-            .fill(AngularGradient(gradient: .init(colors: colors), center: .center))
-        )
+    @State var color: Color
+    @State var isCardView: Bool
+    @Binding var diameter: Double
+    var body: some View {
+        Circle()
+            .fill(color)
+            .frame(width: diameter, height: diameter)
+            .overlay(
+                Circle()
+                    .stroke(style: StrokeStyle(lineWidth: diameter*0.15))
+                    .fill(isCardView ? Color.white : color)
+            )
     }
-  }
 }
 
 struct Label: View {
-  var percentage: CGFloat = 50
-  var body: some View {
-    VStack {
-      Image(systemName: "sun.max")
-        .resizable()
-        .frame(width: 30, height: 30)
-
-      Text(String(format: "%.0f Lx", percentage))
-        .bold()
+    @State var amount: String
+    @State var icon: String
+    @Binding var diameter: Double
+    @Binding var isCardView: Bool
+    var body: some View {
+        VStack {
+            Image(icon)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxHeight: (45 * ( diameter / 125 )))
+            if(!isCardView){
+                Text(amount).font(.system(size: 18))
+            }
+            
+        }
     }
-    .background(Color.green)
-  }
 }
 
 struct Outline: View {
-  @Binding var percentage: CGFloat
-  var colors: [Color] = [Color.red]
-  var body: some View {
-    ZStack {
-      Circle()
-        .fill(Color.clear)
-        .frame(width: 100, height: 100)
-        .overlay(
-          Circle()
+    @Binding var percentage: CGFloat
+    @State var color: Color
+    @Binding var diameter: Double
+    var body: some View {
+        Circle()
             .trim(from: 0, to: (percentage * 0.01))
-            .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-            .fill(AngularGradient(gradient: .init(colors: colors), center: .center, startAngle: .zero, endAngle: .init(degrees: 360)))
-            .rotationEffect(Angle(degrees: -90))
-        )
-        .animation(.spring(response: 2.0, dampingFraction: 1.0, blendDuration: 1.0))
+            .stroke(style: StrokeStyle(lineWidth: CGFloat(diameter*0.15), lineCap: .round, lineJoin: .round))
+            .fill(color)
+            .rotationEffect(Angle(degrees: 270))
+            .frame(width: diameter, height: diameter)
     }
-  }
 }
+
+struct OverOutline: View {
+    @Binding var percentage: CGFloat
+    @State var color: Color
+    @Binding var diameter: Double
+    var body: some View {
+        ZStack{
+            Circle()
+                .trim(from: 0, to: ((percentage-100) * 0.01))
+                .stroke(style: StrokeStyle(lineWidth: diameter*0.15, lineCap: .round, lineJoin: .round))
+                .fill(color)
+                .rotationEffect(Angle(degrees: -90))
+                .frame(width: diameter, height: diameter)
+            
+            Circle()
+                .trim(from: 0, to: ((percentage-102) * 0.01))
+                .stroke(style: StrokeStyle(lineWidth: diameter*0.15, lineCap: .square, lineJoin: .round))
+                .fill(color)
+                .rotationEffect(Angle(degrees: -90))
+                .frame(width: diameter, height: diameter)
+        }
+    }
+}
+
+

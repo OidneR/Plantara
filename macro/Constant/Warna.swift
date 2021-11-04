@@ -23,3 +23,5 @@ struct Warna{
     static let TempNormal = Color("Temp-Normal")
     static let TempOver = Color("Temp-Over")
 }
+
+

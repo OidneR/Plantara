@@ -8,121 +8,146 @@
 import SwiftUI
 
 struct DeviceDetailPage_Previews:PreviewProvider {
-  static var previews: some View {
-    DeviceDetailPage()
-  }
+    static var previews: some View {
+        DeviceDetailPage()
+    }
 }
 
 struct DeviceDetailPage: View {
-  var body: some View {
-    NavigationView {
-      VStack (alignment: .leading) {
-
-        Image("biji")
-          .frame(maxWidth: .infinity, maxHeight: 194)
-          .background(Color("BackgroundCardPlant"))
-
-        Text("Bayam Hijau")
-          .font(.title)
-          .fontWeight(.bold)
-          .padding(.leading, 30)
-
-        ScrollView {
-
-          VStack (alignment: .leading){
-
-            HStack {
-              CircularProgressBar()
-                .frame(width: 100, height: 100)
-                .padding(.trailing, 10)
-
-
-              VStack (alignment: .leading) {
-                Text("Soil Moisture")
-                  .bold()
-                Text("Ideal: 200RH")
-                HStack {
-                  Image(systemName: "exclamationmark.circle")
-                    .foregroundColor(Color.red)
-                  Text("Please keep watering your plant everyday")
-                    .foregroundColor(Color.red)
+    @State var valueProgressBarSuhu: CGFloat = 140
+    
+    var body: some View {
+        VStack (alignment: .leading) {
+            
+            Image("biji")
+                .frame(maxWidth: .infinity, maxHeight: 194)
+                .background(Color("BackgroundCardPlant"))
+            
+            VStack(alignment: .leading){
+                Text("Bayam Hijau")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.leading, 24)
+                    .padding(.top, 24)
+                
+                ScrollView (showsIndicators: false){
+                    VStack (alignment: .leading){
+                        
+                        HStack {
+                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .suhu, amount: 40, isCardView: false, diameter: 100)
+                                .frame(maxWidth: 100, maxHeight: 100)
+                                .padding(.trailing, 10)
+//                                .onAppear {
+//                                    withAnimation(.easeIn(duration: 2)){
+//                                        valueProgressBarSuhu = 140
+//                                    }
+//                                }
+                            
+                            
+                            VStack (alignment: .leading) {
+                                Text("Suhu")
+                                    .bold()
+                                Text("Ideal: 20 C")
+                                HStack {
+                                    Image(systemName: "exclamationmark.circle")
+                                        .foregroundColor(Color.red)
+                                    Text("Please keep watering your plant everyday")
+                                        .foregroundColor(Color.red)
+                                        .font(.system(size: 14))
+                                        .padding(.trailing, 20)
+                                }
+                                
+                                .foregroundColor(Color.red)
+                            }
+                            
+                        }.padding(.top, 20)
+                        
+                        
+                        HStack {
+                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .sinar, amount: 40, isCardView: false, diameter: 100)
+                                .frame(width: 100, height: 100)
+                                .padding(.trailing, 10)
+                            
+                            VStack (alignment: .leading) {
+                                Text("Sinar Matahari")
+                                    .bold()
+                                Text("Ideal: 1200Lx")
+                                HStack {
+                                    Image(systemName: "exclamationmark.circle")
+                                        .foregroundColor(Color.red)
+                                    Text("Your plant isn't in the right place")
+                                        .foregroundColor(Color.red)
+                                        .font(.system(size: 14))
+                                        .padding(.trailing, 20)
+                                }
+                            }
+                            
+                        }.padding(.top, 20)
+                        
+                        
+                        HStack {
+                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .tanah, amount: 40, isCardView: false, diameter: 100)
+                                .frame(width: 100, height: 100)
+                                .padding(.trailing, 10)
+                            
+                            VStack (alignment: .leading) {
+                                Text("Kelembapan Tanah")
+                                    .bold()
+                                Text("Ideal: 200 RH")
+                                HStack {
+                                    Image(systemName: "exclamationmark.circle")
+                                        .foregroundColor(Color.red)
+                                    Text("Please move your plant")
+                                        .foregroundColor(Color.red)
+                                        .font(.system(size: 14))
+                                        .padding(.trailing, 20)
+                                }
+                            }
+                        }.padding(.top, 20)
+                        
+                        HStack {
+                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .udara, amount: 40, isCardView: false, diameter: 100)
+                                .frame(width: 100, height: 100)
+                                .padding(.trailing, 10)
+                            
+                            VStack (alignment: .leading) {
+                                Text("Kelembapan Udara")
+                                    .bold()
+                                Text("Ideal: 200 RH")
+                                HStack {
+                                    Image(systemName: "exclamationmark.circle")
+                                        .foregroundColor(Color.red)
+                                    Text("Your plant isn't in the right place")
+                                        .foregroundColor(Color.red)
+                                        .font(.system(size: 14))
+                                        .padding(.trailing, 20)
+                                }
+                                .foregroundColor(Color.red)
+                            }
+                        }.padding(.top, 20)
+                    }.padding(.leading, 30)
                 }
-
-                .foregroundColor(Color.red)
-              }
-
-            }.padding(.top, 20)
-
-
-            HStack {
-              CircularProgressBar()
-                .frame(width: 100, height: 100)
-                .padding(.trailing, 10)
-
-              VStack (alignment: .leading) {
-                Text("Sunlight Meter")
-                  .bold()
-                Text("Ideal: 1200Lx")
-                HStack {
-                  Image(systemName: "exclamationmark.circle")
-                    .foregroundColor(Color.red)
-                  Text("Your plant isn't in the right place")
-                    .foregroundColor(Color.red)
-                }
-              }
-
-            }.padding(.top, 20)
-
-
-            HStack {
-              CircularProgressBar()
-                .frame(width: 100, height: 100)
-                .padding(.trailing, 10)
-
-              VStack (alignment: .leading) {
-                Text("Temperature")
-                  .bold()
-                Text("Ideal: 22C")
-                HStack {
-                  Image(systemName: "exclamationmark.circle")
-                    .foregroundColor(Color.red)
-                  Text("Please move your plant")
-                    .foregroundColor(Color.red)
-                }
-              }
-            }.padding(.top, 20)
-
-            HStack {
-              CircularProgressBar()
-                .frame(width: 100, height: 100)
-                .padding(.trailing, 10)
-
-              VStack (alignment: .leading) {
-                Text("Sunlight Meter")
-                  .bold()
-                Text("Ideal: 1200Lx")
-                HStack {
-                  Image(systemName: "exclamationmark.circle")
-                    .foregroundColor(Color.red)
-                  Text("Your plant isn't in the right place")
-                    .foregroundColor(Color.red)
-                }
-                .foregroundColor(Color.red)
-              }
-            }.padding(.top, 20)
-          }.padding(.leading, 30)
+            }
+            .frame(maxWidth: .infinity)
+            .background(RoundedRectangle(cornerRadius: 30)
+                            .fill(Color.white)
+                            .ignoresSafeArea()
+            )
+            
         }
-      }.navigationBarTitle("[Device Name]")
+        .background(RoundedRectangle(cornerRadius: 0)
+                        .fill(Warna.primary)
+                        .ignoresSafeArea()
+        )
+        .navigationBarTitle("Device Name")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-
-          ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarTrailing) {
-            Button (action: {print("Button has been pressed")}){
-              Text("Settings")
-                .foregroundColor(Color("Brown"))
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: DeviceSettings()) {
+                    Text("Pengaturan")
+                        .foregroundColor(Warna.Secondary)
+                }
             }
-          }
         }
     }
-  }
 }
