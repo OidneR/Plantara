@@ -29,6 +29,7 @@
 		B88E47FA272FE6F900BDE109 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B88E47F0272FE6F900BDE109 /* Lato-LightItalic.ttf */; };
 		B88E47FB272FE6F900BDE109 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B88E47F1272FE6F900BDE109 /* Lato-Regular.ttf */; };
 		B88E47FE273123E000BDE109 /* DeviceDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47FD273123E000BDE109 /* DeviceDetailModal.swift */; };
+		B88E48042733D2CC00BDE109 /* customSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E48032733D2CC00BDE109 /* customSearchBar.swift */; };
 		B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC163A2726CA0200F5538E /* macroApp.swift */; };
 		B8BC163F2726CA0300F5538E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BC163E2726CA0300F5538E /* Assets.xcassets */; };
 		B8BC16422726CA0300F5538E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BC16412726CA0300F5538E /* Preview Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		B88E47F1272FE6F900BDE109 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		B88E47FC272FE79300BDE109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B88E47FD273123E000BDE109 /* DeviceDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailModal.swift; sourceTree = "<group>"; };
+		B88E48032733D2CC00BDE109 /* customSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customSearchBar.swift; sourceTree = "<group>"; };
 		B8BC16372726CA0200F5538E /* macro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BC163A2726CA0200F5538E /* macroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macroApp.swift; sourceTree = "<group>"; };
 		B8BC163E2726CA0300F5538E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				B88E47DF272FE12800BDE109 /* CircularProgressBar.swift */,
 				B88E47DD272FE12300BDE109 /* CardDevice.swift */,
 				84816DAB272FD09800323D13 /* CardView.swift */,
+				B88E48032733D2CC00BDE109 /* customSearchBar.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */,
 				B88E47FE273123E000BDE109 /* DeviceDetailModal.swift in Sources */,
 				B88E47E6272FE14E00BDE109 /* SetupDevice.swift in Sources */,
+				B88E48042733D2CC00BDE109 /* customSearchBar.swift in Sources */,
 				84CBFD5C2729481400448758 /* ChoosePlantPage.swift in Sources */,
 				B88E47E0272FE12800BDE109 /* CircularProgressBar.swift in Sources */,
 			);
