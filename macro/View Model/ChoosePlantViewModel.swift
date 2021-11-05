@@ -27,7 +27,7 @@ class ChoosePlantViewModel: ObservableObject{
             }
         }else{
             for tanaman in data{
-                if tanaman.namaTanaman.contains(.caseInsensitiveCompare(Keyword)){
+                if tanaman.namaTanaman.localizedCaseInsensitiveContains(Keyword){
                     result.append(tanaman)
                     print(tanaman.namaTanaman)
                 }
