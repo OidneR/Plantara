@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ChoosePlantViewModel: ObservableObject{
     @Published var data: [Tanaman] = [Tanaman(namaTanaman: "Bayam", imageTanaman: "iconBayam", difficultyTanaman: "Easy"),
@@ -16,4 +17,21 @@ class ChoosePlantViewModel: ObservableObject{
                                       Tanaman(namaTanaman: "Kangkung", imageTanaman: "iconKangkung", difficultyTanaman: "Easy"),
                                       Tanaman(namaTanaman: "Selada", imageTanaman: "iconSelada", difficultyTanaman: "Medium"),
                                       Tanaman(namaTanaman: "Kemangi", imageTanaman: "iconKemangi", difficultyTanaman: "Hard")]
+    @Published var result : [Tanaman] = []
+    
+    func filterData(Keyword: String){
+        result = []
+        if (Keyword.isEmpty){
+            for tanaman in data{
+                result.append(tanaman)
+            }
+        }else{
+            for tanaman in data{
+                if tanaman.namaTanaman.localizedCaseInsensitiveContains(Keyword){
+                    result.append(tanaman)
+                    print(tanaman.namaTanaman)
+                }
+            }
+        }
+    }
 }

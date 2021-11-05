@@ -20,13 +20,11 @@ struct CardView: View{
                     
                     VStack(spacing : 25){
                         ForEach(self.Grid,id: \.self){i in
-                            
                             HStack(spacing: 15){
                                 ForEach(i...i+1,id: \.self){j in
-                                    
                                     VStack{
                                         if j != self.viewModel.count{
-                                            CardViewReusable(dataTanaman: self.viewModel[j])
+                                            CardViewReusable(dataTanaman: viewModel[j])
                                         }
                                     }
                                 }
@@ -34,6 +32,7 @@ struct CardView: View{
                                     Spacer(minLength: 0)
                                 }
                             }
+                            //CardViewHStack(i: i, viewModel: $viewModel, Grid: $Grid)
                         }
                     }
                     .padding()
@@ -42,3 +41,12 @@ struct CardView: View{
         }
     }
 }
+
+//struct CardViewHStack: View{
+//    @State var i: Int
+//    @Binding var viewModel: [Tanaman]
+//    @Binding var Grid :[Int]
+//    var body: some View{
+//        
+//    }
+//}

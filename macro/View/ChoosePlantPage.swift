@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChoosePlantPage: View {
     @State var viewModel: ChoosePlantViewModel = ChoosePlantViewModel()
+    @State var keyword:String = ""
     @State var Grid : [Int] = []
     @State var namaTanaman: String = ""
     
@@ -20,10 +21,19 @@ struct ChoosePlantPage: View {
             if #available(iOS 15.0, *) {
                 VStack{
                     VStack{
-                        CardView(viewModel: self.$viewModel.data, Grid: self.$Grid)
+                        customSearchBar(keyword: $keyword)
+                        CardView(viewModel: $viewModel.result, Grid: $Grid)
                     }
                     .onAppear{
-                        self.generateGrid()}
+                        self.viewModel.filterData(Keyword: "")
+                        self.generateGrid()
+                    }
+                    .onChange(of: keyword, perform: { V in
+                        viewModel.filterData(Keyword: keyword)
+                        print(viewModel.result)
+                        self.generateGrid()
+                        print(Grid)
+                    })
                     
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationBarTitle("Pilih Tanaman")
@@ -36,8 +46,8 @@ struct ChoosePlantPage: View {
     
     func generateGrid(){
         Grid = []
-        for i in stride(from: 0, to: self.viewModel.data.count, by: 2){
-            if i != self.viewModel.data.count{
+        for i in stride(from: 0, to: self.viewModel.result.count, by: 2){
+            if i != self.viewModel.result.count{
                 self.Grid.append(i)
                 }
             }

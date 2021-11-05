@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CardViewReusable : View {
     
-    @State var dataTanaman: Tanaman
-    
+    var dataTanaman: Tanaman
+
     var body: some View{
         VStack(spacing : 15){
             NavigationLink(destination: SetupDevice(passItem: dataTanaman.namaTanaman)){
