@@ -27,13 +27,13 @@ struct PlantDetailPage_Preview: PreviewProvider {
     PlantDetailPage()
   }
 }
-
+/* JANGAN LUPA KASIH WARNA FONT SUHU */
 struct PlantDetail_Top: View {
   var body: some View {
     ZStack {
       VStack (alignment: .leading){
         /* GAMBAR DAN STATUS TANAMAN */
-        HStack {
+        HStack (spacing: 0) {
           Image("iconBayam")
             .resizable()
             .frame(width: 164, height: 164)
@@ -49,7 +49,8 @@ struct PlantDetail_Top: View {
                 .padding(.trailing, 12)
               VStack (alignment: .leading){
                 Text("Suhu")
-                  .font(.custom("Lato", size: 14))
+                  .font(.custom("Lato", size: 12))
+                  .foregroundColor(Warna.Gray3)
                 Text("37C")
                   .font(.custom("Lato", size: 14))
               }
@@ -63,11 +64,13 @@ struct PlantDetail_Top: View {
                 .padding(.trailing, 12)
               VStack (alignment: .leading){
                 Text("Sinar Matahari")
-                  .font(.custom("Lato", size: 14))
+                  .font(.custom("Lato", size: 12))
+                  .foregroundColor(Warna.Gray3)
                 Text("370 Lumens")
                   .font(.custom("Lato", size: 14))
               }
             }
+
             /* KELEMBABAN TANAH */
             HStack {
               Image(systemName: "circle")
@@ -76,11 +79,13 @@ struct PlantDetail_Top: View {
                 .padding(.trailing, 12)
               VStack (alignment: .leading){
                 Text("Kelembaban Tanah")
-                  .font(.custom("Lato", size: 14))
+                  .font(.custom("Lato", size: 12))
+                  .foregroundColor(Warna.Gray3)
                 Text("10%")
                   .font(.custom("Lato", size: 14))
               }
             }
+
             /* KELEMBABAN UDARA */
             HStack {
               Image(systemName: "circle")
@@ -89,13 +94,16 @@ struct PlantDetail_Top: View {
                 .padding(.trailing, 12)
               VStack (alignment: .leading){
                 Text("Kelembaban Udara")
-                  .font(.custom("Lato", size: 14))
+                  .font(.custom("Lato", size: 12))
+                  .foregroundColor(Warna.Gray3)
                 Text("70%")
                   .font(.custom("Lato", size: 14))
               }
             }
-          }
+          }.padding(.trailing, 10)
         }
+
+
 
         /* DESKRIPSI, PANDUAN PERAWATAN, DAN TIPS */
         Spacer().frame(height: 24)
@@ -163,9 +171,8 @@ struct PlantDetail_Top: View {
         .background(RoundedRectangle(cornerRadius: 10)
                         .fill(Color(#colorLiteral(red: 0.6157478094, green: 0.2447247803, blue: 0.1348765492, alpha: 1))))
         .padding(.horizontal, 20)
-        .padding(.bottom, 83)
+        .padding(.bottom, 18)
       }
-      .ignoresSafeArea()
     }
   }
 }
