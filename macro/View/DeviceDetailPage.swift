@@ -22,7 +22,7 @@ struct DeviceDetailPage: View {
             Image("biji")
                 .frame(maxWidth: .infinity, maxHeight: 194)
                 .background(Color("BackgroundCardPlant"))
-                .animation(nil)
+                .animation(.none, value: 1)
             
             VStack(alignment: .leading){
                 Text("Bayam Hijau")
@@ -30,7 +30,7 @@ struct DeviceDetailPage: View {
                     .fontWeight(.bold)
                     .padding(.leading, 24)
                     .padding(.top, 24)
-                    .animation(nil)
+                    .animation(.none, value: 1)
                 
                 ScrollView (showsIndicators: false){
                     VStack (alignment: .leading){
@@ -134,7 +134,7 @@ struct DeviceDetailPage: View {
             .background(RoundedRectangle(cornerRadius: 30)
                             .fill(Color.white)
                             .ignoresSafeArea()
-                            .animation(nil)
+                            .animation(.none, value: 1)
             )
         }
         .background(RoundedRectangle(cornerRadius: 0)
