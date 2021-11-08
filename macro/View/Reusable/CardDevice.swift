@@ -58,7 +58,7 @@ struct CardDevice: View {
                 .padding(.leading, 5)
 
                 //INI BAGIAN BAWAH YANG SENSORNYA
-                HStack{
+                HStack (spacing: 25){
                     //INI BAGIAN KIRI (CAHAYA SAMA AIR)
                     VStack (alignment: .leading){
                         HStack{
