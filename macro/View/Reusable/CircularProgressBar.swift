@@ -17,33 +17,61 @@ struct CircularProgressBar: View {
     @State var isCardView: Bool
     @State var overPersentage: CGFloat = 0
     @State var diameter: Double
+    
     var body: some View {
         ZStack {
             Background(color: Warna.primary, isCardView: isCardView, diameter: $diameter)
+            
             switch circularProgressBarStyle {
             case .suhu:
                 Label(amount: "\(amount)", icon: "imgTemperature", diameter: $diameter,isCardView: $isCardView)
                 Outline(percentage: $percentage, color: Warna.TempNormal, diameter: $diameter)
+                    //.animation(.easeIn(duration: 2))
                 if(percentage>100){
-                    OverOutline(percentage: $percentage, color: Warna.TempOver, diameter: $diameter)
+                    OverOutline(percentage: $overPersentage, color: Warna.TempOver, diameter: $diameter)
+                        .onAppear {
+                            withAnimation(.easeIn(duration: 2)) {
+                                overPersentage = percentage
+                            }
+                        }
                 }
+                
             case .sinar:
                 Label(amount: "\(amount)", icon: "imgSunlightMeter", diameter: $diameter,isCardView: $isCardView)
                 Outline(percentage: $percentage, color: Warna.SunlightNormal, diameter: $diameter)
+                    //.animation(.easeIn(duration: 2))
                 if(percentage>100){
-                    OverOutline(percentage: $percentage, color: Warna.SunlightOver, diameter: $diameter)
+                    OverOutline(percentage: $overPersentage, color: Warna.SunlightOver, diameter: $diameter)
+                        .onAppear {
+                            withAnimation(.easeIn(duration: 2)) {
+                                overPersentage = percentage
+                            }
+                        }
                 }
+                
             case .tanah:
                 Label(amount: "\(amount)", icon: "imgSoilMoisture", diameter: $diameter,isCardView: $isCardView)
                 Outline(percentage: $percentage, color: Warna.SoilMoistNormal, diameter: $diameter)
+                    //.animation(.easeIn(duration: 2))
                 if(percentage>100){
-                    OverOutline(percentage: $percentage, color: Warna.SoilMoistOver, diameter: $diameter)
+                    OverOutline(percentage: $overPersentage, color: Warna.SoilMoistOver, diameter: $diameter)
+                        .onAppear {
+                            withAnimation(.easeIn(duration: 2)) {
+                                overPersentage = percentage
+                            }
+                        }
                 }
+                
             case .udara:
                 Label(amount: "\(amount)", icon: "imgAirHumidity", diameter: $diameter,isCardView: $isCardView)
                 Outline(percentage: $percentage, color: Warna.AirHumidNormal, diameter: $diameter)
                 if(percentage>100){
-                    OverOutline(percentage: $percentage, color: Warna.AirHumidOver, diameter: $diameter)
+                    OverOutline(percentage: $overPersentage, color: Warna.AirHumidOver, diameter: $diameter)
+                        .onAppear {
+                            withAnimation(.easeIn(duration: 2)) {
+                                overPersentage = percentage
+                            }
+                        }
                 }
             }
         }.onTapGesture {
@@ -51,12 +79,6 @@ struct CircularProgressBar: View {
         }
     }
 }
-
-//struct CircularProgressBar_Previews: PreviewProvider {
-//    static var previews: some View {
-//        //CircularProgressBar()
-//    }
-//}
 
 struct Background: View {
     @State var color: Color
@@ -68,7 +90,7 @@ struct Background: View {
             .frame(width: diameter, height: diameter)
             .overlay(
                 Circle()
-                    .stroke(style: StrokeStyle(lineWidth: diameter*0.1))
+                    .stroke(style: StrokeStyle(lineWidth: diameter*0.15))
                     .fill(isCardView ? Color.white : color)
             )
     }
@@ -100,12 +122,10 @@ struct Outline: View {
     var body: some View {
         Circle()
             .trim(from: 0, to: (percentage * 0.01))
-            .stroke(style: StrokeStyle(lineWidth: CGFloat(diameter*0.1), lineCap: .round, lineJoin: .round))
+            .stroke(style: StrokeStyle(lineWidth: CGFloat(diameter*0.15), lineCap: .round, lineJoin: .round))
             .fill(color)
             .rotationEffect(Angle(degrees: 270))
-            //.animation(.easeIn(duration: 10))
             .frame(width: diameter, height: diameter)
-        
     }
 }
 
@@ -117,14 +137,17 @@ struct OverOutline: View {
         ZStack{
             Circle()
                 .trim(from: 0, to: ((percentage-100) * 0.01))
-                .stroke(style: StrokeStyle(lineWidth: diameter*0.1, lineCap: .round, lineJoin: .round))
+                .stroke(style: StrokeStyle(lineWidth: diameter*0.15, lineCap: .round, lineJoin: .round))
                 .fill(color)
                 .rotationEffect(Angle(degrees: -90))
+                .frame(width: diameter, height: diameter)
+            
             Circle()
                 .trim(from: 0, to: ((percentage-102) * 0.01))
-                .stroke(style: StrokeStyle(lineWidth: diameter*0.1, lineCap: .square, lineJoin: .round))
+                .stroke(style: StrokeStyle(lineWidth: diameter*0.15, lineCap: .square, lineJoin: .round))
                 .fill(color)
                 .rotationEffect(Angle(degrees: -90))
+                .frame(width: diameter, height: diameter)
         }
     }
 }

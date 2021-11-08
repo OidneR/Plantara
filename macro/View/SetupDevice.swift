@@ -50,7 +50,7 @@ struct SetupDevice: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        //insertND.insertDataDevice(namaDevice: deviceName, namaTanaman: passItem, lokasiTanaman: lokasiTanaman, tanggalMenanam: selectedDate)
+                        
                     } label: {
                         Text("Selesai")
                     }
@@ -70,6 +70,6 @@ struct SetupDevice: View {
     }
     
     var toolbarButtonColor: Color{
-        return deviceNameValid && lokasiTanamanValid ? Color.blue : Color.gray
+        return deviceNameValid && lokasiTanamanValid ? Warna.Secondary : Color.gray
     }
 }

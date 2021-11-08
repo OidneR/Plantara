@@ -4,10 +4,10 @@ struct CardDevice: View {
     
     @State var deviceName = "Device Bayam 1"
     @State var jenisTanaman = "Bayem lah ya"
-    @State var valueProgressBar: Float = 0.0
+    @State var valueProgressBar: CGFloat = 0
     
     var body: some View {
-        VStack{
+        NavigationLink(destination: DeviceDetailPage()) {
             VStack (alignment: .leading){
                 //INI BAGIAN ATASNYA YANG GAMBAR DAN TULISAN
                 HStack{
@@ -24,15 +24,18 @@ struct CardDevice: View {
                     VStack (alignment: .leading){
                         Text("\(deviceName)")
                             .font(.system(size: 20, weight: .semibold))
-                            .frame(width: 200, height: 20, alignment: .leading)
+                            .foregroundColor(Color.black)
+                            .frame(width: 230, height: 20, alignment: .leading)
                         Text("\(jenisTanaman)")
                             .font(.system(size: 14))
+                            .foregroundColor(Color.black)
                             .frame(width: 200, height: 15, alignment: .leading)
                         
                         //BAGIAN LOKASI DAN KALENDER
                         HStack (spacing: 15){
                             HStack (spacing: 1){
                                 Image(systemName: "mappin.and.ellipse")
+                                    .foregroundColor(Color.black)
                                 Text("Ruang Tamu")
                                     .font(.system(size: 12))
                                     .foregroundColor(Color.gray)
@@ -41,6 +44,7 @@ struct CardDevice: View {
                             
                             HStack (spacing: 1){
                                 Image(systemName: "calendar")
+                                    .foregroundColor(Color.black)
                                 Text("14 hari")
                                     .font(.system(size: 12))
                                     .foregroundColor(Color.gray)
@@ -54,12 +58,16 @@ struct CardDevice: View {
                 .padding(.leading, 5)
 
                 //INI BAGIAN BAWAH YANG SENSORNYA
-                HStack (spacing: 15){
+                HStack{
                     //INI BAGIAN KIRI (CAHAYA SAMA AIR)
                     VStack (alignment: .leading){
                         HStack{
-                           // ProgressBar(progress: valueProgressBar, color: Color.orange, image: "sun.max", lineWidth: 7.0)
-                               // .frame(width: 30, height: 30)
+                            CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: 0, isCardView: true, diameter: 25)
+                                .onAppear(){
+                                    withAnimation(.easeIn(duration: 2)) {
+                                        valueProgressBar = 140
+                                    }
+                                }
                             
                             VStack (alignment: .leading){
                                 Text("Sinar Matahari")
@@ -69,6 +77,7 @@ struct CardDevice: View {
                                 HStack{
                                     Text("370 Lx")
                                         .font(.system(size: 12))
+                                        .foregroundColor(Color.black)
                                         .frame(width: 40,  alignment: .leading)
                                     Image(systemName: "exclamationmark.triangle")
                                         .foregroundColor(Color.red)
@@ -77,8 +86,7 @@ struct CardDevice: View {
                         }.padding(.bottom, 5)
                         
                         HStack{
-                            //ProgressBar(progress: valueProgressBar, color: Color.blue, image: "humidity.fill", lineWidth: 7.0)
-                                //.frame(width: 30, height: 30)
+                            CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .udara, amount: 0, isCardView: true, diameter: 25)
                             
                             VStack (alignment: .leading){
                                 Text("Kelembapan Udara")
@@ -88,6 +96,7 @@ struct CardDevice: View {
                                 HStack{
                                     Text("70%")
                                         .font(.system(size: 12))
+                                        .foregroundColor(Color.black)
                                         .frame(width: 40,  alignment: .leading)
                                     Image(systemName: "exclamationmark.triangle")
                                         .foregroundColor(Color.red)
@@ -99,8 +108,7 @@ struct CardDevice: View {
                     //INI BAGIAN KANAN (SUHU SAMA SOIL)
                     VStack(alignment: .leading){
                         HStack{
-                            //ProgressBar(progress: valueProgressBar, color: Color.red, image: "thermometer", lineWidth: 7.0)
-                                //.frame(width: 30, height: 30)
+                            CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .suhu, amount: 0, isCardView: true, diameter: 25)
                             
                             VStack (alignment: .leading){
                                 Text("Suhu")
@@ -110,6 +118,7 @@ struct CardDevice: View {
                                 HStack{
                                     Text("37 C")
                                         .font(.system(size: 12))
+                                        .foregroundColor(Color.black)
                                         .frame(width: 40, alignment: .leading)
                                     Image(systemName: "exclamationmark.triangle")
                                         .foregroundColor(Color.red)
@@ -118,8 +127,7 @@ struct CardDevice: View {
                         }.padding(.bottom, 5)
                         
                         HStack{
-                           // ProgressBar(progress: valueProgressBar, color: Color.green, image: "drop.fill", lineWidth: 7.0)
-                                //.frame(width: 30, height: 30)
+                            CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .tanah, amount: 0, isCardView: true, diameter: 25)
                             
                             VStack (alignment: .leading){
                                 Text("Kelembapan Tanah")
@@ -129,6 +137,7 @@ struct CardDevice: View {
                                 HStack{
                                     Text("10%")
                                         .font(.system(size: 12))
+                                        .foregroundColor(Color.black)
                                         .frame(width: 40, alignment: .leading)
                                     Image(systemName: "exclamationmark.triangle")
                                         .foregroundColor(Color.red)
@@ -137,13 +146,13 @@ struct CardDevice: View {
                         }
                     }
                 }
-                //.frame(maxWidth: .infinity)
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
             }
-            .background(RoundedRectangle(cornerRadius: 16)
-                            .fill(Color(#colorLiteral(red: 0.9927867055, green: 0.9402000308, blue: 0.8708111644, alpha: 1))))
             .frame(maxWidth: .infinity)
+            .background(RoundedRectangle(cornerRadius: 16)
+                            .fill(Warna.primary))
+            
             .clipped()
             .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 8)
             .padding(.horizontal, 20)

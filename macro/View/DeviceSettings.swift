@@ -9,13 +9,22 @@ import SwiftUI
 
 struct DeviceSettings: View {
     
+    @State var datePickerSelection = Date()
+    
     @State var deviceName: String = ""
     @State var plantLocation: String = ""
     
     @State var plantAgeSelection = 0
     var plantAge = ["1", "2", "3"]
     
-    @State var allowNotif: Bool = true
+    @State var plantNameSelection = "Kangkung"
+    var plantNames = ["Bayam", "Kangkung", "Melon"]
+    
+    @State var allowAllNotif: Bool = true
+    @State var allowSoilNotif: Bool = true
+    @State var allowTempNotif: Bool = true
+    @State var allowSunNotif: Bool = true
+    @State var allowAirNotif: Bool = true
     
     var body: some View {
         Form{
@@ -25,9 +34,9 @@ struct DeviceSettings: View {
                     TextField("Device Bayem 1", text: $deviceName)
                         .multilineTextAlignment(.trailing)
                 }
-                Picker(selection: $plantAgeSelection, label: Text("Plant Name")) {
-                    ForEach(0..<plantAge.count){
-                        Text(self.plantAge[$0])
+                Picker(selection: $plantNameSelection, label: Text("Plant Name")) {
+                    ForEach(plantNames, id: \.self){
+                        Text($0)
                     }
                 }
             }
@@ -39,31 +48,29 @@ struct DeviceSettings: View {
                         .multilineTextAlignment(.trailing)
                 }
                 
-                Picker(selection: $plantAgeSelection, label: Text("Plant Age")) {
-                    ForEach(0..<plantAge.count){
-                        Text(self.plantAge[$0])
+                DatePicker("Plant Age", selection: $datePickerSelection, displayedComponents: .date)
+                    .frame(maxWidth: .infinity)
+                    .id(datePickerSelection)
+            }
+            
+            Section(){
+                Toggle("Allow Notification", isOn: $allowAllNotif.animation(.easeInOut(duration: 2)))
+            }
+            
+            if allowAllNotif{
+                Section(){
+                    Toggle(isOn: $allowSoilNotif.animation()) {
+                        Text("Soil Moisture")
                     }
-                }
-            }
-            
-            Section(){
-                Toggle(isOn: $allowNotif) {
-                    Text("Allow Notification")
-                }
-            }
-            
-            Section(){
-                Toggle(isOn: $allowNotif) {
-                    Text("Soil Moisture")
-                }
-                Toggle(isOn: $allowNotif) {
-                    Text("Temperature")
-                }
-                Toggle(isOn: $allowNotif) {
-                    Text("Sunlight Meter")
-                }
-                Toggle(isOn: $allowNotif) {
-                    Text("Air Humidity")
+                    Toggle(isOn: $allowTempNotif.animation()) {
+                        Text("Temperature")
+                    }
+                    Toggle(isOn: $allowSunNotif.animation()) {
+                        Text("Sunlight Meter")
+                    }
+                    Toggle(isOn: $allowAirNotif.animation()) {
+                        Text("Air Humidity")
+                    }
                 }
             }
             

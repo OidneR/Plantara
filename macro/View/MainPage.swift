@@ -14,6 +14,7 @@ struct MainPage: View {
                 ScrollView{
                     CardDevice()
                 }
+                .animation(nil)
                 
                 VStack{
                     Spacer()
@@ -25,11 +26,13 @@ struct MainPage: View {
                             .background(RoundedRectangle(cornerRadius: 10)
                                             .fill(Warna.Secondary)
                             .padding(.horizontal, 20))
+                            .animation(nil)
                     }
                 }
             }
             .navigationTitle("Semua Perangkat")
         }
+        .accentColor(Warna.Secondary)
     }
 }
 
