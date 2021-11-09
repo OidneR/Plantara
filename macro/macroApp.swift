@@ -16,8 +16,14 @@ struct macroApp: App {
     var body: some Scene {
         
         WindowGroup {
-            MainPage()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            if(UIDevice.current.userInterfaceIdiom == .pad){
+                ChoosePlantPage()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            }else{
+                MainPage()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            }
+            
         }
     }
 }
