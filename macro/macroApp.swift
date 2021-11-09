@@ -14,6 +14,7 @@ struct macroApp: App {
         FirebaseApp.configure()
     }
     var body: some Scene {
+        
         WindowGroup {
             MainPage()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
