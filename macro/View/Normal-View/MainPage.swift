@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct MainPage: View {
+    //@State var animation: CGFloat = 0
+    
     var body: some View {
         NavigationView{
             ZStack{
                 ScrollView{
                     CardDevice()
                 }
-                
+                .animation(nil)
                 
                 VStack{
                     Spacer()
@@ -26,7 +28,9 @@ struct MainPage: View {
                             .background(RoundedRectangle(cornerRadius: 10)
                                             .fill(Warna.Secondary)
                             .padding(.horizontal, 20))
+                            .animation(nil)
                     }
+                    
                 }
             }
             .navigationTitle("Semua Perangkat")
