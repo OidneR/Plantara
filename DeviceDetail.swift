@@ -43,7 +43,7 @@ struct DeviceDetail: View {
                                 .padding(.top, 30)
                         }
                         
-                        HStack (spacing: 40){
+                        HStack (spacing: 100){
                             VStack{
                                 CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .suhu, amount: 40, isCardView: true, diameter: 100)
                                 ReusableDescriptionProgressBar(titleProgressBar: "Suhu", normalProgressBar: "22C", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextSafe)
@@ -81,6 +81,7 @@ struct DeviceDetail: View {
                 }
             }
         }
+        
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Warna.primary)
     }
@@ -114,6 +115,6 @@ struct ReusableDescriptionProgressBar: View{
 struct DeviceDetail_Previews: PreviewProvider {
     static var previews: some View {
         DeviceDetail()
-.previewInterfaceOrientation(.landscapeRight)
+.previewInterfaceOrientation(.landscapeLeft)
     }
 }
