@@ -22,50 +22,54 @@ struct DeviceDetail: View {
 
             Spacer()
             
-            VStack{
-                HStack{
-                    Text("Nama Tanaman")
-                        .font(.system(size: 26))
-                        .bold()
-                        .padding(.leading, 30)
-                        .padding(.top, 30)
-                    
-                    Spacer()
-                    
-                    Text("Lihat Detail")
-                        .font(.system(size: 18))
-                        .foregroundColor(Warna.Secondary)
-                        .padding(.trailing, 30)
-                        .padding(.top, 30)
-                }
-                
-                HStack (spacing: 40){
+            RoundedRectangle(cornerRadius: 30)
+                .fill(Color.white)
+                .ignoresSafeArea()
+                .overlay(content: {
                     VStack{
-                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .suhu, amount: 40, isCardView: true, diameter: 100)
-                        ReusableDescriptionProgressBar(titleProgressBar: "Suhu", normalProgressBar: "22C", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextSafe)
+                        HStack{
+                            Text("Nama Tanaman")
+                                .font(.system(size: 26))
+                                .bold()
+                                .padding(.leading, 30)
+                                .padding(.top, 30)
+                            
+                            Spacer()
+                            
+                            Text("Lihat Detail")
+                                .font(.system(size: 18))
+                                .foregroundColor(Warna.Secondary)
+                                .padding(.trailing, 30)
+                                .padding(.top, 30)
+                        }
+                        
+                        HStack (spacing: 40){
+                            VStack{
+                                CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .suhu, amount: 40, isCardView: true, diameter: 100)
+                                ReusableDescriptionProgressBar(titleProgressBar: "Suhu", normalProgressBar: "22C", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextSafe)
+                            }
+                            
+                            VStack{
+                                CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .tanah, amount: 40, isCardView: true, diameter: 100)
+                                ReusableDescriptionProgressBar(titleProgressBar: "Kelembapan Tanah", normalProgressBar: "200 RH", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextSafe)
+                            }
+                            
+                            VStack{
+                                CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: 40, isCardView: true, diameter: 100)
+                                ReusableDescriptionProgressBar(titleProgressBar: "Sinar Matahari", normalProgressBar: "370 Lumens", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextWarning)
+                            }
+                            
+                            VStack{
+                                CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .udara, amount: 40, isCardView: true, diameter: 100)
+                                ReusableDescriptionProgressBar(titleProgressBar: "Kelembapan Udara", normalProgressBar: "200 RH", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextWarning)
+                            }
+                        }
+                        .padding(.top, 50)
+                        .padding(.bottom, 70)
                     }
-                    
-                    VStack{
-                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .tanah, amount: 40, isCardView: true, diameter: 100)
-                        ReusableDescriptionProgressBar(titleProgressBar: "Kelembapan Tanah", normalProgressBar: "200 RH", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextSafe)
-                    }
-                    
-                    VStack{
-                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: 40, isCardView: true, diameter: 100)
-                        ReusableDescriptionProgressBar(titleProgressBar: "Sinar Matahari", normalProgressBar: "370 Lumens", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextWarning)
-                    }
-                    
-                    VStack{
-                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .udara, amount: 40, isCardView: true, diameter: 100)
-                        ReusableDescriptionProgressBar(titleProgressBar: "Kelembapan Udara", normalProgressBar: "200 RH", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextWarning)
-                    }
-                }
-                .padding(.top, 50)
-                .padding(.bottom, 70)
-            }
-            .ignoresSafeArea()
-            .background(RoundedRectangle(cornerRadius: 40)
-                            .fill(Color.white))
+                    .ignoresSafeArea()
+                })
+            
             .navigationTitle("Device Detail")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -79,8 +83,6 @@ struct DeviceDetail: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Warna.primary)
-        .ignoresSafeArea()
-        
     }
 }
 
