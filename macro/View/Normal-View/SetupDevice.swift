@@ -11,7 +11,7 @@ struct SetupDevice: View {
     @State var deviceName: String = ""
     @State var lokasiTanaman: String = ""
     @State var selectedDate = Date()
-    let passItem: String
+    var passItem: String
     
     var body: some View {
         VStack{
