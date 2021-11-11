@@ -9,13 +9,14 @@ import SwiftUI
 
 struct MainPage: View {
     @State var plantStatus: StatusTanaman = firebaseHelper.syncData()
+    
     var body: some View {
         NavigationView{
             ZStack{
                 ScrollView{
                     CardDevice()
                 }
-                
+                .animation(nil)
                 
                 VStack{
                     Spacer()
@@ -27,7 +28,9 @@ struct MainPage: View {
                             .background(RoundedRectangle(cornerRadius: 10)
                                             .fill(Warna.Secondary)
                             .padding(.horizontal, 20))
+                            .animation(nil)
                     }
+                    
                 }
             }
             .navigationTitle("Semua Perangkat")

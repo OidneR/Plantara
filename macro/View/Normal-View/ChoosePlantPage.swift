@@ -13,9 +13,9 @@ struct ChoosePlantPage: View {
     @State var Grid : [Int] = []
     @State var namaTanaman: String = ""
     
-    init() {
-        UINavigationBar.appearance().backgroundColor = UIColor(.white)
-    }
+//    init() {
+//        UINavigationBar.appearance().backgroundColor = UIColor(.white)
+//    }
     
     var body: some View {
             if #available(iOS 15.0, *) {
