@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainPage: View {
+    @State var plantStatus: StatusTanaman = firebaseHelper.syncData()
     var body: some View {
         NavigationView{
             ZStack{
