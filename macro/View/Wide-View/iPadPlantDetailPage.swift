@@ -9,7 +9,12 @@ import SwiftUI
 
 struct iPadPlantDetailPage: View {
   var body: some View {
-   iPadPlantDetailBody()
+    NavigationView {
+      iPadPlantDetailBody()
+        .navigationBarTitle("[Nama Tanaman")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+      .navigationViewStyle(StackNavigationViewStyle())
   }
 }
 
@@ -45,7 +50,6 @@ struct iPadPlantDetailBody: View {
                 .font(.custom("Lato", size: 16))
                 .padding(.bottom, 20)
 
-
               CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .tanah, amount: 00, isCardView: true, diameter: 100)
                 .padding(.bottom, 10)
               Text("Kelembaban Tanah")
@@ -55,6 +59,8 @@ struct iPadPlantDetailBody: View {
                 .font(.custom("Lato", size: 16))
             }
             .padding(.trailing, 20)
+
+
 
             /* SINAR MATAHARI DAN KELEMBABAN UDARA*/
             VStack {
@@ -144,16 +150,10 @@ struct iPadPlantDetailBody: View {
                                 .fill(Color("SecondaryColor")))
                 .padding(.bottom, 18)
               }
-
-
             }
-
-
           )
       }
-
-
-    .ignoresSafeArea()
+      .ignoresSafeArea(.all, edges: [.bottom])
     .background(Color("PrimaryColor"))
   }
 }
