@@ -25,10 +25,14 @@ struct PlantDetailPage: View {
 struct PlantDetailPage_Preview: PreviewProvider {
   static var previews: some View {
     PlantDetailPage()
+.previewInterfaceOrientation(.portrait)
   }
 }
 /* JANGAN LUPA KASIH WARNA FONT SUHU */
 struct PlantDetail_Top: View {
+
+  @State var valueProgressBar: CGFloat = 100
+  
   var body: some View {
     ZStack {
       VStack (alignment: .leading){
@@ -43,9 +47,7 @@ struct PlantDetail_Top: View {
 
             /* SUHU */
             HStack {
-              Image(systemName: "circle")
-                .resizable()
-                .frame(width: 30, height: 30)
+              CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .udara, amount: 00, isCardView: true, diameter: 30)
                 .padding(.trailing, 12)
               VStack (alignment: .leading){
                 Text("Suhu")
@@ -58,9 +60,7 @@ struct PlantDetail_Top: View {
 
             /* SINAR MATAHARI*/
             HStack {
-              Image(systemName: "circle")
-                .resizable()
-                .frame(width: 30, height: 30)
+              CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: 00, isCardView: true, diameter: 30)
                 .padding(.trailing, 12)
               VStack (alignment: .leading){
                 Text("Sinar Matahari")
@@ -73,9 +73,7 @@ struct PlantDetail_Top: View {
 
             /* KELEMBABAN TANAH */
             HStack {
-              Image(systemName: "circle")
-                .resizable()
-                .frame(width: 30, height: 30)
+              CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .tanah, amount: 00, isCardView: true, diameter: 30)
                 .padding(.trailing, 12)
               VStack (alignment: .leading){
                 Text("Kelembaban Tanah")
@@ -88,9 +86,7 @@ struct PlantDetail_Top: View {
 
             /* KELEMBABAN UDARA */
             HStack {
-              Image(systemName: "circle")
-                .resizable()
-                .frame(width: 30, height: 30)
+              CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .udara, amount: 00, isCardView: true, diameter: 30)
                 .padding(.trailing, 12)
               VStack (alignment: .leading){
                 Text("Kelembaban Udara")
