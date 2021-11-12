@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct MainPage: View {
-    @State var plantStatus: StatusTanaman = firebaseHelper.syncData()
+    @ObservedObject var firebaseHelper: firebaseHelper
+    @Binding var plantStatus: StatusTanaman
+    
     
     var body: some View {
         NavigationView{
@@ -34,13 +36,17 @@ struct MainPage: View {
                 }
             }
             .navigationTitle("Semua Perangkat")
+            .onChange(of: plantStatus.suhu, perform: { newValue in
+                print(newValue)
+            })
         }
+        
         .accentColor(Warna.Secondary)
     }
 }
 
-struct MainPage_Previews: PreviewProvider {
-    static var previews: some View {
-        MainPage()
-    }
-}
+//struct MainPage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainPage()
+//    }
+//}
