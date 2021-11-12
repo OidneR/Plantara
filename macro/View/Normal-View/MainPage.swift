@@ -14,7 +14,7 @@ struct MainPage: View {
         NavigationView{
             ZStack{
                 ScrollView{
-                    CardDevice()
+                    CardDevice(statusTanaman: $plantStatus)
                 }
                 .animation(nil)
                 

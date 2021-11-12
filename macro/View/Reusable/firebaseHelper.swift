@@ -28,9 +28,9 @@ class firebaseHelper {
     static func syncData()->StatusTanaman{
         var stats: StatusTanaman = StatusTanaman(kelembabanTanah: 0, kelembabanUdara: 0, suhu: 0)
         ref.child("device1").observe(DataEventType.value) { DataSnapshot in
-            guard let kelembabanTanah = DataSnapshot.childSnapshot(forPath: "kelembabanTanah").value as? Double else{return}
-            guard let suhu = DataSnapshot.childSnapshot(forPath: "suhu").value as? Double else{return}
-            guard let kelembabanUdara = DataSnapshot.childSnapshot(forPath: "kelembabanUdara").value as? Double else {return}
+            guard let kelembabanTanah = DataSnapshot.childSnapshot(forPath: "kelembabanTanah").value as? CGFloat else{return}
+            guard let suhu = DataSnapshot.childSnapshot(forPath: "suhu").value as? CGFloat else{return}
+            guard let kelembabanUdara = DataSnapshot.childSnapshot(forPath: "kelembabanUdara").value as? CGFloat else {return}
             stats.kelembabanTanah = kelembabanTanah
             stats.suhu = suhu
             stats.kelembabanUdara = kelembabanUdara

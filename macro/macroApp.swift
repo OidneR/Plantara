@@ -21,11 +21,9 @@ struct macroApp: App {
                 MainPage()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }else{
-                
                 MainPage()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
-            
         }
     }
 }

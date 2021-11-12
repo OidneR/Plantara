@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CardDevice: View {
     
+    @Binding var statusTanaman: StatusTanaman
     @State var deviceName = "Device Bayam 1"
     @State var jenisTanaman = "Bayem lah ya"
     @State var valueProgressBar: CGFloat = 0
@@ -86,7 +87,7 @@ struct CardDevice: View {
                         }.padding(.bottom, 5)
                         
                         HStack{
-                            CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .udara, amount: 0, isCardView: true, diameter: 25)
+                            CircularProgressBar(percentage: $statusTanaman.kelembabanUdara, circularProgressBarStyle: .udara, amount: 0, isCardView: true, diameter: 25)
                             
                             VStack (alignment: .leading){
                                 Text("Kelembapan Udara")
@@ -108,7 +109,7 @@ struct CardDevice: View {
                     //INI BAGIAN KANAN (SUHU SAMA SOIL)
                     VStack(alignment: .leading){
                         HStack{
-                            CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .suhu, amount: 0, isCardView: true, diameter: 25)
+                            CircularProgressBar(percentage: $statusTanaman.suhu, circularProgressBarStyle: .suhu, amount: 0, isCardView: true, diameter: 25)
                             
                             VStack (alignment: .leading){
                                 Text("Suhu")
@@ -127,7 +128,7 @@ struct CardDevice: View {
                         }.padding(.bottom, 5)
                         
                         HStack{
-                            CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .tanah, amount: 0, isCardView: true, diameter: 25)
+                            CircularProgressBar(percentage: $statusTanaman.kelembabanTanah, circularProgressBarStyle: .tanah, amount: 0, isCardView: true, diameter: 25)
                             
                             VStack (alignment: .leading){
                                 Text("Kelembapan Tanah")
@@ -157,11 +158,5 @@ struct CardDevice: View {
             .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 8)
             .padding(.horizontal, 20)
         }
-    }
-}
-
-struct CardDevice_Previews: PreviewProvider {
-    static var previews: some View {
-        CardDevice()
     }
 }
