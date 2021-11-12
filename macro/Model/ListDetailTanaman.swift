@@ -13,6 +13,8 @@ struct Tanaman: Hashable{
     let difficultyTanaman: String
 }
 
+
+
 struct TanamanBaru: Hashable{
     let namaTanaman: String
     let imageTanaman: String

@@ -106,7 +106,7 @@ struct Label: View {
             Image(icon)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(maxHeight: (45 * ( diameter / 125 )))
+                .frame(maxHeight: (45 * ( diameter / 105 )))
             if(!isCardView){
                 Text(amount).font(.system(size: 18))
             }
