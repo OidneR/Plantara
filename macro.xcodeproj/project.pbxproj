@@ -13,9 +13,6 @@
 		8427D9BB273E718200984909 /* CardViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D9BA273E718200984909 /* CardViewIpad.swift */; };
 		8427D9BD273E723B00984909 /* GridViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D9BC273E723B00984909 /* GridViewIpad.swift */; };
 		8427D9BF273E724E00984909 /* ChoosePlantIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D9BE273E724E00984909 /* ChoosePlantIpad.swift */; };
-		8431DB1427426F5200761CC9 /* ChoosePlantIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431DB1327426F5200761CC9 /* ChoosePlantIpad.swift */; };
-		8431DB1A2742701300761CC9 /* CardViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431DB192742701300761CC9 /* CardViewIpad.swift */; };
-		8431DB1C2742703700761CC9 /* GridViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431DB1B2742703700761CC9 /* GridViewIpad.swift */; };
 		84816DAC272FD09800323D13 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84816DAB272FD09800323D13 /* CardView.swift */; };
 		84816DAE272FDB9400323D13 /* Warna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84816DAD272FDB9400323D13 /* Warna.swift */; };
 		84CBFD5227281D7900448758 /* CardViewReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD5127281D7900448758 /* CardViewReusable.swift */; };
@@ -60,9 +57,6 @@
 		8427D9BA273E718200984909 /* CardViewIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewIpad.swift; sourceTree = "<group>"; };
 		8427D9BC273E723B00984909 /* GridViewIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewIpad.swift; sourceTree = "<group>"; };
 		8427D9BE273E724E00984909 /* ChoosePlantIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlantIpad.swift; sourceTree = "<group>"; };
-		8431DB1327426F5200761CC9 /* ChoosePlantIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlantIpad.swift; sourceTree = "<group>"; };
-		8431DB192742701300761CC9 /* CardViewIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewIpad.swift; sourceTree = "<group>"; };
-		8431DB1B2742703700761CC9 /* GridViewIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewIpad.swift; sourceTree = "<group>"; };
 		84816DAB272FD09800323D13 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		84816DAD272FDB9400323D13 /* Warna.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warna.swift; sourceTree = "<group>"; };
 		84CBFD5127281D7900448758 /* CardViewReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewReusable.swift; sourceTree = "<group>"; };
@@ -134,21 +128,11 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		8431DB1127426E6800761CC9 /* Recovered References */ = {
+		8427D9B8273E702E00984909 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
-				8427D9BE273E724E00984909 /* ChoosePlantIpad.swift */,
 				8427D9BA273E718200984909 /* CardViewIpad.swift */,
 				8427D9BC273E723B00984909 /* GridViewIpad.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		8431DB1627426FAB00761CC9 /* Reusable */ = {
-			isa = PBXGroup;
-			children = (
-				8431DB192742701300761CC9 /* CardViewIpad.swift */,
-				8431DB1B2742703700761CC9 /* GridViewIpad.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -226,6 +210,15 @@
 			path = "Normal-View";
 			sourceTree = "<group>";
 		};
+		B80A9923273A68C400F2ED45 /* Wide-View */ = {
+			isa = PBXGroup;
+			children = (
+				8427D9BE273E724E00984909 /* ChoosePlantIpad.swift */,
+				8427D9B8273E702E00984909 /* Reusable */,
+			);
+			path = "Wide-View";
+			sourceTree = "<group>";
+		};
 		B88E47E7272FE69800BDE109 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,8 +242,7 @@
 				B8BC16392726CA0200F5538E /* macro */,
 				B8BC16382726CA0200F5538E /* Products */,
 				7F31811F2F784A17A9C1B67B /* Pods */,
-				F2C5917E71E201F5E9B26482 /* Frameworks */,
-				8431DB1127426E6800761CC9 /* Recovered References */,
+				16416E9B5C5B695ED79FD2F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -292,9 +284,7 @@
 		E09ABCD227426BF600CAE1D8 /* Wide-View */ = {
 			isa = PBXGroup;
 			children = (
-				8431DB1627426FAB00761CC9 /* Reusable */,
 				E005EAF5273A77DA0014553C /* DeviceDetail.swift */,
-				8431DB1327426F5200761CC9 /* ChoosePlantIpad.swift */,
 			);
 			path = "Wide-View";
 			sourceTree = "<group>";
@@ -435,13 +425,12 @@
 				84CBFD5227281D7900448758 /* CardViewReusable.swift in Sources */,
 				8427D9BF273E724E00984909 /* ChoosePlantIpad.swift in Sources */,
 				8427D9BB273E718200984909 /* CardViewIpad.swift in Sources */,
-				8431DB1427426F5200761CC9 /* ChoosePlantIpad.swift in Sources */,
+				5688E2832733C8460077603B /* PlantDetailViewModel.swift in Sources */,
 				84816DAE272FDB9400323D13 /* Warna.swift in Sources */,
 				BF5D9202273EB92F00AF65F9 /* KeyboardHeightHelper.swift in Sources */,
 				B8E044A9273916B900BD8841 /* StringConvert.swift in Sources */,
 				84816DAC272FD09800323D13 /* CardView.swift in Sources */,
 				B88E47E2272FE13D00BDE109 /* DeviceDetailPage.swift in Sources */,
-				8431DB1A2742701300761CC9 /* CardViewIpad.swift in Sources */,
 				84CBFD5E272948B100448758 /* ChoosePlantViewModel.swift in Sources */,
 				B88E47E4272FE14B00BDE109 /* MainPage.swift in Sources */,
 				84CBFD542729302000448758 /* ListDetailTanaman.swift in Sources */,
@@ -452,7 +441,6 @@
 				B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */,
 				56AF839727312BE9005C2E06 /* PlantDetailPage.swift in Sources */,
 				B88E47DE272FE12300BDE109 /* CardDevice.swift in Sources */,
-				8431DB1C2742703700761CC9 /* GridViewIpad.swift in Sources */,
 				E005EAF6273A77DA0014553C /* DeviceDetail.swift in Sources */,
 				BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */,
 				B80A9925273AE61D00F2ED45 /* firebaseHelper.swift in Sources */,
