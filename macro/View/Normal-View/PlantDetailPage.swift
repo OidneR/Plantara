@@ -30,128 +30,117 @@ struct PlantDetail_Top: View {
     
     var body: some View {
         let dataTanaman = PlantType(rawValue: jenisTanaman)?.getDataTanaman()
-        let suhuTanaman: String = "\(dataTanaman?.minSuhu ?? 0)°C - \(dataTanaman?.maxSuhu ?? 0)°C"
-        let tanahTanaman: String = "\(dataTanaman?.minKelembabanTanah ?? 0)RH - \(dataTanaman?.maxKelembabanTanah ?? 0)RH"
-        let udaraTanaman: String = "\(dataTanaman?.minKelembabanUdara ?? 0)RH - \(dataTanaman?.maxKelembabanUdara ?? 0)RH"
-        let sinarTanaman: String = "\(dataTanaman?.minSun ?? 0)Lx - \(dataTanaman?.maxSun ?? 0)Lx"
+        let dataKebutuhanTanaman = KebutuhanTanamanViewModel().getKebutuhanTanaman(jenisTanaman: jenisTanaman)
         
-        ZStack {
-            VStack (alignment: .leading){
-                /* GAMBAR DAN STATUS TANAMAN */
-                HStack (spacing: 0) {
-                    Image(dataTanaman?.imageTanaman ?? "")
-                        .resizable()
-                        .frame(width: 164, height: 164)
-                        .padding(.leading, 20)
-                        .padding(.trailing, 10)
+        VStack (alignment: .leading){
+            /* GAMBAR DAN STATUS TANAMAN */
+            HStack (spacing: 0) {
+                Image(dataTanaman?.imageTanaman ?? "")
+                    .resizable()
+                    .frame(width: 164, height: 164)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 10)
+                VStack (alignment: .leading){
+                    
+                    /* SUHU */
+                    HStack(spacing: 15){
+                        CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .suhu, amount: 60, isCardView: true, diameter: 30)
+                        VStack (alignment: .leading){
+                            Text("Suhu")
+                                .font(.custom("Lato", size: 12))
+                                .foregroundColor(Warna.Gray3)
+                            Text(dataKebutuhanTanaman.kebutuhanSuhu)
+                                .font(.custom("Lato", size: 14))
+                        }
+                    }
+                    
+                    /* SINAR MATAHARI*/
+                    HStack(spacing: 15){
+                        CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .sinar, amount: 60, isCardView: true, diameter: 30)
+                        VStack (alignment: .leading){
+                            Text("Sinar Matahari")
+                                .font(.custom("Lato", size: 12))
+                                .foregroundColor(Warna.Gray3)
+                            Text(dataKebutuhanTanaman.kebutuhanSun)
+                                .font(.custom("Lato", size: 14))
+                        }
+                    }
+                    
+                    /* KELEMBABAN TANAH */
+                    HStack(spacing: 15){
+                        CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .tanah, amount: 60, isCardView: true, diameter: 30)
+                        VStack (alignment: .leading){
+                            Text("Kelembaban Tanah")
+                                .font(.custom("Lato", size: 12))
+                                .foregroundColor(Warna.Gray3)
+                            Text(dataKebutuhanTanaman.kebutuhanTanah)
+                                .font(.custom("Lato", size: 14))
+                        }
+                    }
+                    
+                    /* KELEMBABAN UDARA */
+                    HStack(spacing: 15){
+                        CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .udara, amount: 60, isCardView: true, diameter: 30)
+                        VStack (alignment: .leading){
+                            Text("Kelembaban Udara")
+                                .font(.custom("Lato", size: 12))
+                                .foregroundColor(Warna.Gray3)
+                            Text(dataKebutuhanTanaman.kebutuhanUdara)
+                                .font(.custom("Lato", size: 14))
+                        }
+                    }
+                }.padding(.trailing, 10)
+            }
+            
+            /* DESKRIPSI, PANDUAN PERAWATAN, DAN TIPS */
+            Spacer().frame(height: 24)
+            
+            VStack{
+                ScrollView {
                     VStack (alignment: .leading){
                         
-                        /* SUHU */
-                        HStack(spacing: 15){
-                            CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .suhu, amount: 60, isCardView: true, diameter: 30)
-                            VStack (alignment: .leading){
-                                Text("Suhu")
-                                    .font(.custom("Lato", size: 12))
-                                    .foregroundColor(Warna.Gray3)
-                                Text(suhuTanaman)
-                                    .font(.custom("Lato", size: 14))
-                            }
-                        }
+                        /* DESKRIPSI */
+                        Text("Deskripsi")
+                            .font(.custom("Lato", size: 24))
+                            .padding(.horizontal, 20)
+                            .padding(.top, 32)
+                            .padding(.bottom, 8)
+                        Text(dataTanaman?.desc ?? "")
+                            .font(.custom("Lato", size: 16))
+                            .padding(.horizontal, 20)
                         
-                        /* SINAR MATAHARI*/
-                        HStack(spacing: 15){
-                            CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .sinar, amount: 60, isCardView: true, diameter: 30)
-                            VStack (alignment: .leading){
-                                Text("Sinar Matahari")
-                                    .font(.custom("Lato", size: 12))
-                                    .foregroundColor(Warna.Gray3)
-                                Text(sinarTanaman)
-                                    .font(.custom("Lato", size: 14))
-                            }
-                        }
+                        Divider()
+                            .padding(.vertical, 16)
+                            .padding(.horizontal, 20)
                         
-                        /* KELEMBABAN TANAH */
-                        HStack(spacing: 15){
-                            CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .tanah, amount: 60, isCardView: true, diameter: 30)
-                            VStack (alignment: .leading){
-                                Text("Kelembaban Tanah")
-                                    .font(.custom("Lato", size: 12))
-                                    .foregroundColor(Warna.Gray3)
-                                Text(tanahTanaman)
-                                    .font(.custom("Lato", size: 14))
-                            }
-                        }
+                        /* PANDUAN PERAWATAN */
+                        Text("Panduan Perawatan")
+                            .font(.custom("Lato", size: 24))
+                            .padding(.horizontal, 20)
+                            .padding(.bottom, 8)
+                        Text("List panduan perawatan")
+                            .font(.custom("Lato", size: 16))
+                            .padding(.horizontal, 20)
                         
-                        /* KELEMBABAN UDARA */
-                        HStack(spacing: 15){
-                            CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .udara, amount: 60, isCardView: true, diameter: 30)
-                            VStack (alignment: .leading){
-                                Text("Kelembaban Udara")
-                                    .font(.custom("Lato", size: 12))
-                                    .foregroundColor(Warna.Gray3)
-                                Text(udaraTanaman)
-                                    .font(.custom("Lato", size: 14))
-                            }
-                        }
-                    }.padding(.trailing, 10)
+                        Divider()
+                            .padding(.vertical, 16)
+                            .padding(.horizontal, 20)
+                        
+                        /* TIPS */
+                        Text("Tips")
+                            .font(.custom("Lato", size: 24))
+                            .padding(.horizontal, 20)
+                            .padding(.bottom, 8)
+                        Text("Tips and trick merawat tanaman")
+                            .padding(.horizontal, 20)
+                            .font(.custom("Lato", size: 16))
+                        
+                        Divider()
+                            .padding(.top, 16)
+                            .padding(.horizontal, 20)
+                    }
                 }
                 
-                /* DESKRIPSI, PANDUAN PERAWATAN, DAN TIPS */
-                Spacer().frame(height: 24)
-                RoundedRectangle(cornerRadius: 40)
-                    .fill(Color.white)
-                    .frame(width: .infinity, height: .infinity)
-                    .overlay(
-                        ScrollView {
-                            VStack (alignment: .leading){
-                                
-                                /* DESKRIPSI */
-                                Text("Deskripsi")
-                                    .font(.custom("Lato", size: 24))
-                                    .padding(.horizontal, 20)
-                                    .padding(.top, 32)
-                                    .padding(.bottom, 8)
-                                Text(dataTanaman?.desc ?? "")
-                                    .font(.custom("Lato", size: 16))
-                                    .padding(.horizontal, 20)
-                                
-                                Divider()
-                                    .padding(.vertical, 16)
-                                    .padding(.horizontal, 20)
-                                
-                                /* PANDUAN PERAWATAN */
-                                Text("Panduan Perawatan")
-                                    .font(.custom("Lato", size: 24))
-                                    .padding(.horizontal, 20)
-                                    .padding(.bottom, 8)
-                                Text("List panduan perawatan")
-                                    .font(.custom("Lato", size: 16))
-                                    .padding(.horizontal, 20)
-                                
-                                Divider()
-                                    .padding(.vertical, 16)
-                                    .padding(.horizontal, 20)
-                                
-                                /* TIPS */
-                                Text("Tips")
-                                    .font(.custom("Lato", size: 24))
-                                    .padding(.horizontal, 20)
-                                    .padding(.bottom, 8)
-                                Text("Tips and trick merawat tanaman")
-                                    .padding(.horizontal, 20)
-                                    .font(.custom("Lato", size: 16))
-                                
-                                Divider()
-                                    .padding(.top, 16)
-                                    .padding(.horizontal, 20)
-                            }
-                        },
-                        alignment: .leading
-                    )
-                    .ignoresSafeArea()
-            }.padding(.top, 14)
-            
-            VStack {
                 Spacer()
                 
                 NavigationLink(destination: SetupDevice(passItem: jenisTanaman)) {
@@ -164,6 +153,9 @@ struct PlantDetail_Top: View {
                         .padding(.horizontal, 20)
                 }
             }
+            .background(RoundedRectangle(cornerRadius: 25)
+                            .fill(Color.white)
+                            .ignoresSafeArea())
         }
     }
 }

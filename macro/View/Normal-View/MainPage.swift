@@ -41,9 +41,3 @@ struct MainPage: View {
         .accentColor(Warna.Secondary)
     }
 }
-
-//struct MainPage_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainPage()
-//    }
-//}
