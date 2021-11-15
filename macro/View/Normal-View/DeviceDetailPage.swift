@@ -35,7 +35,7 @@ struct DeviceDetailPage: View {
                 ScrollView (showsIndicators: false){
                     VStack (alignment: .leading){
                         HStack {
-                            CircularProgressBar(percentage: $statusTanaman.suhu, circularProgressBarStyle: .suhu, amount: 40, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .suhu, amount: $valueProgressBarSuhu, isCardView: false, diameter: 100)
                                 .frame(maxWidth: 100, maxHeight: 100)
                                 .padding(.trailing, 10)
                                 .onAppear {
@@ -44,7 +44,11 @@ struct DeviceDetailPage: View {
                                         valueAnimation = false
                                     }
                                 }
-                            
+                                .onChange(of: statusTanaman.suhu) { newValue in
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarSuhu = newValue
+                                    }
+                                }
                             
                             VStack (alignment: .leading) {
                                 Text("Suhu")
@@ -66,7 +70,7 @@ struct DeviceDetailPage: View {
                         
                         
                         HStack {
-                            CircularProgressBar(percentage: $valueProgressBarSinar, circularProgressBarStyle: .sinar, amount: 40, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $valueProgressBarSinar, circularProgressBarStyle: .sinar, amount: $valueProgressBarSinar, isCardView: false, diameter: 100)
                                 .frame(width: 100, height: 100)
                                 .padding(.trailing, 10)
                                 .onAppear {
@@ -93,12 +97,17 @@ struct DeviceDetailPage: View {
                         
                         
                         HStack {
-                            CircularProgressBar(percentage: $statusTanaman.kelembabanTanah, circularProgressBarStyle: .tanah, amount: 40, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $valueProgressBarTanah, circularProgressBarStyle: .tanah, amount: $valueProgressBarTanah, isCardView: false, diameter: 100)
                                 .frame(width: 100, height: 100)
                                 .padding(.trailing, 10)
                                 .onAppear {
                                     withAnimation(.easeIn(duration: 2)){
                                         valueProgressBarTanah = statusTanaman.kelembabanTanah
+                                    }
+                                }
+                                .onChange(of: statusTanaman.kelembabanTanah) { newValue in
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarTanah = newValue
                                     }
                                 }
                             
@@ -118,12 +127,17 @@ struct DeviceDetailPage: View {
                         }.padding(.top, 20)
                         
                         HStack {
-                            CircularProgressBar(percentage: $statusTanaman.kelembabanUdara, circularProgressBarStyle: .udara, amount: 40, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $valueProgressBarUdara, circularProgressBarStyle: .udara, amount: $valueProgressBarUdara, isCardView: false, diameter: 100)
                                 .frame(width: 100, height: 100)
                                 .padding(.trailing, 10)
                                 .onAppear {
                                     withAnimation(.easeIn(duration: 2)){
                                         valueProgressBarUdara = statusTanaman.kelembabanUdara
+                                    }
+                                }
+                                .onChange(of: statusTanaman.kelembabanUdara) { newValue in
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarUdara = newValue
                                     }
                                 }
                             

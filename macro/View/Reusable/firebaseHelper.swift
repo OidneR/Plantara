@@ -22,7 +22,6 @@ class firebaseHelper:ObservableObject {
             self.statusTanaman.kelembabanTanah = kelembabanTanah
             self.statusTanaman.suhu = suhu
             self.statusTanaman.kelembabanUdara = kelembabanUdara
-            print(self.statusTanaman)
         }
     }
 }
