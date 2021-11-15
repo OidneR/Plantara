@@ -45,6 +45,7 @@
 		B8E044A9273916B900BD8841 /* StringConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E044A8273916B900BD8841 /* StringConvert.swift */; };
 		B8E044AB27391A9700BD8841 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */; };
 		BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF599600272AAA2500429D5D /* DeviceSettings.swift */; };
+		BF5D9202273EB92F00AF65F9 /* KeyboardHeightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D9201273EB92F00AF65F9 /* KeyboardHeightHelper.swift */; };
 		E005EAF6273A77DA0014553C /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E005EAF5273A77DA0014553C /* DeviceDetail.swift */; };
 		E0BB4E8A274218DC009C70E5 /* DataTanamanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -91,8 +92,9 @@
 		B8E044A8273916B900BD8841 /* StringConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringConvert.swift; path = macro/View/Reusable/StringConvert.swift; sourceTree = SOURCE_ROOT; };
 		B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF599600272AAA2500429D5D /* DeviceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSettings.swift; sourceTree = "<group>"; };
-		E005EAF5273A77DA0014553C /* DeviceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeviceDetail.swift; path = "macro/View/Wide-View/DeviceDetail.swift"; sourceTree = SOURCE_ROOT; };
 		E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTanamanViewModel.swift; sourceTree = "<group>"; };
+		BF5D9201273EB92F00AF65F9 /* KeyboardHeightHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHeightHelper.swift; sourceTree = "<group>"; };
+		E005EAF5273A77DA0014553C /* DeviceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetail.swift; sourceTree = SOURCE_ROOT; };
 		F54A49890DBB313CD2872325 /* Pods-macro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-macro.release.xcconfig"; path = "Target Support Files/Pods-macro/Pods-macro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +160,7 @@
 		84CBFD582729476800448758 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				BF5D9201273EB92F00AF65F9 /* KeyboardHeightHelper.swift */,
 				B8E044A8273916B900BD8841 /* StringConvert.swift */,
 				B80A9924273AE61D00F2ED45 /* firebaseHelper.swift */,
 			);
@@ -415,6 +418,7 @@
 				8427D9BB273E718200984909 /* CardViewIpad.swift in Sources */,
 				5688E2832733C8460077603B /* PlantDetailViewModel.swift in Sources */,
 				84816DAE272FDB9400323D13 /* Warna.swift in Sources */,
+				BF5D9202273EB92F00AF65F9 /* KeyboardHeightHelper.swift in Sources */,
 				B8E044A9273916B900BD8841 /* StringConvert.swift in Sources */,
 				84816DAC272FD09800323D13 /* CardView.swift in Sources */,
 				B88E47E2272FE13D00BDE109 /* DeviceDetailPage.swift in Sources */,
