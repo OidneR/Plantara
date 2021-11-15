@@ -43,6 +43,7 @@
 		B8E044AB27391A9700BD8841 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */; };
 		BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF599600272AAA2500429D5D /* DeviceSettings.swift */; };
 		E005EAF6273A77DA0014553C /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E005EAF5273A77DA0014553C /* DeviceDetail.swift */; };
+		E09CCA0727426B3100526F7D /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09CCA0627426B3100526F7D /* Test.swift */; };
 		E0BB4E8A274218DC009C70E5 /* DataTanamanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF599600272AAA2500429D5D /* DeviceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSettings.swift; sourceTree = "<group>"; };
 		E005EAF5273A77DA0014553C /* DeviceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetail.swift; sourceTree = SOURCE_ROOT; };
+		E09CCA0627426B3100526F7D /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Test.swift; path = "macro/View Model/Test.swift"; sourceTree = SOURCE_ROOT; };
 		E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTanamanViewModel.swift; sourceTree = "<group>"; };
 		F54A49890DBB313CD2872325 /* Pods-macro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-macro.release.xcconfig"; path = "Target Support Files/Pods-macro/Pods-macro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				E005EAF5273A77DA0014553C /* DeviceDetail.swift */,
+				E09CCA0627426B3100526F7D /* Test.swift */,
 			);
 			path = "Wide-View";
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				B8E044A9273916B900BD8841 /* StringConvert.swift in Sources */,
 				84816DAC272FD09800323D13 /* CardView.swift in Sources */,
 				B88E47E2272FE13D00BDE109 /* DeviceDetailPage.swift in Sources */,
+				E09CCA0727426B3100526F7D /* Test.swift in Sources */,
 				84CBFD5E272948B100448758 /* ChoosePlantViewModel.swift in Sources */,
 				B88E47E4272FE14B00BDE109 /* MainPage.swift in Sources */,
 				84CBFD542729302000448758 /* ListDetailTanaman.swift in Sources */,
