@@ -22,22 +22,24 @@ struct PlantDetailPage: View {
     }
 }
 
-struct PlantDetailPage_Preview: PreviewProvider {
-    static var previews: some View {
-        PlantDetailPage()
-    }
-}
 /* JANGAN LUPA KASIH WARNA FONT SUHU */
 struct PlantDetail_Top: View {
-    @State var valueCircle: CGFloat = 100
+    @State var valueCircle: Double = 100
     var jenisTanaman: String = ""
     
+    
     var body: some View {
+        let dataTanaman = PlantType(rawValue: jenisTanaman)?.getDataTanaman()
+        let suhuTanaman: String = "\(dataTanaman?.minSuhu ?? 0)°C - \(dataTanaman?.maxSuhu ?? 0)°C"
+        let tanahTanaman: String = "\(dataTanaman?.minKelembabanTanah ?? 0)RH - \(dataTanaman?.maxKelembabanTanah ?? 0)RH"
+        let udaraTanaman: String = "\(dataTanaman?.minKelembabanUdara ?? 0)RH - \(dataTanaman?.maxKelembabanUdara ?? 0)RH"
+        let sinarTanaman: String = "\(dataTanaman?.minSun ?? 0)Lx - \(dataTanaman?.maxSun ?? 0)Lx"
+        
         ZStack {
             VStack (alignment: .leading){
                 /* GAMBAR DAN STATUS TANAMAN */
                 HStack (spacing: 0) {
-                    Image("iconBayam")
+                    Image(dataTanaman?.imageTanaman ?? "")
                         .resizable()
                         .frame(width: 164, height: 164)
                         .padding(.leading, 20)
@@ -51,7 +53,7 @@ struct PlantDetail_Top: View {
                                 Text("Suhu")
                                     .font(.custom("Lato", size: 12))
                                     .foregroundColor(Warna.Gray3)
-                                Text("37C")
+                                Text(suhuTanaman)
                                     .font(.custom("Lato", size: 14))
                             }
                         }
@@ -63,7 +65,7 @@ struct PlantDetail_Top: View {
                                 Text("Sinar Matahari")
                                     .font(.custom("Lato", size: 12))
                                     .foregroundColor(Warna.Gray3)
-                                Text("370 Lumens")
+                                Text(sinarTanaman)
                                     .font(.custom("Lato", size: 14))
                             }
                         }
@@ -75,7 +77,7 @@ struct PlantDetail_Top: View {
                                 Text("Kelembaban Tanah")
                                     .font(.custom("Lato", size: 12))
                                     .foregroundColor(Warna.Gray3)
-                                Text("10%")
+                                Text(tanahTanaman)
                                     .font(.custom("Lato", size: 14))
                             }
                         }
@@ -87,14 +89,12 @@ struct PlantDetail_Top: View {
                                 Text("Kelembaban Udara")
                                     .font(.custom("Lato", size: 12))
                                     .foregroundColor(Warna.Gray3)
-                                Text("70%")
+                                Text(udaraTanaman)
                                     .font(.custom("Lato", size: 14))
                             }
                         }
                     }.padding(.trailing, 10)
                 }
-                
-                
                 
                 /* DESKRIPSI, PANDUAN PERAWATAN, DAN TIPS */
                 Spacer().frame(height: 24)
@@ -111,7 +111,7 @@ struct PlantDetail_Top: View {
                                     .padding(.horizontal, 20)
                                     .padding(.top, 32)
                                     .padding(.bottom, 8)
-                                Text("Test test 123 test")
+                                Text(dataTanaman?.desc ?? "")
                                     .font(.custom("Lato", size: 16))
                                     .padding(.horizontal, 20)
                                 
@@ -167,3 +167,9 @@ struct PlantDetail_Top: View {
         }
     }
 }
+
+//struct PlantDetailPage_Preview: PreviewProvider {
+//    static var previews: some View {
+//        PlantDetailPage()
+//    }
+//}

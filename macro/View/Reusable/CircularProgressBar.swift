@@ -11,13 +11,13 @@
 import SwiftUI
 
 struct CircularProgressBar: View {
-    @Binding var percentage: CGFloat
+    @Binding var percentage: Double
     @State var circularProgressBarStyle: progressBarStyle
     @State var amount: Double
     @State var isCardView: Bool
-    @State var overPersentage: CGFloat = 0
+    @State var overPersentage: Double = 0
     @State var diameter: Double
-    
+        
     var body: some View {
         ZStack {
             Background(color: Warna.primary, isCardView: isCardView, diameter: $diameter)
@@ -116,7 +116,7 @@ struct Label: View {
 }
 
 struct Outline: View {
-    @Binding var percentage: CGFloat
+    @Binding var percentage: Double
     @State var color: Color
     @Binding var diameter: Double
     var body: some View {
@@ -130,7 +130,7 @@ struct Outline: View {
 }
 
 struct OverOutline: View {
-    @Binding var percentage: CGFloat
+    @Binding var percentage: Double
     @State var color: Color
     @Binding var diameter: Double
     var body: some View {
