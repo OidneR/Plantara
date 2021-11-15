@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ChoosePlantPage: View {
     @State var viewModel: ChoosePlantViewModel = ChoosePlantViewModel()
-    @State var keyword:String = ""
+    @State var keyword: String = ""
     @State var Grid : [Int] = []
     @State var namaTanaman: String = ""
     
-    init() {
-        UINavigationBar.appearance().backgroundColor = UIColor(.white)
-    }
+//    init() {
+//        UINavigationBar.appearance().backgroundColor = UIColor(.white)
+//    }
     
     var body: some View {
             if #available(iOS 15.0, *) {
@@ -55,8 +55,8 @@ struct ChoosePlantPage: View {
 }
 
 
-struct ChoosePlantPage_Previews: PreviewProvider {
-    static var previews: some View {
-        ChoosePlantPage()
-    }
-}
+//struct ChoosePlantPage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ChoosePlantPage()
+//    }
+//}

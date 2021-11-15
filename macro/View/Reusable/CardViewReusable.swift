@@ -13,7 +13,7 @@ struct CardViewReusable : View {
 
     var body: some View{
         VStack(spacing : 15){
-            NavigationLink(destination: SetupDevice(passItem: dataTanaman.namaTanaman)){
+            NavigationLink(destination: PlantDetailPage(jenisTanaman: dataTanaman.namaTanaman)){
                 VStack{
                     VStack{
                         Image(dataTanaman.imageTanaman)

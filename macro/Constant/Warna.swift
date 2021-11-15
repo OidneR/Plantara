@@ -22,6 +22,8 @@ struct Warna{
     static let SunlightOver = Color("Sunlight-Over")
     static let TempNormal = Color("Temp-Normal")
     static let TempOver = Color("Temp-Over")
+    static let TextSafe = Color("TextSafe")
+    static let TextWarning = Color("TextWarning")
 }
 
 

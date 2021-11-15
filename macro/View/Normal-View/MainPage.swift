@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct MainPage: View {
+    @ObservedObject var firebaseHelper: firebaseHelper
+    @Binding var plantStatus: StatusTanaman
+    
     var body: some View {
         NavigationView{
             ZStack{
                 ScrollView{
-                    CardDevice()
+                    CardDevice(statusTanaman: $plantStatus)
                 }
-                
+                .animation(nil)
                 
                 VStack{
                     Spacer()
@@ -26,17 +29,21 @@ struct MainPage: View {
                             .background(RoundedRectangle(cornerRadius: 10)
                                             .fill(Warna.Secondary)
                             .padding(.horizontal, 20))
+                            .animation(nil)
                     }
                 }
             }
             .navigationTitle("Semua Perangkat")
+            .onChange(of: plantStatus.suhu, perform: { newValue in
+                print(newValue)
+            })
         }
         .accentColor(Warna.Secondary)
     }
 }
 
-struct MainPage_Previews: PreviewProvider {
-    static var previews: some View {
-        MainPage()
-    }
-}
+//struct MainPage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainPage()
+//    }
+//}
