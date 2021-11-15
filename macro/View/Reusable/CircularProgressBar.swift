@@ -17,7 +17,7 @@ struct CircularProgressBar: View {
     @State var isCardView: Bool
     @State var overPersentage: Double = 0
     @State var diameter: Double
-    
+        
     var body: some View {
         ZStack {
             Background(color: Warna.primary, isCardView: isCardView, diameter: $diameter)

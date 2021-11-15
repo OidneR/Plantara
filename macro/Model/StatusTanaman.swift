@@ -12,5 +12,4 @@ struct StatusTanaman{
     var kelembabanTanah: Double
     var kelembabanUdara: Double
     var suhu: Double
-    
 }

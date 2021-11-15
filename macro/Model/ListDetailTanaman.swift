@@ -20,26 +20,25 @@ struct TanamanBaru: Hashable{
     let imageTanaman: String
     let difficultyTanaman: String
     let harvestTime: String
-    let minSuhu: Double
-    let maxSuhu: Double
-    let minSun: Double
-    let maxSun: Double
-    let minKelembabanTanah: Double
-    let maxKelembabanTanah: Double
-    let minKelembabanUdara: Double
-    let maxKelembabanUdara: Double
+    let minSuhu: Int
+    let maxSuhu: Int
+    let minSun: Int
+    let maxSun: Int
+    let minKelembabanTanah: Int
+    let maxKelembabanTanah: Int
+    let minKelembabanUdara: Int
+    let maxKelembabanUdara: Int
     let desc: String
     let panduanPerawatan: [String]
     let tips: [String]
-    
 }
 
 struct PlantedTanaman{
     let tanaman: TanamanBaru
-    let suhu: Double
-    let sun: Double
-    let KelembabanTanah: Double
-    let KelembabanUdara: Double
+    let suhu: Int
+    let sun: Int
+    let KelembabanTanah: Int
+    let KelembabanUdara: Int
     
     func suhuCondition() -> indicatorCondition{
         if(suhu > tanaman.maxSuhu){
