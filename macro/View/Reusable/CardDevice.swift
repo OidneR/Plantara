@@ -5,10 +5,10 @@ struct CardDevice: View {
     @Binding var statusTanaman: StatusTanaman
     @State var deviceName = "Device Bayam 1"
     @State var jenisTanaman = "Bayem lah ya"
-    @State var valueProgressBar: CGFloat = 0
+    @State var valueProgressBar: Double = 70
     
     var body: some View {
-        NavigationLink(destination: DeviceDetailPage()) {
+        NavigationLink(destination: DeviceDetailPage(statusTanaman: $statusTanaman)) {
             VStack (alignment: .leading){
                 //INI BAGIAN ATASNYA YANG GAMBAR DAN TULISAN
                 HStack{
@@ -64,11 +64,6 @@ struct CardDevice: View {
                     VStack (alignment: .leading){
                         HStack{
                             CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: 0, isCardView: true, diameter: 25)
-                                .onAppear(){
-                                    withAnimation(.easeIn(duration: 2)) {
-                                        valueProgressBar = 140
-                                    }
-                                }
                             
                             VStack (alignment: .leading){
                                 Text("Sinar Matahari")
@@ -95,7 +90,7 @@ struct CardDevice: View {
                                     .foregroundColor(.gray)
                                 
                                 HStack{
-                                    Text("70%")
+                                    Text("\(String(format: "%.f", statusTanaman.kelembabanUdara))%")
                                         .font(.system(size: 12))
                                         .foregroundColor(Color.black)
                                         .frame(width: 40,  alignment: .leading)
@@ -117,7 +112,7 @@ struct CardDevice: View {
                                     .foregroundColor(.gray)
                                 
                                 HStack{
-                                    Text("37 C")
+                                    Text("\(String(format: "%.f", statusTanaman.suhu))°C")
                                         .font(.system(size: 12))
                                         .foregroundColor(Color.black)
                                         .frame(width: 40, alignment: .leading)
@@ -136,7 +131,7 @@ struct CardDevice: View {
                                     .foregroundColor(.gray)
                                 
                                 HStack{
-                                    Text("10%")
+                                    Text("\(String(format: "%.f", statusTanaman.kelembabanTanah))%")
                                         .font(.system(size: 12))
                                         .foregroundColor(Color.black)
                                         .frame(width: 40, alignment: .leading)

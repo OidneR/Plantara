@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DeviceDetail: View {
-    @State var valueProgressBar: CGFloat = 80
+    @State var valueProgressBar: Double = 80
     
     var body: some View {
         VStack{

@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 struct StatusTanaman{
-    var kelembabanTanah: CGFloat
-    var kelembabanUdara: CGFloat
-    var suhu: CGFloat
+    var kelembabanTanah: Double
+    var kelembabanUdara: Double
+    var suhu: Double
     
 }

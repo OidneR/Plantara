@@ -29,7 +29,7 @@ struct PlantDetailPage_Preview: PreviewProvider {
 }
 /* JANGAN LUPA KASIH WARNA FONT SUHU */
 struct PlantDetail_Top: View {
-    @State var valueCircle: CGFloat = 100
+    @State var valueCircle: Double = 100
     var jenisTanaman: String = ""
     
     var body: some View {

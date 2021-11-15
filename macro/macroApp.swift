@@ -11,14 +11,14 @@ import Firebase
 struct macroApp: App {
     let persistenceController = PersistenceController.shared
     @State var firebaseHelper: firebaseHelper
+    
     init(){
         FirebaseApp.configure()
         firebaseHelper = macro.firebaseHelper()
-        
         firebaseHelper.getDataFromFireBase()
     }
+    
     var body: some Scene {
-        
         WindowGroup {
             if(UIDevice.current.userInterfaceIdiom == .pad){
                 MainPage(firebaseHelper:firebaseHelper, plantStatus: $firebaseHelper.statusTanaman)

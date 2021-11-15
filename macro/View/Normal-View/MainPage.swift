@@ -11,7 +11,6 @@ struct MainPage: View {
     @ObservedObject var firebaseHelper: firebaseHelper
     @Binding var plantStatus: StatusTanaman
     
-    
     var body: some View {
         NavigationView{
             ZStack{
@@ -32,7 +31,6 @@ struct MainPage: View {
                             .padding(.horizontal, 20))
                             .animation(nil)
                     }
-                    
                 }
             }
             .navigationTitle("Semua Perangkat")
@@ -40,7 +38,6 @@ struct MainPage: View {
                 print(newValue)
             })
         }
-        
         .accentColor(Warna.Secondary)
     }
 }
