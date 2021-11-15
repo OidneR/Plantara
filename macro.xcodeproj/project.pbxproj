@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05A626D5A0873C2B86259C0C /* Pods_macro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2EEF47A9637BE2B56FCC16 /* Pods_macro.framework */; };
+		4017131F7C9C6ECFC0466D8C /* Pods_macro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93B42348EDCE1422490EF37 /* Pods_macro.framework */; };
+		5688E2832733C8460077603B /* PlantDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5688E2822733C8460077603B /* PlantDetailViewModel.swift */; };
 		56AF839727312BE9005C2E06 /* PlantDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF839627312BE9005C2E06 /* PlantDetailPage.swift */; };
 		8427D9BB273E718200984909 /* CardViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D9BA273E718200984909 /* CardViewIpad.swift */; };
 		8427D9BD273E723B00984909 /* GridViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D9BC273E723B00984909 /* GridViewIpad.swift */; };
@@ -62,7 +63,7 @@
 		84CBFD532729302000448758 /* ListDetailTanaman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailTanaman.swift; sourceTree = "<group>"; };
 		84CBFD5B2729481400448758 /* ChoosePlantPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlantPage.swift; sourceTree = "<group>"; };
 		84CBFD5D272948B100448758 /* ChoosePlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlantViewModel.swift; sourceTree = "<group>"; };
-		9E2EEF47A9637BE2B56FCC16 /* Pods_macro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_macro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A83E8BF3ED62A1FC0753E16B /* Pods-macro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-macro.release.xcconfig"; path = "Target Support Files/Pods-macro/Pods-macro.release.xcconfig"; sourceTree = "<group>"; };
 		B80A9924273AE61D00F2ED45 /* firebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = firebaseHelper.swift; path = macro/View/Reusable/firebaseHelper.swift; sourceTree = SOURCE_ROOT; };
 		B80A9926273BC23300F2ED45 /* StatusTanaman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTanaman.swift; sourceTree = "<group>"; };
 		B88E47DD272FE12300BDE109 /* CardDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDevice.swift; sourceTree = "<group>"; };
@@ -94,8 +95,8 @@
 		BF599600272AAA2500429D5D /* DeviceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSettings.swift; sourceTree = "<group>"; };
 		E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTanamanViewModel.swift; sourceTree = "<group>"; };
 		BF5D9201273EB92F00AF65F9 /* KeyboardHeightHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHeightHelper.swift; sourceTree = "<group>"; };
+		C93B42348EDCE1422490EF37 /* Pods_macro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_macro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E005EAF5273A77DA0014553C /* DeviceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetail.swift; sourceTree = SOURCE_ROOT; };
-		F54A49890DBB313CD2872325 /* Pods-macro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-macro.release.xcconfig"; path = "Target Support Files/Pods-macro/Pods-macro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,18 +104,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A626D5A0873C2B86259C0C /* Pods_macro.framework in Frameworks */,
+				4017131F7C9C6ECFC0466D8C /* Pods_macro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16416E9B5C5B695ED79FD2F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C93B42348EDCE1422490EF37 /* Pods_macro.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7F31811F2F784A17A9C1B67B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7608FF8B7C7CA4A8FCB59806 /* Pods-macro.debug.xcconfig */,
-				F54A49890DBB313CD2872325 /* Pods-macro.release.xcconfig */,
+				76E784B6E4B974D89323F189 /* Pods-macro.debug.xcconfig */,
+				A83E8BF3ED62A1FC0753E16B /* Pods-macro.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -233,7 +242,7 @@
 				B8BC16392726CA0200F5538E /* macro */,
 				B8BC16382726CA0200F5538E /* Products */,
 				7F31811F2F784A17A9C1B67B /* Pods */,
-				F2C5917E71E201F5E9B26482 /* Frameworks */,
+				16416E9B5C5B695ED79FD2F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -295,11 +304,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8BC164A2726CA0300F5538E /* Build configuration list for PBXNativeTarget "macro" */;
 			buildPhases = (
-				AEEB1885A573C5F8BADC132A /* [CP] Check Pods Manifest.lock */,
+				09E5A04AD6DEF6AC7ECE4205 /* [CP] Check Pods Manifest.lock */,
 				B8BC16332726CA0200F5538E /* Sources */,
 				B8BC16342726CA0200F5538E /* Frameworks */,
 				B8BC16352726CA0200F5538E /* Resources */,
-				BA737946909371F7D3FD9A69 /* [CP] Embed Pods Frameworks */,
+				522E712570065377E048AE45 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -367,7 +376,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AEEB1885A573C5F8BADC132A /* [CP] Check Pods Manifest.lock */ = {
+		09E5A04AD6DEF6AC7ECE4205 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -389,7 +398,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA737946909371F7D3FD9A69 /* [CP] Embed Pods Frameworks */ = {
+		522E712570065377E048AE45 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -565,14 +574,14 @@
 		};
 		B8BC164B2726CA0300F5538E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7608FF8B7C7CA4A8FCB59806 /* Pods-macro.debug.xcconfig */;
+			baseConfigurationReference = 76E784B6E4B974D89323F189 /* Pods-macro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"macro/Preview Content\"";
-				DEVELOPMENT_TEAM = WVFW5SK35J;
+                DEVELOPMENT_TEAM = FYAQ2W36J9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = macro/Info.plist;
@@ -586,8 +595,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.plantara.macro;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Com.lacoste.macro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -597,14 +606,14 @@
 		};
 		B8BC164C2726CA0300F5538E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F54A49890DBB313CD2872325 /* Pods-macro.release.xcconfig */;
+			baseConfigurationReference = A83E8BF3ED62A1FC0753E16B /* Pods-macro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"macro/Preview Content\"";
-				DEVELOPMENT_TEAM = WVFW5SK35J;
+				DEVELOPMENT_TEAM = FYAQ2W36J9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = macro/Info.plist;
@@ -618,8 +627,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.plantara.macro;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Com.lacoste.macro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
