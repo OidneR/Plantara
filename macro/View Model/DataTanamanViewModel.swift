@@ -133,3 +133,18 @@ enum PlantType: String, CaseIterable{
         }
     }
 }
+
+class KebutuhanTanamanViewModel{
+    func getKebutuhanTanaman(jenisTanaman: String) -> KebutuhanTanaman{
+        let dataTanaman = PlantType(rawValue: jenisTanaman)?.getDataTanaman()
+        let suhuTanaman: String = "\(dataTanaman?.minSuhu ?? 0)°C - \(dataTanaman?.maxSuhu ?? 0)°C"
+        let tanahTanaman: String = "\(dataTanaman?.minKelembabanTanah ?? 0)RH - \(dataTanaman?.maxKelembabanTanah ?? 0)RH"
+        let udaraTanaman: String = "\(dataTanaman?.minKelembabanUdara ?? 0)RH - \(dataTanaman?.maxKelembabanUdara ?? 0)RH"
+        let sinarTanaman: String = "\(dataTanaman?.minSun ?? 0)Lx - \(dataTanaman?.maxSun ?? 0)Lx"
+        
+        let dataKebutuhanTanaman = KebutuhanTanaman(kebutuhanSuhu: suhuTanaman, kebutuhanSun: sinarTanaman, kebutuhanTanah: tanahTanaman, kebutuhanUdara: udaraTanaman)
+        print(dataKebutuhanTanaman)
+        
+        return dataKebutuhanTanaman
+    }
+}

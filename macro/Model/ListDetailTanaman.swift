@@ -33,6 +33,13 @@ struct TanamanBaru: Hashable{
     let tips: [String]
 }
 
+struct KebutuhanTanaman{
+    let kebutuhanSuhu: String
+    let kebutuhanSun: String
+    let kebutuhanTanah: String
+    let kebutuhanUdara: String
+}
+
 struct PlantedTanaman{
     let tanaman: TanamanBaru
     let suhu: Int
