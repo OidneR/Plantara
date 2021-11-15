@@ -63,7 +63,7 @@ struct CardDevice: View {
                     //INI BAGIAN KIRI (CAHAYA SAMA AIR)
                     VStack (alignment: .leading){
                         HStack{
-                            CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: 0, isCardView: true, diameter: 25)
+                            CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: $valueProgressBar, isCardView: true, diameter: 25)
                             
                             VStack (alignment: .leading){
                                 Text("Sinar Matahari")
@@ -82,7 +82,7 @@ struct CardDevice: View {
                         }.padding(.bottom, 5)
                         
                         HStack{
-                            CircularProgressBar(percentage: $statusTanaman.kelembabanUdara, circularProgressBarStyle: .udara, amount: 0, isCardView: true, diameter: 25)
+                            CircularProgressBar(percentage: $statusTanaman.kelembabanUdara, circularProgressBarStyle: .udara, amount: $valueProgressBar, isCardView: true, diameter: 25)
                             
                             VStack (alignment: .leading){
                                 Text("Kelembapan Udara")
@@ -104,7 +104,7 @@ struct CardDevice: View {
                     //INI BAGIAN KANAN (SUHU SAMA SOIL)
                     VStack(alignment: .leading){
                         HStack{
-                            CircularProgressBar(percentage: $statusTanaman.suhu, circularProgressBarStyle: .suhu, amount: 0, isCardView: true, diameter: 25)
+                            CircularProgressBar(percentage: $statusTanaman.suhu, circularProgressBarStyle: .suhu, amount: $valueProgressBar, isCardView: true, diameter: 25)
                             
                             VStack (alignment: .leading){
                                 Text("Suhu")
@@ -123,7 +123,7 @@ struct CardDevice: View {
                         }.padding(.bottom, 5)
                         
                         HStack{
-                            CircularProgressBar(percentage: $statusTanaman.kelembabanTanah, circularProgressBarStyle: .tanah, amount: 0, isCardView: true, diameter: 25)
+                            CircularProgressBar(percentage: $statusTanaman.kelembabanTanah, circularProgressBarStyle: .tanah, amount: $valueProgressBar, isCardView: true, diameter: 25)
                             
                             VStack (alignment: .leading){
                                 Text("Kelembapan Tanah")

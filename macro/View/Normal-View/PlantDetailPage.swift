@@ -25,6 +25,7 @@ struct PlantDetailPage: View {
 /* JANGAN LUPA KASIH WARNA FONT SUHU */
 struct PlantDetail_Top: View {
     @State var valueCircle: Double = 100
+    @State var valueProgressBar: Double = 60
     var jenisTanaman: String = ""
     
     
@@ -44,7 +45,7 @@ struct PlantDetail_Top: View {
                     
                     /* SUHU */
                     HStack(spacing: 15){
-                        CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .suhu, amount: 60, isCardView: true, diameter: 30)
+                        CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .suhu, amount: $valueProgressBar, isCardView: true, diameter: 30)
                         VStack (alignment: .leading){
                             Text("Suhu")
                                 .font(.custom("Lato", size: 12))
@@ -56,7 +57,7 @@ struct PlantDetail_Top: View {
                     
                     /* SINAR MATAHARI*/
                     HStack(spacing: 15){
-                        CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .sinar, amount: 60, isCardView: true, diameter: 30)
+                        CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .sinar, amount: $valueProgressBar, isCardView: true, diameter: 30)
                         VStack (alignment: .leading){
                             Text("Sinar Matahari")
                                 .font(.custom("Lato", size: 12))
@@ -68,7 +69,7 @@ struct PlantDetail_Top: View {
                     
                     /* KELEMBABAN TANAH */
                     HStack(spacing: 15){
-                        CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .tanah, amount: 60, isCardView: true, diameter: 30)
+                        CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .tanah, amount: $valueProgressBar, isCardView: true, diameter: 30)
                         VStack (alignment: .leading){
                             Text("Kelembaban Tanah")
                                 .font(.custom("Lato", size: 12))
@@ -80,7 +81,7 @@ struct PlantDetail_Top: View {
                     
                     /* KELEMBABAN UDARA */
                     HStack(spacing: 15){
-                        CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .udara, amount: 60, isCardView: true, diameter: 30)
+                        CircularProgressBar(percentage: $valueCircle, circularProgressBarStyle: .udara, amount: $valueProgressBar, isCardView: true, diameter: 30)
                         VStack (alignment: .leading){
                             Text("Kelembaban Udara")
                                 .font(.custom("Lato", size: 12))
