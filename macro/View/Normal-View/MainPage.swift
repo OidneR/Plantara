@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainPage: View {
-    //@State var animation: CGFloat = 0
+    @State var plantStatus: StatusTanaman = firebaseHelper.syncData()
     
     var body: some View {
         NavigationView{

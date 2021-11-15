@@ -16,6 +16,8 @@
 		84CBFD542729302000448758 /* ListDetailTanaman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD532729302000448758 /* ListDetailTanaman.swift */; };
 		84CBFD5C2729481400448758 /* ChoosePlantPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD5B2729481400448758 /* ChoosePlantPage.swift */; };
 		84CBFD5E272948B100448758 /* ChoosePlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD5D272948B100448758 /* ChoosePlantViewModel.swift */; };
+		B80A9925273AE61D00F2ED45 /* firebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80A9924273AE61D00F2ED45 /* firebaseHelper.swift */; };
+		B80A9927273BC23300F2ED45 /* StatusTanaman.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80A9926273BC23300F2ED45 /* StatusTanaman.swift */; };
 		B88E47DE272FE12300BDE109 /* CardDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47DD272FE12300BDE109 /* CardDevice.swift */; };
 		B88E47E0272FE12800BDE109 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47DF272FE12800BDE109 /* CircularProgressBar.swift */; };
 		B88E47E2272FE13D00BDE109 /* DeviceDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47E1272FE13D00BDE109 /* DeviceDetailPage.swift */; };
@@ -56,6 +58,8 @@
 		84CBFD5B2729481400448758 /* ChoosePlantPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlantPage.swift; sourceTree = "<group>"; };
 		84CBFD5D272948B100448758 /* ChoosePlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlantViewModel.swift; sourceTree = "<group>"; };
 		9E2EEF47A9637BE2B56FCC16 /* Pods_macro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_macro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B80A9924273AE61D00F2ED45 /* firebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = firebaseHelper.swift; path = macro/View/Reusable/firebaseHelper.swift; sourceTree = SOURCE_ROOT; };
+		B80A9926273BC23300F2ED45 /* StatusTanaman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTanaman.swift; sourceTree = "<group>"; };
 		B88E47DD272FE12300BDE109 /* CardDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDevice.swift; sourceTree = "<group>"; };
 		B88E47DF272FE12800BDE109 /* CircularProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		B88E47E1272FE13D00BDE109 /* DeviceDetailPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailPage.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 			children = (
 				84CBFD532729302000448758 /* ListDetailTanaman.swift */,
 				B88E47FD273123E000BDE109 /* DeviceDetailModal.swift */,
+				B80A9926273BC23300F2ED45 /* StatusTanaman.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			children = (
 				BF5D9201273EB92F00AF65F9 /* KeyboardHeightHelper.swift */,
 				B8E044A8273916B900BD8841 /* StringConvert.swift */,
+				B80A9924273AE61D00F2ED45 /* firebaseHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -393,6 +399,7 @@
 				84CBFD5E272948B100448758 /* ChoosePlantViewModel.swift in Sources */,
 				B88E47E4272FE14B00BDE109 /* MainPage.swift in Sources */,
 				84CBFD542729302000448758 /* ListDetailTanaman.swift in Sources */,
+				B80A9927273BC23300F2ED45 /* StatusTanaman.swift in Sources */,
 				B8BC16472726CA0300F5538E /* macro.xcdatamodeld in Sources */,
 				B8BC16442726CA0300F5538E /* Persistence.swift in Sources */,
 				B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */,
@@ -400,6 +407,7 @@
 				B88E47DE272FE12300BDE109 /* CardDevice.swift in Sources */,
 				E005EAF6273A77DA0014553C /* DeviceDetail.swift in Sources */,
 				BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */,
+				B80A9925273AE61D00F2ED45 /* firebaseHelper.swift in Sources */,
 				B88E47FE273123E000BDE109 /* DeviceDetailModal.swift in Sources */,
 				B88E47E6272FE14E00BDE109 /* SetupDevice.swift in Sources */,
 				B88E48042733D2CC00BDE109 /* customSearchBar.swift in Sources */,

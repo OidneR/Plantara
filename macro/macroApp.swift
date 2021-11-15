@@ -12,14 +12,16 @@ struct macroApp: App {
     let persistenceController = PersistenceController.shared
     init(){
         FirebaseApp.configure()
+        //firebaseHelper.getDataFromFireBase()
     }
     var body: some Scene {
         
         WindowGroup {
             if(UIDevice.current.userInterfaceIdiom == .pad){
-                DeviceDetail()
+                MainPage()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }else{
+                
                 MainPage()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }

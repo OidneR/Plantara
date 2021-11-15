@@ -13,8 +13,15 @@ struct DeviceDetailPage_Previews:PreviewProvider {
     }
 }
 
+extension View {
+    func withoutAnimation() -> some View {
+        self.animation(nil, value: 0)
+    }
+}
+
 struct DeviceDetailPage: View {
-    @State var valueProgressBarSuhu: CGFloat = 0
+    @State var valueProgressBarSuhu: CGFloat = 10
+    @State var valueAnimation = true
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -22,7 +29,7 @@ struct DeviceDetailPage: View {
             Image("biji")
                 .frame(maxWidth: .infinity, maxHeight: 194)
                 .background(Color("BackgroundCardPlant"))
-                .animation(nil)
+                .animation(nil, value: valueAnimation)
             
             VStack(alignment: .leading){
                 Text("Bayam Hijau")
@@ -30,7 +37,7 @@ struct DeviceDetailPage: View {
                     .fontWeight(.bold)
                     .padding(.leading, 24)
                     .padding(.top, 24)
-                    .animation(nil)
+                    .animation(nil, value: valueAnimation)
                 
                 ScrollView (showsIndicators: false){
                     VStack (alignment: .leading){
@@ -41,6 +48,7 @@ struct DeviceDetailPage: View {
                                 .onAppear {
                                     withAnimation(.easeIn(duration: 2)){
                                         valueProgressBarSuhu = 140
+                                        valueAnimation = false
                                     }
                                 }
                             
@@ -134,7 +142,7 @@ struct DeviceDetailPage: View {
             .background(RoundedRectangle(cornerRadius: 30)
                             .fill(Color.white)
                             .ignoresSafeArea()
-                            .animation(nil)
+                            .animation(nil, value: valueAnimation)
             )
         }
         .background(RoundedRectangle(cornerRadius: 0)
