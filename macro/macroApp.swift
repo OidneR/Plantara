@@ -17,7 +17,7 @@ struct macroApp: App {
         
         WindowGroup {
             if(UIDevice.current.userInterfaceIdiom == .pad){
-                ChoosePlantPage()
+                ChoosePlantIpad()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }else{
                 MainPage()

@@ -10,6 +10,9 @@
 		05A626D5A0873C2B86259C0C /* Pods_macro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2EEF47A9637BE2B56FCC16 /* Pods_macro.framework */; };
 		5688E2832733C8460077603B /* PlantDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5688E2822733C8460077603B /* PlantDetailViewModel.swift */; };
 		56AF839727312BE9005C2E06 /* PlantDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF839627312BE9005C2E06 /* PlantDetailPage.swift */; };
+		8427D9BB273E718200984909 /* CardViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D9BA273E718200984909 /* CardViewIpad.swift */; };
+		8427D9BD273E723B00984909 /* GridViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D9BC273E723B00984909 /* GridViewIpad.swift */; };
+		8427D9BF273E724E00984909 /* ChoosePlantIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D9BE273E724E00984909 /* ChoosePlantIpad.swift */; };
 		84816DAC272FD09800323D13 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84816DAB272FD09800323D13 /* CardView.swift */; };
 		84816DAE272FDB9400323D13 /* Warna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84816DAD272FDB9400323D13 /* Warna.swift */; };
 		84CBFD5227281D7900448758 /* CardViewReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD5127281D7900448758 /* CardViewReusable.swift */; };
@@ -47,6 +50,9 @@
 		5688E2822733C8460077603B /* PlantDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailViewModel.swift; sourceTree = "<group>"; };
 		56AF839627312BE9005C2E06 /* PlantDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailPage.swift; sourceTree = "<group>"; };
 		7608FF8B7C7CA4A8FCB59806 /* Pods-macro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-macro.debug.xcconfig"; path = "Target Support Files/Pods-macro/Pods-macro.debug.xcconfig"; sourceTree = "<group>"; };
+		8427D9BA273E718200984909 /* CardViewIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewIpad.swift; sourceTree = "<group>"; };
+		8427D9BC273E723B00984909 /* GridViewIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewIpad.swift; sourceTree = "<group>"; };
+		8427D9BE273E724E00984909 /* ChoosePlantIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlantIpad.swift; sourceTree = "<group>"; };
 		84816DAB272FD09800323D13 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		84816DAD272FDB9400323D13 /* Warna.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warna.swift; sourceTree = "<group>"; };
 		84CBFD5127281D7900448758 /* CardViewReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewReusable.swift; sourceTree = "<group>"; };
@@ -103,6 +109,15 @@
 				F54A49890DBB313CD2872325 /* Pods-macro.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8427D9B8273E702E00984909 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				8427D9BA273E718200984909 /* CardViewIpad.swift */,
+				8427D9BC273E723B00984909 /* GridViewIpad.swift */,
+			);
+			path = Reusable;
 			sourceTree = "<group>";
 		};
 		84CBFD552729475000448758 /* View */ = {
@@ -178,6 +193,8 @@
 		B80A9923273A68C400F2ED45 /* Wide-View */ = {
 			isa = PBXGroup;
 			children = (
+				8427D9BE273E724E00984909 /* ChoosePlantIpad.swift */,
+				8427D9B8273E702E00984909 /* Reusable */,
 			);
 			path = "Wide-View";
 			sourceTree = "<group>";
@@ -378,6 +395,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				84CBFD5227281D7900448758 /* CardViewReusable.swift in Sources */,
+				8427D9BF273E724E00984909 /* ChoosePlantIpad.swift in Sources */,
+				8427D9BB273E718200984909 /* CardViewIpad.swift in Sources */,
 				5688E2832733C8460077603B /* PlantDetailViewModel.swift in Sources */,
 				84816DAE272FDB9400323D13 /* Warna.swift in Sources */,
 				B8E044A9273916B900BD8841 /* StringConvert.swift in Sources */,
@@ -386,6 +405,7 @@
 				84CBFD5E272948B100448758 /* ChoosePlantViewModel.swift in Sources */,
 				B88E47E4272FE14B00BDE109 /* MainPage.swift in Sources */,
 				84CBFD542729302000448758 /* ListDetailTanaman.swift in Sources */,
+				8427D9BD273E723B00984909 /* GridViewIpad.swift in Sources */,
 				B8BC16472726CA0300F5538E /* macro.xcdatamodeld in Sources */,
 				B8BC16442726CA0300F5538E /* Persistence.swift in Sources */,
 				B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */,
