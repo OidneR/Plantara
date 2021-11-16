@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4017131F7C9C6ECFC0466D8C /* Pods_macro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93B42348EDCE1422490EF37 /* Pods_macro.framework */; };
-		5688E2832733C8460077603B /* PlantDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5688E2822733C8460077603B /* PlantDetailViewModel.swift */; };
+		5688E2832733C8460077603B /* (null) in Sources */ = {isa = PBXBuildFile; };
 		56AF839727312BE9005C2E06 /* PlantDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF839627312BE9005C2E06 /* PlantDetailPage.swift */; };
 		8427D9BB273E718200984909 /* CardViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D9BA273E718200984909 /* CardViewIpad.swift */; };
 		8427D9BD273E723B00984909 /* GridViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427D9BC273E723B00984909 /* GridViewIpad.swift */; };
@@ -38,6 +38,9 @@
 		B88E47FB272FE6F900BDE109 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B88E47F1272FE6F900BDE109 /* Lato-Regular.ttf */; };
 		B88E47FE273123E000BDE109 /* DeviceDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47FD273123E000BDE109 /* DeviceDetailModal.swift */; };
 		B88E48042733D2CC00BDE109 /* customSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E48032733D2CC00BDE109 /* customSearchBar.swift */; };
+		B8A37A14274396B4003B144E /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A37A12274396B4003B144E /* DeviceDetail.swift */; };
+		B8A37A15274396B4003B144E /* ChoosePlantIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A37A13274396B4003B144E /* ChoosePlantIpad.swift */; };
+		B8A37A17274396D1003B144E /* Reusable in Resources */ = {isa = PBXBuildFile; fileRef = B8A37A16274396D1003B144E /* Reusable */; };
 		B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC163A2726CA0200F5538E /* macroApp.swift */; };
 		B8BC163F2726CA0300F5538E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BC163E2726CA0300F5538E /* Assets.xcassets */; };
 		B8BC16422726CA0300F5538E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BC16412726CA0300F5538E /* Preview Assets.xcassets */; };
@@ -47,13 +50,11 @@
 		B8E044AB27391A9700BD8841 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */; };
 		BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF599600272AAA2500429D5D /* DeviceSettings.swift */; };
 		BF5D9202273EB92F00AF65F9 /* KeyboardHeightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D9201273EB92F00AF65F9 /* KeyboardHeightHelper.swift */; };
-		E005EAF6273A77DA0014553C /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E005EAF5273A77DA0014553C /* DeviceDetail.swift */; };
 		E0BB4E8A274218DC009C70E5 /* DataTanamanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		56AF839627312BE9005C2E06 /* PlantDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailPage.swift; sourceTree = "<group>"; };
-		7608FF8B7C7CA4A8FCB59806 /* Pods-macro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-macro.debug.xcconfig"; path = "Target Support Files/Pods-macro/Pods-macro.debug.xcconfig"; sourceTree = "<group>"; };
 		8427D9BA273E718200984909 /* CardViewIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewIpad.swift; sourceTree = "<group>"; };
 		8427D9BC273E723B00984909 /* GridViewIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewIpad.swift; sourceTree = "<group>"; };
 		8427D9BE273E724E00984909 /* ChoosePlantIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlantIpad.swift; sourceTree = "<group>"; };
@@ -84,6 +85,9 @@
 		B88E47FC272FE79300BDE109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B88E47FD273123E000BDE109 /* DeviceDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailModal.swift; sourceTree = "<group>"; };
 		B88E48032733D2CC00BDE109 /* customSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customSearchBar.swift; sourceTree = "<group>"; };
+		B8A37A12274396B4003B144E /* DeviceDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetail.swift; sourceTree = "<group>"; };
+		B8A37A13274396B4003B144E /* ChoosePlantIpad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePlantIpad.swift; sourceTree = "<group>"; };
+		B8A37A16274396D1003B144E /* Reusable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Reusable; sourceTree = "<group>"; };
 		B8BC16372726CA0200F5538E /* macro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BC163A2726CA0200F5538E /* macroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macroApp.swift; sourceTree = "<group>"; };
 		B8BC163E2726CA0300F5538E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,10 +97,9 @@
 		B8E044A8273916B900BD8841 /* StringConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringConvert.swift; path = macro/View/Reusable/StringConvert.swift; sourceTree = SOURCE_ROOT; };
 		B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF599600272AAA2500429D5D /* DeviceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSettings.swift; sourceTree = "<group>"; };
-		E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTanamanViewModel.swift; sourceTree = "<group>"; };
 		BF5D9201273EB92F00AF65F9 /* KeyboardHeightHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHeightHelper.swift; sourceTree = "<group>"; };
 		C93B42348EDCE1422490EF37 /* Pods_macro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_macro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E005EAF5273A77DA0014553C /* DeviceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetail.swift; sourceTree = SOURCE_ROOT; };
+		E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTanamanViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,19 +125,9 @@
 		7F31811F2F784A17A9C1B67B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				76E784B6E4B974D89323F189 /* Pods-macro.debug.xcconfig */,
 				A83E8BF3ED62A1FC0753E16B /* Pods-macro.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		8427D9B8273E702E00984909 /* Reusable */ = {
-			isa = PBXGroup;
-			children = (
-				8427D9BA273E718200984909 /* CardViewIpad.swift */,
-				8427D9BC273E723B00984909 /* GridViewIpad.swift */,
-			);
-			path = Reusable;
 			sourceTree = "<group>";
 		};
 		84CBFD552729475000448758 /* View */ = {
@@ -210,15 +203,6 @@
 			path = "Normal-View";
 			sourceTree = "<group>";
 		};
-		B80A9923273A68C400F2ED45 /* Wide-View */ = {
-			isa = PBXGroup;
-			children = (
-				8427D9BE273E724E00984909 /* ChoosePlantIpad.swift */,
-				8427D9B8273E702E00984909 /* Reusable */,
-			);
-			path = "Wide-View";
-			sourceTree = "<group>";
-		};
 		B88E47E7272FE69800BDE109 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +220,16 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		B8A37A1127439677003B144E /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				8427D9BE273E724E00984909 /* ChoosePlantIpad.swift */,
+				8427D9BA273E718200984909 /* CardViewIpad.swift */,
+				8427D9BC273E723B00984909 /* GridViewIpad.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		B8BC162E2726CA0200F5538E = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +237,7 @@
 				B8BC16382726CA0200F5538E /* Products */,
 				7F31811F2F784A17A9C1B67B /* Pods */,
 				16416E9B5C5B695ED79FD2F1 /* Frameworks */,
+				B8A37A1127439677003B144E /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -284,17 +279,11 @@
 		E09ABCD227426BF600CAE1D8 /* Wide-View */ = {
 			isa = PBXGroup;
 			children = (
-				E005EAF5273A77DA0014553C /* DeviceDetail.swift */,
+				B8A37A16274396D1003B144E /* Reusable */,
+				B8A37A13274396B4003B144E /* ChoosePlantIpad.swift */,
+				B8A37A12274396B4003B144E /* DeviceDetail.swift */,
 			);
 			path = "Wide-View";
-			sourceTree = "<group>";
-		};
-		F2C5917E71E201F5E9B26482 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9E2EEF47A9637BE2B56FCC16 /* Pods_macro.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B88E47FA272FE6F900BDE109 /* Lato-LightItalic.ttf in Resources */,
+				B8A37A17274396D1003B144E /* Reusable in Resources */,
 				B88E47F6272FE6F900BDE109 /* Lato-Bold.ttf in Resources */,
 				B88E47F7272FE6F900BDE109 /* Lato-Thin.ttf in Resources */,
 				B88E47F2272FE6F900BDE109 /* Lato-Light.ttf in Resources */,
@@ -422,10 +412,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8A37A15274396B4003B144E /* ChoosePlantIpad.swift in Sources */,
 				84CBFD5227281D7900448758 /* CardViewReusable.swift in Sources */,
 				8427D9BF273E724E00984909 /* ChoosePlantIpad.swift in Sources */,
 				8427D9BB273E718200984909 /* CardViewIpad.swift in Sources */,
-				5688E2832733C8460077603B /* PlantDetailViewModel.swift in Sources */,
+				5688E2832733C8460077603B /* (null) in Sources */,
 				84816DAE272FDB9400323D13 /* Warna.swift in Sources */,
 				BF5D9202273EB92F00AF65F9 /* KeyboardHeightHelper.swift in Sources */,
 				B8E044A9273916B900BD8841 /* StringConvert.swift in Sources */,
@@ -438,10 +429,10 @@
 				B80A9927273BC23300F2ED45 /* StatusTanaman.swift in Sources */,
 				B8BC16472726CA0300F5538E /* macro.xcdatamodeld in Sources */,
 				B8BC16442726CA0300F5538E /* Persistence.swift in Sources */,
+				B8A37A14274396B4003B144E /* DeviceDetail.swift in Sources */,
 				B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */,
 				56AF839727312BE9005C2E06 /* PlantDetailPage.swift in Sources */,
 				B88E47DE272FE12300BDE109 /* CardDevice.swift in Sources */,
-				E005EAF6273A77DA0014553C /* DeviceDetail.swift in Sources */,
 				BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */,
 				B80A9925273AE61D00F2ED45 /* firebaseHelper.swift in Sources */,
 				B88E47FE273123E000BDE109 /* DeviceDetailModal.swift in Sources */,
@@ -574,14 +565,13 @@
 		};
 		B8BC164B2726CA0300F5538E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76E784B6E4B974D89323F189 /* Pods-macro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"macro/Preview Content\"";
-                DEVELOPMENT_TEAM = FYAQ2W36J9;
+				DEVELOPMENT_TEAM = FYAQ2W36J9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = macro/Info.plist;
