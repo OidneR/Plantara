@@ -25,12 +25,26 @@ struct DeviceDetailPage: View {
                 .animation(nil, value: valueAnimation)
             
             VStack(alignment: .leading){
-                Text("Bayam Hijau")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.leading, 24)
-                    .padding(.top, 24)
+                
+                HStack{
+                    Text("Bayam Hijau")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding(.leading, 24)
+                        .padding(.top, 24)
+                        .animation(nil, value: valueAnimation)
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: PlantDetailPage()) {
+                        Text("Lihat Detail")
+                            .foregroundColor(Warna.Secondary)
+                            .font(.system(size: 16))
+                            .padding(.top, 24)
+                            .padding(.trailing, 24)
+                    }
                     .animation(nil, value: valueAnimation)
+                }
                 
                 ScrollView (showsIndicators: false){
                     VStack (alignment: .leading){
