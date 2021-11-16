@@ -26,8 +26,8 @@ struct PlantDetailPage: View {
 struct PlantDetail_Top: View {
     @State var valueCircle: Double = 100
     @State var valueProgressBar: Double = 60
+    @State var valueAnimasi = false
     var jenisTanaman: String = ""
-    
     
     var body: some View {
         let dataTanaman = PlantType(rawValue: jenisTanaman)?.getDataTanaman()
@@ -41,6 +41,12 @@ struct PlantDetail_Top: View {
                     .frame(width: 164, height: 164)
                     .padding(.leading, 20)
                     .padding(.trailing, 10)
+                    .onAppear {
+                        withAnimation(.easeIn(duration: 2)){
+                            valueAnimasi = true
+                        }
+                    }
+                    .animation(nil, value: valueAnimasi)
                 VStack (alignment: .leading){
                     
                     /* SUHU */
@@ -90,7 +96,9 @@ struct PlantDetail_Top: View {
                                 .font(.custom("Lato", size: 14))
                         }
                     }
-                }.padding(.trailing, 10)
+                }
+                .padding(.trailing, 10)
+                .animation(nil, value: valueAnimasi)
             }
             
             /* DESKRIPSI, PANDUAN PERAWATAN, DAN TIPS */
@@ -157,6 +165,7 @@ struct PlantDetail_Top: View {
             .background(RoundedRectangle(cornerRadius: 25)
                             .fill(Color.white)
                             .ignoresSafeArea())
+            .animation(nil, value: valueAnimasi)
         }
     }
 }
