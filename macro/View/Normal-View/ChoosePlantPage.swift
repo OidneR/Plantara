@@ -13,15 +13,14 @@ struct ChoosePlantPage: View {
     @State var Grid : [Int] = []
     @State var namaTanaman: String = ""
     
-//    init() {
-//        UINavigationBar.appearance().backgroundColor = UIColor(.white)
-//    }
-    
     var body: some View {
             if #available(iOS 15.0, *) {
                 VStack{
                     VStack{
                         customSearchBar(keyword: $keyword)
+                            .padding(.horizontal, 20)
+                            .padding(.top, 10)
+                        
                         CardView(viewModel: $viewModel.result, Grid: $Grid)
                     }
                     .onAppear{

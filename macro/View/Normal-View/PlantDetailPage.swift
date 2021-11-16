@@ -8,6 +8,7 @@ import SwiftUI
 
 struct PlantDetailPage: View {
     var jenisTanaman: String = ""
+    var detailDevice: Bool = false
     
     var body: some View {
         ZStack {
@@ -15,7 +16,7 @@ struct PlantDetailPage: View {
                 .fill(Color("PrimaryColor"))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
-            PlantDetail_Top(jenisTanaman: jenisTanaman)
+            PlantDetail_Top(jenisTanaman: jenisTanaman, detailDevice: detailDevice)
         }
         .navigationBarTitle("\(jenisTanaman)")
         .navigationBarTitleDisplayMode(.inline)
@@ -28,6 +29,7 @@ struct PlantDetail_Top: View {
     @State var valueProgressBar: Double = 60
     @State var valueAnimasi = false
     var jenisTanaman: String = ""
+    var detailDevice: Bool?
     
     var body: some View {
         let dataTanaman = PlantType(rawValue: jenisTanaman)?.getDataTanaman()
@@ -152,14 +154,16 @@ struct PlantDetail_Top: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: SetupDevice(passItem: jenisTanaman)) {
-                    Text("Tambah Tanaman")
-                        .frame(maxWidth: .infinity ,maxHeight: 50)
-                        .foregroundColor(Color.white)
-                        .font(.system(size: 20 ,weight: .regular))
-                        .background(RoundedRectangle(cornerRadius: 10)
-                                        .fill(Warna.Secondary))
-                        .padding(.horizontal, 20)
+                if detailDevice == false{
+                    NavigationLink(destination: SetupDevice(passItem: jenisTanaman)) {
+                        Text("Tambah Tanaman")
+                            .frame(maxWidth: .infinity ,maxHeight: 50)
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 20 ,weight: .regular))
+                            .background(RoundedRectangle(cornerRadius: 10)
+                                            .fill(Warna.Secondary))
+                            .padding(.horizontal, 20)
+                    }
                 }
             }
             .background(RoundedRectangle(cornerRadius: 25)

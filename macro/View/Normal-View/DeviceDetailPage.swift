@@ -15,8 +15,12 @@ struct DeviceDetailPage: View {
     
     @State var valueAnimation = true
     @Binding var statusTanaman: StatusTanaman
+    let jenisTanaman: String = "Bayam"
     
     var body: some View {
+        let dataTanaman = PlantType(rawValue: jenisTanaman)?.getDataTanaman()
+        let dataKebutuhanTanaman = KebutuhanTanamanViewModel().getKebutuhanTanaman(jenisTanaman: jenisTanaman)
+        
         VStack (alignment: .leading) {
             
             Image("biji")
@@ -36,7 +40,7 @@ struct DeviceDetailPage: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: PlantDetailPage()) {
+                    NavigationLink(destination: PlantDetailPage(jenisTanaman: jenisTanaman, detailDevice: true)) {
                         Text("Lihat Detail")
                             .foregroundColor(Warna.Secondary)
                             .font(.system(size: 16))
@@ -67,16 +71,22 @@ struct DeviceDetailPage: View {
                             VStack (alignment: .leading) {
                                 Text("Suhu")
                                     .bold()
-                                Text("Ideal: 20 C")
+                                Text("Ideal: \(dataKebutuhanTanaman.kebutuhanSuhu)")
                                 HStack {
                                     Image(systemName: "exclamationmark.circle")
                                         .foregroundColor(Color.red)
-                                    Text("Please keep watering your plant everyday")
-                                        .foregroundColor(Color.red)
-                                        .font(.system(size: 14))
-                                        .padding(.trailing, 20)
+                                    if Int(valueProgressBarSuhu) < dataTanaman?.minSuhu ?? 0 || Int(valueProgressBarSuhu) > dataTanaman?.maxSuhu ?? 0{
+                                        Text("Please keep watering your plant everyday")
+                                            .foregroundColor(Warna.TextWarning)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }else{
+                                        Text("Oke")
+                                            .foregroundColor(Warna.TextSafe)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }
                                 }
-                                
                                 .foregroundColor(Color.red)
                             }
                             
@@ -96,14 +106,21 @@ struct DeviceDetailPage: View {
                             VStack (alignment: .leading) {
                                 Text("Sinar Matahari")
                                     .bold()
-                                Text("Ideal: 1200Lx")
+                                Text("Ideal: \(dataKebutuhanTanaman.kebutuhanSun)")
                                 HStack {
                                     Image(systemName: "exclamationmark.circle")
                                         .foregroundColor(Color.red)
-                                    Text("Your plant isn't in the right place")
-                                        .foregroundColor(Color.red)
-                                        .font(.system(size: 14))
-                                        .padding(.trailing, 20)
+                                    if Int(valueProgressBarSinar) < dataTanaman?.minSun ?? 0 || Int(valueProgressBarSinar) > dataTanaman?.maxSun ?? 0{
+                                        Text("Your plant isn't in the right place")
+                                            .foregroundColor(Warna.TextWarning)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }else{
+                                        Text("Oke")
+                                            .foregroundColor(Warna.TextSafe)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }
                                 }
                             }
                             
@@ -128,14 +145,24 @@ struct DeviceDetailPage: View {
                             VStack (alignment: .leading) {
                                 Text("Kelembapan Tanah")
                                     .bold()
-                                Text("Ideal: 200 RH")
+                                Text("Ideal: \(dataKebutuhanTanaman.kebutuhanTanah)")
                                 HStack {
                                     Image(systemName: "exclamationmark.circle")
                                         .foregroundColor(Color.red)
-                                    Text("Please move your plant")
-                                        .foregroundColor(Color.red)
-                                        .font(.system(size: 14))
-                                        .padding(.trailing, 20)
+                                    
+                                    if Int(valueProgressBarTanah) < dataTanaman?.minKelembabanTanah ?? 0 || Int(valueProgressBarTanah) > dataTanaman?.maxKelembabanTanah ?? 0{
+                                        Text("Please move your plant")
+                                            .foregroundColor(Warna.TextWarning)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                            .animation(nil, value: valueAnimation)
+                                    }else{
+                                        Text("oke deh")
+                                            .foregroundColor(Warna.TextSafe)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                            .animation(nil, value: valueAnimation)
+                                    }
                                 }
                             }
                         }.padding(.top, 20)
@@ -158,14 +185,21 @@ struct DeviceDetailPage: View {
                             VStack (alignment: .leading) {
                                 Text("Kelembapan Udara")
                                     .bold()
-                                Text("Ideal: 200 RH")
+                                Text("Ideal: \(dataKebutuhanTanaman.kebutuhanUdara)")
                                 HStack {
                                     Image(systemName: "exclamationmark.circle")
                                         .foregroundColor(Color.red)
-                                    Text("Your plant isn't in the right place")
-                                        .foregroundColor(Color.red)
-                                        .font(.system(size: 14))
-                                        .padding(.trailing, 20)
+                                    if Int(valueProgressBarUdara) < dataTanaman?.minKelembabanUdara ?? 0 || Int(valueProgressBarUdara) > dataTanaman?.maxKelembabanUdara ?? 0{
+                                        Text("Your plant isn't in the right place")
+                                            .foregroundColor(Warna.TextWarning)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }else{
+                                        Text("Oke")
+                                            .foregroundColor(Warna.TextSafe)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }
                                 }
                                 .foregroundColor(Color.red)
                             }
