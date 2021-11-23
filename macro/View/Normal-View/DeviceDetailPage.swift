@@ -7,23 +7,20 @@
 
 import SwiftUI
 
-struct DeviceDetailPage_Previews:PreviewProvider {
-    static var previews: some View {
-        DeviceDetailPage()
-    }
-}
-
-extension View {
-    func withoutAnimation() -> some View {
-        self.animation(nil, value: 0)
-    }
-}
-
 struct DeviceDetailPage: View {
-    @State var valueProgressBarSuhu: CGFloat = 10
+    @State var valueProgressBarSinar: Double = 0
+    @State var valueProgressBarSuhu: Double = 0
+    @State var valueProgressBarUdara: Double = 0
+    @State var valueProgressBarTanah: Double = 0
+    
     @State var valueAnimation = true
+    @Binding var statusTanaman: StatusTanaman
+    let jenisTanaman: String = "Bayam"
     
     var body: some View {
+        let dataTanaman = PlantType(rawValue: jenisTanaman)?.getDataTanaman()
+        let dataKebutuhanTanaman = KebutuhanTanamanViewModel().getKebutuhanTanaman(jenisTanaman: jenisTanaman)
+        
         VStack (alignment: .leading) {
             
             Image("biji")
@@ -32,40 +29,64 @@ struct DeviceDetailPage: View {
                 .animation(nil, value: valueAnimation)
             
             VStack(alignment: .leading){
-                Text("Bayam Hijau")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.leading, 24)
-                    .padding(.top, 24)
+                
+                HStack{
+                    Text("Bayam Hijau")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding(.leading, 24)
+                        .padding(.top, 24)
+                        .animation(nil, value: valueAnimation)
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: PlantDetailPage(jenisTanaman: jenisTanaman, detailDevice: true)) {
+                        Text("Lihat Detail")
+                            .foregroundColor(Warna.Secondary)
+                            .font(.system(size: 16))
+                            .padding(.top, 24)
+                            .padding(.trailing, 24)
+                    }
                     .animation(nil, value: valueAnimation)
+                }
                 
                 ScrollView (showsIndicators: false){
                     VStack (alignment: .leading){
                         HStack {
-                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .suhu, amount: 40, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .suhu, amount: $valueProgressBarSuhu, isCardView: false, diameter: 100)
                                 .frame(maxWidth: 100, maxHeight: 100)
                                 .padding(.trailing, 10)
                                 .onAppear {
                                     withAnimation(.easeIn(duration: 2)){
-                                        valueProgressBarSuhu = 140
+                                        valueProgressBarSuhu = statusTanaman.suhu
                                         valueAnimation = false
                                     }
                                 }
-                            
+                                .onChange(of: statusTanaman.suhu) { newValue in
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarSuhu = newValue
+                                    }
+                                }
                             
                             VStack (alignment: .leading) {
                                 Text("Suhu")
                                     .bold()
-                                Text("Ideal: 20 C")
+                                Text("Ideal: \(dataKebutuhanTanaman.kebutuhanSuhu)")
                                 HStack {
                                     Image(systemName: "exclamationmark.circle")
                                         .foregroundColor(Color.red)
-                                    Text("Please keep watering your plant everyday")
-                                        .foregroundColor(Color.red)
-                                        .font(.system(size: 14))
-                                        .padding(.trailing, 20)
+                                    if Int(valueProgressBarSuhu) < dataTanaman?.minSuhu ?? 0 || Int(valueProgressBarSuhu) > dataTanaman?.maxSuhu ?? 0{
+                                        Text("Please keep watering your plant everyday")
+                                            .foregroundColor(Warna.TextWarning)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }else{
+                                        Text("Oke")
+                                            .foregroundColor(Warna.TextSafe)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }
                                 }
-                                
                                 .foregroundColor(Color.red)
                             }
                             
@@ -73,21 +94,33 @@ struct DeviceDetailPage: View {
                         
                         
                         HStack {
-                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .sinar, amount: 40, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $valueProgressBarSinar, circularProgressBarStyle: .sinar, amount: $valueProgressBarSinar, isCardView: false, diameter: 100)
                                 .frame(width: 100, height: 100)
                                 .padding(.trailing, 10)
+                                .onAppear {
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarSinar = 80
+                                    }
+                                }
                             
                             VStack (alignment: .leading) {
                                 Text("Sinar Matahari")
                                     .bold()
-                                Text("Ideal: 1200Lx")
+                                Text("Ideal: \(dataKebutuhanTanaman.kebutuhanSun)")
                                 HStack {
                                     Image(systemName: "exclamationmark.circle")
                                         .foregroundColor(Color.red)
-                                    Text("Your plant isn't in the right place")
-                                        .foregroundColor(Color.red)
-                                        .font(.system(size: 14))
-                                        .padding(.trailing, 20)
+                                    if Int(valueProgressBarSinar) < dataTanaman?.minSun ?? 0 || Int(valueProgressBarSinar) > dataTanaman?.maxSun ?? 0{
+                                        Text("Your plant isn't in the right place")
+                                            .foregroundColor(Warna.TextWarning)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }else{
+                                        Text("Oke")
+                                            .foregroundColor(Warna.TextSafe)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }
                                 }
                             }
                             
@@ -95,41 +128,78 @@ struct DeviceDetailPage: View {
                         
                         
                         HStack {
-                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .tanah, amount: 40, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $valueProgressBarTanah, circularProgressBarStyle: .tanah, amount: $valueProgressBarTanah, isCardView: false, diameter: 100)
                                 .frame(width: 100, height: 100)
                                 .padding(.trailing, 10)
+                                .onAppear {
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarTanah = statusTanaman.kelembabanTanah
+                                    }
+                                }
+                                .onChange(of: statusTanaman.kelembabanTanah) { newValue in
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarTanah = newValue
+                                    }
+                                }
                             
                             VStack (alignment: .leading) {
                                 Text("Kelembapan Tanah")
                                     .bold()
-                                Text("Ideal: 200 RH")
+                                Text("Ideal: \(dataKebutuhanTanaman.kebutuhanTanah)")
                                 HStack {
                                     Image(systemName: "exclamationmark.circle")
                                         .foregroundColor(Color.red)
-                                    Text("Please move your plant")
-                                        .foregroundColor(Color.red)
-                                        .font(.system(size: 14))
-                                        .padding(.trailing, 20)
+                                    
+                                    if Int(valueProgressBarTanah) < dataTanaman?.minKelembabanTanah ?? 0 || Int(valueProgressBarTanah) > dataTanaman?.maxKelembabanTanah ?? 0{
+                                        Text("Please move your plant")
+                                            .foregroundColor(Warna.TextWarning)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                            .animation(nil, value: valueAnimation)
+                                    }else{
+                                        Text("oke deh")
+                                            .foregroundColor(Warna.TextSafe)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                            .animation(nil, value: valueAnimation)
+                                    }
                                 }
                             }
                         }.padding(.top, 20)
                         
                         HStack {
-                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .udara, amount: 40, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $valueProgressBarUdara, circularProgressBarStyle: .udara, amount: $valueProgressBarUdara, isCardView: false, diameter: 100)
                                 .frame(width: 100, height: 100)
                                 .padding(.trailing, 10)
+                                .onAppear {
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarUdara = statusTanaman.kelembabanUdara
+                                    }
+                                }
+                                .onChange(of: statusTanaman.kelembabanUdara) { newValue in
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarUdara = newValue
+                                    }
+                                }
                             
                             VStack (alignment: .leading) {
                                 Text("Kelembapan Udara")
                                     .bold()
-                                Text("Ideal: 200 RH")
+                                Text("Ideal: \(dataKebutuhanTanaman.kebutuhanUdara)")
                                 HStack {
                                     Image(systemName: "exclamationmark.circle")
                                         .foregroundColor(Color.red)
-                                    Text("Your plant isn't in the right place")
-                                        .foregroundColor(Color.red)
-                                        .font(.system(size: 14))
-                                        .padding(.trailing, 20)
+                                    if Int(valueProgressBarUdara) < dataTanaman?.minKelembabanUdara ?? 0 || Int(valueProgressBarUdara) > dataTanaman?.maxKelembabanUdara ?? 0{
+                                        Text("Your plant isn't in the right place")
+                                            .foregroundColor(Warna.TextWarning)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }else{
+                                        Text("Oke")
+                                            .foregroundColor(Warna.TextSafe)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }
                                 }
                                 .foregroundColor(Color.red)
                             }
@@ -161,3 +231,9 @@ struct DeviceDetailPage: View {
         }
     }
 }
+
+//struct DeviceDetailPage_Previews:PreviewProvider {
+//    static var previews: some View {
+//        DeviceDetailPage()
+//    }
+//}

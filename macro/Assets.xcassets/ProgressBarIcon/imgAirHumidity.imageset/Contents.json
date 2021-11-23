@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "imgAirHumidity.png",
+      "filename" : "Humidity.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "AirHumidity2x.png",
+      "filename" : "Humidity@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "AirHumidity3x.png",
+      "filename" : "Humidity@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

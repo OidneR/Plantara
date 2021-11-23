@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DeviceDetail: View {
-    @State var valueProgressBar: CGFloat = 80
+    @State var valueProgressBar: Double = 80
     
     @State var showPengaturan: Bool = false
     
@@ -56,22 +56,22 @@ struct DeviceDetail: View {
                                 
                                 HStack (spacing: 40){
                                     VStack{
-                                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .suhu, amount: 40, isCardView: true, diameter: 100)
+                                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .suhu, amount: $valueProgressBar, isCardView: true, diameter: 100)
                                         ReusableDescriptionProgressBar(titleProgressBar: "Suhu", normalProgressBar: "22C", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextSafe)
                                     }
                                     
                                     VStack{
-                                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .tanah, amount: 40, isCardView: true, diameter: 100)
+                                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .tanah, amount: $valueProgressBar, isCardView: true, diameter: 100)
                                         ReusableDescriptionProgressBar(titleProgressBar: "Kelembapan Tanah", normalProgressBar: "200 RH", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextSafe)
                                     }
                                     
                                     VStack{
-                                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: 40, isCardView: true, diameter: 100)
+                                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: $valueProgressBar, isCardView: true, diameter: 100)
                                         ReusableDescriptionProgressBar(titleProgressBar: "Sinar Matahari", normalProgressBar: "370 Lumens", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextWarning)
                                     }
                                     
                                     VStack{
-                                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .udara, amount: 40, isCardView: true, diameter: 100)
+                                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .udara, amount: $valueProgressBar, isCardView: true, diameter: 100)
                                         ReusableDescriptionProgressBar(titleProgressBar: "Kelembapan Udara", normalProgressBar: "200 RH", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextWarning)
                                     }
                                 }
