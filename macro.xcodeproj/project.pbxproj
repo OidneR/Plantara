@@ -35,6 +35,7 @@
 		B88E47FB272FE6F900BDE109 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B88E47F1272FE6F900BDE109 /* Lato-Regular.ttf */; };
 		B88E47FE273123E000BDE109 /* DeviceDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47FD273123E000BDE109 /* DeviceDetailModal.swift */; };
 		B88E48042733D2CC00BDE109 /* customSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E48032733D2CC00BDE109 /* customSearchBar.swift */; };
+		B8A37A4527478E7D003B144E /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A37A4427478E7D003B144E /* NotificationHelper.swift */; };
 		B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC163A2726CA0200F5538E /* macroApp.swift */; };
 		B8BC163F2726CA0300F5538E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BC163E2726CA0300F5538E /* Assets.xcassets */; };
 		B8BC16422726CA0300F5538E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BC16412726CA0300F5538E /* Preview Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		B88E47FC272FE79300BDE109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B88E47FD273123E000BDE109 /* DeviceDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailModal.swift; sourceTree = "<group>"; };
 		B88E48032733D2CC00BDE109 /* customSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customSearchBar.swift; sourceTree = "<group>"; };
+		B8A37A4427478E7D003B144E /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		B8BC16372726CA0200F5538E /* macro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BC163A2726CA0200F5538E /* macroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macroApp.swift; sourceTree = "<group>"; };
 		B8BC163E2726CA0300F5538E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				BF5D9201273EB92F00AF65F9 /* KeyboardHeightHelper.swift */,
 				B8E044A8273916B900BD8841 /* StringConvert.swift */,
 				B80A9924273AE61D00F2ED45 /* firebaseHelper.swift */,
+				B8A37A4427478E7D003B144E /* NotificationHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */,
 				56AF839727312BE9005C2E06 /* PlantDetailPage.swift in Sources */,
 				B88E47DE272FE12300BDE109 /* CardDevice.swift in Sources */,
+				B8A37A4527478E7D003B144E /* NotificationHelper.swift in Sources */,
 				E005EAF6273A77DA0014553C /* DeviceDetail.swift in Sources */,
 				BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */,
 				B80A9925273AE61D00F2ED45 /* firebaseHelper.swift in Sources */,
