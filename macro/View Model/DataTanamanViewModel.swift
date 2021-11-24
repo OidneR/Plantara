@@ -26,7 +26,7 @@ enum PlantType: String, CaseIterable{
                 difficultyTanaman: "Easy",
                 harvestTime: "20-21 hari",
                 minSuhu: 16, maxSuhu: 20,
-                minSun: 3, maxSun: 4,
+                minSun: 10, maxSun: 20,
                 minKelembabanTanah: 40, maxKelembabanTanah: 60,
                 minKelembabanUdara: 40, maxKelembabanUdara: 60,
                 desc: "Bayam adalah tumbuhan yang biasa ditanam untuk dikonsumsi daunnya sebagai sayuran hijau. Tumbuhan ini dikenal sebagai sayuran sumber zat besi yang penting bagi tubuh.",

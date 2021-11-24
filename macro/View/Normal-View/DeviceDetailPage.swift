@@ -99,7 +99,12 @@ struct DeviceDetailPage: View {
                                 .padding(.trailing, 10)
                                 .onAppear {
                                     withAnimation(.easeIn(duration: 2)){
-                                        valueProgressBarSinar = 80
+                                        valueProgressBarSinar = statusTanaman.sun
+                                    }
+                                }
+                                .onChange(of: statusTanaman.sun) { newValue in
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarSinar = newValue
                                     }
                                 }
                             

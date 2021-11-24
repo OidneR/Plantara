@@ -5,7 +5,7 @@ struct CardDevice: View {
     @Binding var statusTanaman: StatusTanaman
     @State var deviceName = "Device Bayam 1"
     @State var jenisTanaman = "Bayem lah ya"
-    @State var valueProgressBar: Double = 70
+    @State var valueProgressBar: Double = 0
     
     var body: some View {
         NavigationLink(destination: DeviceDetailPage(statusTanaman: $statusTanaman)) {
@@ -63,7 +63,7 @@ struct CardDevice: View {
                     //INI BAGIAN KIRI (CAHAYA SAMA AIR)
                     VStack (alignment: .leading){
                         HStack{
-                            CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: $valueProgressBar, isCardView: true, diameter: 25)
+                            CircularProgressBar(percentage: $statusTanaman.sun, circularProgressBarStyle: .sinar, amount: $valueProgressBar, isCardView: true, diameter: 25)
                             
                             VStack (alignment: .leading){
                                 Text("Sinar Matahari")
