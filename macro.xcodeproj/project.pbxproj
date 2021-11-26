@@ -43,6 +43,11 @@
 		B8BC16422726CA0300F5538E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BC16412726CA0300F5538E /* Preview Assets.xcassets */; };
 		B8BC16442726CA0300F5538E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC16432726CA0300F5538E /* Persistence.swift */; };
 		B8BC16472726CA0300F5538E /* macro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8BC16452726CA0300F5538E /* macro.xcdatamodeld */; };
+		B8D26865274CF94900E6F322 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D26864274CF94900E6F322 /* MainPageViewModel.swift */; };
+		B8D2686B274CFD0900E6F322 /* DataFromCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2686A274CFD0900E6F322 /* DataFromCoreData.swift */; };
+		B8D2686D274D6CB400E6F322 /* SetupDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2686C274D6CB400E6F322 /* SetupDeviceViewModel.swift */; };
+		B8D2686F274D7E7400E6F322 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2686E274D7E7400E6F322 /* WeatherAPI.swift */; };
+		B8D26873274E280500E6F322 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D26872274E280500E6F322 /* NotificationHelper.swift */; };
 		B8E044A9273916B900BD8841 /* StringConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E044A8273916B900BD8841 /* StringConvert.swift */; };
 		B8E044AB27391A9700BD8841 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */; };
 		BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF599600272AAA2500429D5D /* DeviceSettings.swift */; };
@@ -90,6 +95,11 @@
 		B8BC16412726CA0300F5538E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8BC16432726CA0300F5538E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B8BC16462726CA0300F5538E /* macro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = macro.xcdatamodel; sourceTree = "<group>"; };
+		B8D26864274CF94900E6F322 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
+		B8D2686A274CFD0900E6F322 /* DataFromCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFromCoreData.swift; sourceTree = "<group>"; };
+		B8D2686C274D6CB400E6F322 /* SetupDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupDeviceViewModel.swift; sourceTree = "<group>"; };
+		B8D2686E274D7E7400E6F322 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
+		B8D26872274E280500E6F322 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationHelper.swift; path = ../../../../Downloads/NotificationHelper.swift; sourceTree = "<group>"; };
 		B8E044A8273916B900BD8841 /* StringConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringConvert.swift; path = macro/View/Reusable/StringConvert.swift; sourceTree = SOURCE_ROOT; };
 		B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF599600272AAA2500429D5D /* DeviceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSettings.swift; sourceTree = "<group>"; };
@@ -143,6 +153,8 @@
 			children = (
 				84CBFD5D272948B100448758 /* ChoosePlantViewModel.swift */,
 				E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */,
+				B8D26864274CF94900E6F322 /* MainPageViewModel.swift */,
+				B8D2686C274D6CB400E6F322 /* SetupDeviceViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -163,6 +175,9 @@
 				BF5D9201273EB92F00AF65F9 /* KeyboardHeightHelper.swift */,
 				B8E044A8273916B900BD8841 /* StringConvert.swift */,
 				B80A9924273AE61D00F2ED45 /* firebaseHelper.swift */,
+				B8D26872274E280500E6F322 /* NotificationHelper.swift */,
+				B8D2686A274CFD0900E6F322 /* DataFromCoreData.swift */,
+				B8D2686E274D7E7400E6F322 /* WeatherAPI.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -410,6 +425,8 @@
 				B8A37A322743A414003B144E /* ChoosePlantIpad.swift in Sources */,
 				84CBFD5227281D7900448758 /* CardViewReusable.swift in Sources */,
 				5688E2832733C8460077603B /* (null) in Sources */,
+				B8D2686B274CFD0900E6F322 /* DataFromCoreData.swift in Sources */,
+				B8D26865274CF94900E6F322 /* MainPageViewModel.swift in Sources */,
 				84816DAE272FDB9400323D13 /* Warna.swift in Sources */,
 				BF5D9202273EB92F00AF65F9 /* KeyboardHeightHelper.swift in Sources */,
 				B8E044A9273916B900BD8841 /* StringConvert.swift in Sources */,
@@ -418,12 +435,14 @@
 				B88E47E2272FE13D00BDE109 /* DeviceDetailPage.swift in Sources */,
 				84CBFD5E272948B100448758 /* ChoosePlantViewModel.swift in Sources */,
 				B88E47E4272FE14B00BDE109 /* MainPage.swift in Sources */,
+				B8D2686F274D7E7400E6F322 /* WeatherAPI.swift in Sources */,
 				84CBFD542729302000448758 /* ListDetailTanaman.swift in Sources */,
 				B80A9927273BC23300F2ED45 /* StatusTanaman.swift in Sources */,
 				B8A37A362743A461003B144E /* GridViewIpad.swift in Sources */,
 				B8BC16472726CA0300F5538E /* macro.xcdatamodeld in Sources */,
 				B8BC16442726CA0300F5538E /* Persistence.swift in Sources */,
 				B8A37A312743A414003B144E /* DeviceDetail.swift in Sources */,
+				B8D26873274E280500E6F322 /* NotificationHelper.swift in Sources */,
 				B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */,
 				56AF839727312BE9005C2E06 /* PlantDetailPage.swift in Sources */,
 				B88E47DE272FE12300BDE109 /* CardDevice.swift in Sources */,
@@ -434,6 +453,7 @@
 				B88E47E6272FE14E00BDE109 /* SetupDevice.swift in Sources */,
 				B88E48042733D2CC00BDE109 /* customSearchBar.swift in Sources */,
 				84CBFD5C2729481400448758 /* ChoosePlantPage.swift in Sources */,
+				B8D2686D274D6CB400E6F322 /* SetupDeviceViewModel.swift in Sources */,
 				B88E47E0272FE12800BDE109 /* CircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DeviceData" representedClassName="DeviceData" syncable="YES" codeGenerationType="class">
+        <attribute name="allowNotif" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="allowNotifAir" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="allowNotifSoil" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="allowNotifSun" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="allowNotifTemp" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="lokasiTanaman" optional="YES" attributeType="String"/>
         <attribute name="namaDevice" optional="YES" attributeType="String"/>
         <attribute name="namaTanaman" optional="YES" attributeType="String"/>
         <attribute name="tanggalMenanam" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="DeviceData" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="DeviceData" positionX="-63" positionY="-18" width="128" height="164"/>
     </elements>
 </model>

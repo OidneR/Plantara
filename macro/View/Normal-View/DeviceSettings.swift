@@ -15,7 +15,7 @@ struct DeviceSettings: View {
     @State var plantLocation: String = ""
     
     @State var plantAgeSelection = 0
-    var plantAge = ["1", "2", "3"]
+    var plantAge: Int = 0
     
     @State var plantNameSelection = "Kangkung"
     var plantNames = ["Bayam", "Kangkung", "Melon"]

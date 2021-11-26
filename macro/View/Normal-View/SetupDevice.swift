@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct SetupDevice: View {
-    @State var deviceName: String = ""
-    @State var lokasiTanaman: String = ""
-    @State var selectedDate = Date()
+
+    let context = PersistenceController.shared.container.viewContext
+    @StateObject var viewModel = SetupDeviceViewModel()
     var passItem: String
+    
     
     var body: some View {
         VStack{
@@ -19,7 +20,7 @@ struct SetupDevice: View {
                 Section(){
                     HStack{
                         Text("Nama Perangkat")
-                        TextField("Device \(passItem)", text: $deviceName)
+                        TextField("Device \(passItem)", text: $viewModel.deviceName)
                             .multilineTextAlignment(.trailing)
                     }
                     
@@ -33,12 +34,12 @@ struct SetupDevice: View {
                 Section(){
                     HStack{
                         Text("Lokasi Tanaman")
-                        TextField("Your Location", text: $lokasiTanaman)
+                        TextField("Your Location", text: $viewModel.lokasiTanaman)
                             .multilineTextAlignment(.trailing)
                     }
                     
                     if #available(iOS 15, *) {
-                        DatePicker("Tanggal Menanam", selection: $selectedDate, in: Date.distantPast...Date.now, displayedComponents: .date)
+                        DatePicker("Tanggal Menanam", selection: $viewModel.selectedDate, in: Date.distantPast...Date.now, displayedComponents: .date)
                     } else {
                         // Fallback on earlier versions
                     }
@@ -50,23 +51,24 @@ struct SetupDevice: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        
+                        viewModel.jenisTanaman = passItem
+                        viewModel.saveData()
                     } label: {
                         Text("Selesai")
                     }
                     .foregroundColor(toolbarButtonColor)
-                    .disabled(self.deviceName.isEmpty || self.lokasiTanaman.isEmpty)
+                    .disabled(viewModel.deviceName.isEmpty || viewModel.lokasiTanaman.isEmpty)
                 }
             }
         }
     }
     
     var deviceNameValid: Bool{
-        return !deviceName.isEmpty
+        return !viewModel.deviceName.isEmpty
     }
     
     var lokasiTanamanValid: Bool{
-        return !lokasiTanaman.isEmpty
+        return !viewModel.lokasiTanaman.isEmpty
     }
     
     var toolbarButtonColor: Color{
