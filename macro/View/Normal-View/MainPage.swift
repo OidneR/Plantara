@@ -6,15 +6,37 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct MainPage: View {
-    @State var plantStatus: StatusTanaman = firebaseHelper.syncData()
+    @StateObject var firebaseHelper: firebaseHelper
+    @Binding var plantStatus: StatusTanaman
+    var weatherAPI = WeatherAPI()
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(
+        entity: DeviceData.entity(),
+        sortDescriptors: [
+            //NSSortDescriptor(keyPath: \DeviceData.tanggalMenanam, ascending: true)
+        ]
+    )var dataFatched: FetchedResults<DeviceData>
     
+    
+   
     var body: some View {
         NavigationView{
             ZStack{
                 ScrollView{
-                    CardDevice()
+                    if(dataFatched.count == 0){
+                        Text("nil")
+                    }else{
+                        LazyVStack{
+                            ForEach(dataFatched){_ in
+                                CardDevice(statusTanaman: $plantStatus)
+                            }
+                        }
+                        
+                    }
+                    
                 }
                 .animation(nil)
                 
@@ -30,17 +52,13 @@ struct MainPage: View {
                             .padding(.horizontal, 20))
                             .animation(nil)
                     }
-                    
                 }
             }
             .navigationTitle("Semua Perangkat")
+            .onChange(of: plantStatus.suhu, perform: { newValue in
+                print(newValue)
+            })
         }
         .accentColor(Warna.Secondary)
-    }
-}
-
-struct MainPage_Previews: PreviewProvider {
-    static var previews: some View {
-        MainPage()
     }
 }

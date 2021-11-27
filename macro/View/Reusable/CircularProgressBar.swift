@@ -11,23 +11,29 @@
 import SwiftUI
 
 struct CircularProgressBar: View {
-    @Binding var percentage: CGFloat
+    @Binding var percentage: Double
     @State var circularProgressBarStyle: progressBarStyle
-    @State var amount: Double
+    @Binding var amount: Double
     @State var isCardView: Bool
-    @State var overPersentage: CGFloat = 0
+    @State var overPersentage: Double = 0
     @State var diameter: Double
     let scheduleNotif = NotificationHelper()
+    @State var valueAnimation = true
     
     var body: some View {
         ZStack {
             Background(color: Warna.primary, isCardView: isCardView, diameter: $diameter)
+                .onAppear {
+                    withAnimation (.easeIn(duration: 2)){
+                        valueAnimation = false
+                    }
+                }
             
             switch circularProgressBarStyle {
             case .suhu:
-                Label(amount: "\(amount)", icon: "imgTemperature", diameter: $diameter,isCardView: $isCardView)
+                Label(amount: "\(amount)°C", icon: "imgTemperature", diameter: $diameter,isCardView: $isCardView)
+                    .animation(nil, value: valueAnimation)
                 Outline(percentage: $percentage, color: Warna.TempNormal, diameter: $diameter)
-                    //.animation(.easeIn(duration: 2))
                 if(percentage>100){
                     OverOutline(percentage: $overPersentage, color: Warna.TempOver, diameter: $diameter)
                         .onAppear {
@@ -38,9 +44,9 @@ struct CircularProgressBar: View {
                 }
                 
             case .sinar:
-                Label(amount: "\(amount)", icon: "imgSunlightMeter", diameter: $diameter,isCardView: $isCardView)
+                Label(amount: "\(amount)Lx", icon: "imgSunlightMeter", diameter: $diameter,isCardView: $isCardView)
+                    .animation(nil, value: valueAnimation)
                 Outline(percentage: $percentage, color: Warna.SunlightNormal, diameter: $diameter)
-                    //.animation(.easeIn(duration: 2))
                 if(percentage>100){
                     OverOutline(percentage: $overPersentage, color: Warna.SunlightOver, diameter: $diameter)
                         .onAppear {
@@ -51,9 +57,9 @@ struct CircularProgressBar: View {
                 }
                 
             case .tanah:
-                Label(amount: "\(amount)", icon: "imgSoilMoisture", diameter: $diameter,isCardView: $isCardView)
+                Label(amount: "\(amount)RH", icon: "imgSoilMoisture", diameter: $diameter,isCardView: $isCardView)
+                    .animation(nil, value: valueAnimation)
                 Outline(percentage: $percentage, color: Warna.SoilMoistNormal, diameter: $diameter)
-                    //.animation(.easeIn(duration: 2))
                 if(percentage>100){
                     OverOutline(percentage: $overPersentage, color: Warna.SoilMoistOver, diameter: $diameter)
                         .onAppear {
@@ -64,7 +70,8 @@ struct CircularProgressBar: View {
                 }
                 
             case .udara:
-                Label(amount: "\(amount)", icon: "imgAirHumidity", diameter: $diameter,isCardView: $isCardView)
+                Label(amount: "\(amount)RH", icon: "imgAirHumidity", diameter: $diameter,isCardView: $isCardView)
+                    .animation(nil, value: valueAnimation)
                 Outline(percentage: $percentage, color: Warna.AirHumidNormal, diameter: $diameter)
                 if(percentage>100){
                     OverOutline(percentage: $overPersentage, color: Warna.AirHumidOver, diameter: $diameter)
@@ -103,7 +110,7 @@ struct Background: View {
 }
 
 struct Label: View {
-    @State var amount: String
+    var amount: String
     @State var icon: String
     @Binding var diameter: Double
     @Binding var isCardView: Bool
@@ -112,17 +119,16 @@ struct Label: View {
             Image(icon)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(maxHeight: (45 * ( diameter / 105 )))
+                .frame(maxHeight: (45 * ( diameter / 115 )))
             if(!isCardView){
-                Text(amount).font(.system(size: 18))
+                Text(amount).font(.system(size: 15))
             }
-            
         }
     }
 }
 
 struct Outline: View {
-    @Binding var percentage: CGFloat
+    @Binding var percentage: Double
     @State var color: Color
     @Binding var diameter: Double
     var body: some View {
@@ -136,7 +142,7 @@ struct Outline: View {
 }
 
 struct OverOutline: View {
-    @Binding var percentage: CGFloat
+    @Binding var percentage: Double
     @State var color: Color
     @Binding var diameter: Double
     var body: some View {

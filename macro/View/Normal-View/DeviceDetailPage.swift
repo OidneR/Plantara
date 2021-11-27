@@ -7,21 +7,14 @@
 
 import SwiftUI
 
-struct DeviceDetailPage_Previews:PreviewProvider {
-    static var previews: some View {
-        DeviceDetailPage()
-    }
-}
-
-extension View {
-    func withoutAnimation() -> some View {
-        self.animation(nil, value: 0)
-    }
-}
-
 struct DeviceDetailPage: View {
-    @State var valueProgressBarSuhu: CGFloat = 10
+    @State var valueProgressBarSinar: Double = 0
+    @State var valueProgressBarSuhu: Double = 0
+    @State var valueProgressBarUdara: Double = 0
+    @State var valueProgressBarTanah: Double = 0
+    
     @State var valueAnimation = true
+    @Binding var statusTanaman: StatusTanaman
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -42,16 +35,20 @@ struct DeviceDetailPage: View {
                 ScrollView (showsIndicators: false){
                     VStack (alignment: .leading){
                         HStack {
-                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .suhu, amount: 40, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .suhu, amount: $valueProgressBarSuhu, isCardView: false, diameter: 100)
                                 .frame(maxWidth: 100, maxHeight: 100)
                                 .padding(.trailing, 10)
                                 .onAppear {
                                     withAnimation(.easeIn(duration: 2)){
-                                        valueProgressBarSuhu = 140
+                                        valueProgressBarSuhu = statusTanaman.suhu
                                         valueAnimation = false
                                     }
                                 }
-                            
+                                .onChange(of: statusTanaman.suhu) { newValue in
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarSuhu = newValue
+                                    }
+                                }
                             
                             VStack (alignment: .leading) {
                                 Text("Suhu")
@@ -73,9 +70,14 @@ struct DeviceDetailPage: View {
                         
                         
                         HStack {
-                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .sinar, amount: 40, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $valueProgressBarSinar, circularProgressBarStyle: .sinar, amount: $valueProgressBarSinar, isCardView: false, diameter: 100)
                                 .frame(width: 100, height: 100)
                                 .padding(.trailing, 10)
+                                .onAppear {
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarSinar = 80
+                                    }
+                                }
                             
                             VStack (alignment: .leading) {
                                 Text("Sinar Matahari")
@@ -95,9 +97,19 @@ struct DeviceDetailPage: View {
                         
                         
                         HStack {
-                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .tanah, amount: 40, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $valueProgressBarTanah, circularProgressBarStyle: .tanah, amount: $valueProgressBarTanah, isCardView: false, diameter: 100)
                                 .frame(width: 100, height: 100)
                                 .padding(.trailing, 10)
+                                .onAppear {
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarTanah = statusTanaman.kelembabanTanah
+                                    }
+                                }
+                                .onChange(of: statusTanaman.kelembabanTanah) { newValue in
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarTanah = newValue
+                                    }
+                                }
                             
                             VStack (alignment: .leading) {
                                 Text("Kelembapan Tanah")
@@ -115,9 +127,19 @@ struct DeviceDetailPage: View {
                         }.padding(.top, 20)
                         
                         HStack {
-                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .udara, amount: 40, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $valueProgressBarUdara, circularProgressBarStyle: .udara, amount: $valueProgressBarUdara, isCardView: false, diameter: 100)
                                 .frame(width: 100, height: 100)
                                 .padding(.trailing, 10)
+                                .onAppear {
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarUdara = statusTanaman.kelembabanUdara
+                                    }
+                                }
+                                .onChange(of: statusTanaman.kelembabanUdara) { newValue in
+                                    withAnimation(.easeIn(duration: 2)){
+                                        valueProgressBarUdara = newValue
+                                    }
+                                }
                             
                             VStack (alignment: .leading) {
                                 Text("Kelembapan Udara")
@@ -161,3 +183,9 @@ struct DeviceDetailPage: View {
         }
     }
 }
+
+//struct DeviceDetailPage_Previews:PreviewProvider {
+//    static var previews: some View {
+//        DeviceDetailPage()
+//    }
+//}

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChoosePlantPage: View {
     @State var viewModel: ChoosePlantViewModel = ChoosePlantViewModel()
-    @State var keyword:String = ""
+    @State var keyword: String = ""
     @State var Grid : [Int] = []
     @State var namaTanaman: String = ""
     
@@ -55,8 +55,8 @@ struct ChoosePlantPage: View {
 }
 
 
-struct ChoosePlantPage_Previews: PreviewProvider {
-    static var previews: some View {
-        ChoosePlantPage()
-    }
-}
+//struct ChoosePlantPage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ChoosePlantPage()
+//    }
+//}
