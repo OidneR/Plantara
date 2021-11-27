@@ -11,6 +11,7 @@ struct SetupDevice: View {
 
     let context = PersistenceController.shared.container.viewContext
     @StateObject var viewModel = SetupDeviceViewModel()
+    @AppStorage("BackToMain") var backtomain:Bool = false
     var passItem: String
     
     
@@ -53,6 +54,7 @@ struct SetupDevice: View {
                     Button {
                         viewModel.jenisTanaman = passItem
                         viewModel.saveData()
+                        backtomain = true
                     } label: {
                         Text("Selesai")
                     }
