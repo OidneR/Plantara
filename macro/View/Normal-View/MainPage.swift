@@ -25,20 +25,24 @@ struct MainPage: View {
     var body: some View {
         NavigationView{
             ZStack{
-                ScrollView{
-                    if(dataFatched.count == 0){
-                        Text("nil")
-                    }else{
+                if(dataFatched.count == 0){
+                    VStack(){
+                        Image("maskot_brown")
+                            .resizable()
+                            .frame(width: 125, height: 125)
+                        Text("Belum Ada Perangkat")
+                            .foregroundColor(Warna.Gray3)
+                    }.offset(y:-50)
+                }else{
+                    ScrollView{
                         LazyVStack{
-                            ForEach(dataFatched){_ in
-                                CardDevice(statusTanaman: $plantStatus)
+                            ForEach(0..<dataFatched.count){i in
+                                let deviceData = dataFatched[i]
+                                CardDevice(statusTanaman: $plantStatus,deviceData: deviceData, index: i)
                             }
                         }
-                        
                     }
-                    
-                }
-                .animation(nil)
+                }//.animation(nil)
                 
                 VStack{
                     Spacer()

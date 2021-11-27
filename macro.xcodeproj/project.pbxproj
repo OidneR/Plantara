@@ -35,10 +35,10 @@
 		B88E47FB272FE6F900BDE109 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B88E47F1272FE6F900BDE109 /* Lato-Regular.ttf */; };
 		B88E47FE273123E000BDE109 /* DeviceDetailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47FD273123E000BDE109 /* DeviceDetailModal.swift */; };
 		B88E48042733D2CC00BDE109 /* customSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E48032733D2CC00BDE109 /* customSearchBar.swift */; };
-		B8A37A4527478E7D003B144E /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A37A4427478E7D003B144E /* NotificationHelper.swift */; };
 		B8A37A312743A414003B144E /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A37A2E2743A414003B144E /* DeviceDetail.swift */; };
 		B8A37A322743A414003B144E /* ChoosePlantIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A37A2F2743A414003B144E /* ChoosePlantIpad.swift */; };
 		B8A37A362743A461003B144E /* GridViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A37A352743A461003B144E /* GridViewIpad.swift */; };
+		B8A37A4527478E7D003B144E /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A37A4427478E7D003B144E /* NotificationHelper.swift */; };
 		B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC163A2726CA0200F5538E /* macroApp.swift */; };
 		B8BC163F2726CA0300F5538E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BC163E2726CA0300F5538E /* Assets.xcassets */; };
 		B8BC16422726CA0300F5538E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BC16412726CA0300F5538E /* Preview Assets.xcassets */; };
@@ -48,7 +48,6 @@
 		B8D2686B274CFD0900E6F322 /* DataFromCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2686A274CFD0900E6F322 /* DataFromCoreData.swift */; };
 		B8D2686D274D6CB400E6F322 /* SetupDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2686C274D6CB400E6F322 /* SetupDeviceViewModel.swift */; };
 		B8D2686F274D7E7400E6F322 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2686E274D7E7400E6F322 /* WeatherAPI.swift */; };
-		B8D26873274E280500E6F322 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D26872274E280500E6F322 /* NotificationHelper.swift */; };
 		B8E044A9273916B900BD8841 /* StringConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E044A8273916B900BD8841 /* StringConvert.swift */; };
 		B8E044AB27391A9700BD8841 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */; };
 		BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF599600272AAA2500429D5D /* DeviceSettings.swift */; };
@@ -87,10 +86,10 @@
 		B88E47FC272FE79300BDE109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B88E47FD273123E000BDE109 /* DeviceDetailModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailModal.swift; sourceTree = "<group>"; };
 		B88E48032733D2CC00BDE109 /* customSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customSearchBar.swift; sourceTree = "<group>"; };
-		B8A37A4427478E7D003B144E /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		B8A37A2E2743A414003B144E /* DeviceDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetail.swift; sourceTree = "<group>"; };
 		B8A37A2F2743A414003B144E /* ChoosePlantIpad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePlantIpad.swift; sourceTree = "<group>"; };
 		B8A37A352743A461003B144E /* GridViewIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewIpad.swift; sourceTree = "<group>"; };
+		B8A37A4427478E7D003B144E /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		B8BC16372726CA0200F5538E /* macro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BC163A2726CA0200F5538E /* macroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macroApp.swift; sourceTree = "<group>"; };
 		B8BC163E2726CA0300F5538E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,7 +100,6 @@
 		B8D2686A274CFD0900E6F322 /* DataFromCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFromCoreData.swift; sourceTree = "<group>"; };
 		B8D2686C274D6CB400E6F322 /* SetupDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupDeviceViewModel.swift; sourceTree = "<group>"; };
 		B8D2686E274D7E7400E6F322 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
-		B8D26872274E280500E6F322 /* NotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationHelper.swift; path = ../../../../Downloads/NotificationHelper.swift; sourceTree = "<group>"; };
 		B8E044A8273916B900BD8841 /* StringConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringConvert.swift; path = macro/View/Reusable/StringConvert.swift; sourceTree = SOURCE_ROOT; };
 		B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF599600272AAA2500429D5D /* DeviceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSettings.swift; sourceTree = "<group>"; };
@@ -444,12 +442,10 @@
 				B8BC16472726CA0300F5538E /* macro.xcdatamodeld in Sources */,
 				B8BC16442726CA0300F5538E /* Persistence.swift in Sources */,
 				B8A37A312743A414003B144E /* DeviceDetail.swift in Sources */,
-				B8D26873274E280500E6F322 /* NotificationHelper.swift in Sources */,
 				B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */,
 				56AF839727312BE9005C2E06 /* PlantDetailPage.swift in Sources */,
 				B88E47DE272FE12300BDE109 /* CardDevice.swift in Sources */,
 				B8A37A4527478E7D003B144E /* NotificationHelper.swift in Sources */,
-				E005EAF6273A77DA0014553C /* DeviceDetail.swift in Sources */,
 				BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */,
 				B80A9925273AE61D00F2ED45 /* firebaseHelper.swift in Sources */,
 				B88E47FE273123E000BDE109 /* DeviceDetailModal.swift in Sources */,

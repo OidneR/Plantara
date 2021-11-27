@@ -3,6 +3,8 @@ import SwiftUI
 struct CardDevice: View {
     
     @Binding var statusTanaman: StatusTanaman
+    var deviceData: DeviceData
+    var index = 0
     @State var deviceName = "Device Bayam 1"
     @State var jenisTanaman = "Bayem lah ya"
     @State var valueProgressBar: Double = 70
@@ -14,7 +16,7 @@ struct CardDevice: View {
                 HStack{
                     //INI BAGIAN GAMBAR SAMA WARNINGNYA
                     ZStack (alignment: .topTrailing){
-                        Image(systemName: "plus.square.fill")
+                        Image(systemName: "")
                             .font(.system(size: 90))
                             .foregroundColor(Color.green)
                         Image(systemName: "sun.max")
@@ -23,11 +25,11 @@ struct CardDevice: View {
                     }
                     //INI BAGIAN DESKRIPSI DEVICE NYA
                     VStack (alignment: .leading){
-                        Text("\(deviceName)")
+                        Text(deviceData.namaDevice ?? "")
                             .font(.system(size: 20, weight: .semibold))
                             .foregroundColor(Color.black)
                             .frame(width: 230, height: 20, alignment: .leading)
-                        Text("\(jenisTanaman)")
+                        Text(deviceData.namaTanaman ?? "")
                             .font(.system(size: 14))
                             .foregroundColor(Color.black)
                             .frame(width: 200, height: 15, alignment: .leading)
@@ -37,7 +39,7 @@ struct CardDevice: View {
                             HStack (spacing: 1){
                                 Image(systemName: "mappin.and.ellipse")
                                     .foregroundColor(Color.black)
-                                Text("Ruang Tamu")
+                                Text(deviceData.lokasiTanaman ?? "")
                                     .font(.system(size: 12))
                                     .foregroundColor(Color.gray)
                                     .frame(width: 80, height: 10, alignment: .leading)
@@ -46,7 +48,7 @@ struct CardDevice: View {
                             HStack (spacing: 1){
                                 Image(systemName: "calendar")
                                     .foregroundColor(Color.black)
-                                Text("14 hari")
+                                Text("14 Hari")
                                     .font(.system(size: 12))
                                     .foregroundColor(Color.gray)
                                     .frame(width: 60, height: 10, alignment: .leading)
