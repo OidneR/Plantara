@@ -17,6 +17,7 @@ struct CircularProgressBar: View {
     @State var isCardView: Bool
     @State var overPersentage: CGFloat = 0
     @State var diameter: Double
+    let scheduleNotif = NotificationHelper()
     
     var body: some View {
         ZStack {
@@ -76,6 +77,11 @@ struct CircularProgressBar: View {
             }
         }.onTapGesture {
             percentage = percentage * -1
+            let content = UNMutableNotificationContent()
+            content.title = "Test Notif"
+            content.body = "Ini isi notif"
+            
+            self.scheduleNotif.scheduleNotification(content, sendAfter: 5)
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct DeviceSettings: View {
     
@@ -25,6 +26,12 @@ struct DeviceSettings: View {
     @State var allowTempNotif: Bool = true
     @State var allowSunNotif: Bool = true
     @State var allowAirNotif: Bool = true
+    
+    @State var isAllowed: Bool = false
+    @State var isNotDetermined: Bool = false
+    @State var isDenied: Bool = false
+    
+    @State var isPresented: Bool = false
     
     var body: some View {
         Form{
@@ -55,6 +62,30 @@ struct DeviceSettings: View {
             
             Section(){
                 Toggle("Allow Notification", isOn: $allowAllNotif.animation(.easeInOut(duration: 2)))
+                    .onChange(of: allowAllNotif, perform: { newValue in
+                        notif()
+                        if allowAllNotif == true{
+                            if isNotDetermined == true{
+                                UNUserNotificationCenter.current().requestAuthorization(options: .alert) { settings, error in
+                                }
+                            }
+                        }else if allowAllNotif == true{
+                            if isNotDetermined == true{
+                                allowAllNotif = false
+                                isPresented = true
+                            }
+                        }
+                        
+                    })
+                    .alert(isPresented: $isDenied) {
+                        Alert(title: Text("Enable Notifications?"), message: Text("To use this feature you must enable notifications in settings"), primaryButton: .default(Text("Settings")){
+                            if let url = URL(string: UIApplication.openSettingsURLString) {
+                                if UIApplication.shared.canOpenURL(url) {
+                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                }
+                            }
+                        }, secondaryButton: .cancel())
+                    }
             }
             
             if allowAllNotif{
@@ -82,6 +113,9 @@ struct DeviceSettings: View {
                 }.foregroundColor(.red)
             }
         }
+        .onAppear{
+            notif()
+        }
         .navigationBarTitle("Device Settings")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -92,6 +126,26 @@ struct DeviceSettings: View {
                 }
             }
         }
+    }
+    
+    func notif(){
+        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { setting in
+            if setting.authorizationStatus == .authorized{
+                isAllowed = true
+                isNotDetermined = false
+                isDenied = false
+            }else if setting.authorizationStatus == .notDetermined{
+                allowAllNotif = false
+                isNotDetermined = true
+                isAllowed = false
+                isDenied = false
+            }else if setting.authorizationStatus == .denied{
+                allowAllNotif = false
+                isDenied = true
+                isAllowed = false
+                isNotDetermined = false
+            }
+        })
     }
 }
 

@@ -11,7 +11,8 @@ import SwiftUI
 
 class NotificationHelper {
     @State var isPresented: Bool = true
-    func scheduleNotification(_ notif: UNMutableNotificationContent, sendAfter:Double){
+    func scheduleNotification(_ notif: UNMutableNotificationContent, sendAfter:Double) -> Bool{
+        var isDenied = false
         UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { settings in
             if settings.authorizationStatus == .notDetermined{
                 UNUserNotificationCenter.current().requestAuthorization(options: .alert) { (authed,err) in
@@ -33,11 +34,14 @@ class NotificationHelper {
 //                            }),
 //                            secondaryButton: .default(Text("Cancel")))
 //                        }
+                isDenied = true
             }else{
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: sendAfter, repeats: false)
                 let request = UNNotificationRequest(identifier: UUID().uuidString, content: notif, trigger: trigger)
                 UNUserNotificationCenter.current().add(request)
             }
+            
         })
+        return isDenied
     }
 }
