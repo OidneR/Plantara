@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05A626D5A0873C2B86259C0C /* Pods_macro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2EEF47A9637BE2B56FCC16 /* Pods_macro.framework */; };
+		562D54D4274E2AD200489D94 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D54D3274E2AD200489D94 /* Onboarding.swift */; };
 		5688E2832733C8460077603B /* PlantDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5688E2822733C8460077603B /* PlantDetailViewModel.swift */; };
 		56AF839727312BE9005C2E06 /* PlantDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF839627312BE9005C2E06 /* PlantDetailPage.swift */; };
 		56F7C029273A7D680098F24C /* iPadPlantDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F7C028273A7D680098F24C /* iPadPlantDetailPage.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		562D54D3274E2AD200489D94 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Onboarding.swift; path = "/Users/michelleaurelia/Desktop/ADA/Macro-Team4/macro/View/Normal-View/Onboarding.swift"; sourceTree = "<absolute>"; };
 		5688E2822733C8460077603B /* PlantDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailViewModel.swift; sourceTree = "<group>"; };
 		56AF839627312BE9005C2E06 /* PlantDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailPage.swift; sourceTree = "<group>"; };
 		56F7C028273A7D680098F24C /* iPadPlantDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadPlantDetailPage.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		B80A9921273A68A800F2ED45 /* Normal-View */ = {
 			isa = PBXGroup;
 			children = (
+				562D54D3274E2AD200489D94 /* Onboarding.swift */,
 				56AF839627312BE9005C2E06 /* PlantDetailPage.swift */,
 				BF599600272AAA2500429D5D /* DeviceSettings.swift */,
 				B88E47E3272FE14B00BDE109 /* MainPage.swift */,
@@ -396,6 +399,7 @@
 				56AF839727312BE9005C2E06 /* PlantDetailPage.swift in Sources */,
 				B88E47DE272FE12300BDE109 /* CardDevice.swift in Sources */,
 				BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */,
+				562D54D4274E2AD200489D94 /* Onboarding.swift in Sources */,
 				B88E47FE273123E000BDE109 /* DeviceDetailModal.swift in Sources */,
 				B88E47E6272FE14E00BDE109 /* SetupDevice.swift in Sources */,
 				B88E48042733D2CC00BDE109 /* customSearchBar.swift in Sources */,

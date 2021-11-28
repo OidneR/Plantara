@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/michelleaurelia/Desktop/ADA/Macro-Team4/macro/View/Normal-View/Onboarding.swift">
+   </FileRef>
+   <FileRef
       location = "group:macro.xcodeproj">
    </FileRef>
    <FileRef
