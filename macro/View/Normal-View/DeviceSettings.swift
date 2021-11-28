@@ -9,7 +9,9 @@ import SwiftUI
 import UserNotifications
 
 struct DeviceSettings: View {
-    
+    @Binding var dataDevice: DeviceData
+    let context = PersistenceController.shared.container.viewContext;
+    @AppStorage("BackToMain") var backtomain:Bool = false
     @State var datePickerSelection = Date()
     
     @State var deviceName: String = ""
@@ -38,7 +40,7 @@ struct DeviceSettings: View {
             Section(){
                 HStack{
                     Text("Device Name")
-                    TextField("Device Bayem 1", text: $deviceName)
+                    TextField("Device Name", text: $deviceName)
                         .multilineTextAlignment(.trailing)
                 }
                 Picker(selection: $plantNameSelection, label: Text("Plant Name")) {
@@ -114,6 +116,15 @@ struct DeviceSettings: View {
             }
         }
         .onAppear{
+            deviceName = dataDevice.namaDevice ?? "Unnamed"
+            plantLocation = dataDevice.lokasiTanaman ?? "Unlocated"
+            plantNameSelection = dataDevice.namaTanaman ?? "Kangkung"
+            allowAllNotif = dataDevice.allowNotif
+            allowSoilNotif = dataDevice.allowNotifSoil
+            allowTempNotif = dataDevice.allowNotifTemp
+            allowSunNotif = dataDevice.allowNotifSun
+            allowAirNotif = dataDevice.allowNotifAir
+            datePickerSelection = dataDevice.tanggalMenanam ?? Date()
             notif()
         }
         .navigationBarTitle("Device Settings")
@@ -121,6 +132,20 @@ struct DeviceSettings: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 HStack{
                     Button("Selesai"){
+                        dataDevice.namaDevice = deviceName
+                        dataDevice.lokasiTanaman = plantLocation
+                        dataDevice.allowNotif = allowAllNotif
+                        dataDevice.allowNotifSoil = allowSoilNotif
+                        dataDevice.allowNotifTemp = allowTempNotif
+                        dataDevice.allowNotifSun = allowSunNotif
+                        dataDevice.allowNotifAir = allowAirNotif
+                        dataDevice.tanggalMenanam = datePickerSelection
+                        do {
+                            try context.save()
+                        } catch {
+                            
+                        }
+                        backtomain.toggle();
                         print("oke de")
                     }
                 }
@@ -149,8 +174,8 @@ struct DeviceSettings: View {
     }
 }
 
-struct DeviceSettings_Previews: PreviewProvider {
-    static var previews: some View {
-        DeviceSettings()
-    }
-}
+//struct DeviceSettings_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DeviceSettings()
+//    }
+//}

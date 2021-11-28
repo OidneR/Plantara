@@ -4,11 +4,11 @@ import SwiftUI
 struct CardDevice: View {
     
     @Binding var statusTanaman: StatusTanaman
-    var deviceData: DeviceData
+    @State var deviceData: DeviceData
     @State var valueProgressBar: Double = 70
     
     var body: some View {
-        NavigationLink(destination: DeviceDetailPage(statusTanaman: $statusTanaman)) {
+        NavigationLink(destination: DeviceDetailPage(dataDevice: $deviceData, statusTanaman: $statusTanaman)) {
             VStack (alignment: .leading){
                 //INI BAGIAN ATASNYA YANG GAMBAR DAN TULISAN
                 HStack{

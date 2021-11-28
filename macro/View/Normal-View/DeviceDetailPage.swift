@@ -12,7 +12,7 @@ struct DeviceDetailPage: View {
     @State var valueProgressBarSuhu: Double = 0
     @State var valueProgressBarUdara: Double = 0
     @State var valueProgressBarTanah: Double = 0
-    
+    @Binding var dataDevice: DeviceData
     @State var valueAnimation = true
     @Binding var statusTanaman: StatusTanaman
     
@@ -175,7 +175,7 @@ struct DeviceDetailPage: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(destination: DeviceSettings()) {
+                NavigationLink(destination: DeviceSettings(dataDevice: $dataDevice)) {
                     Text("Pengaturan")
                         .foregroundColor(Warna.Secondary)
                 }

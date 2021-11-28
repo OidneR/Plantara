@@ -83,7 +83,6 @@ struct CircularProgressBar: View {
                 }
             }
         }.onTapGesture {
-            percentage = percentage * -1
             let content = UNMutableNotificationContent()
             content.title = "Test Notif"
             content.body = "Ini isi notif"
