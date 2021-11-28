@@ -24,11 +24,16 @@ struct Onboarding_Previews: PreviewProvider {
 struct OnboardingContent: View {
   @State var onboardingIndex = 1
   @State var bool: Bool = false
+  @State var buttonText = "Next"
+
+  init() {
+    UIPageControl.appearance().currentPageIndicatorTintColor = .brown
+    UIPageControl.appearance().pageIndicatorTintColor = UIColor.brown
+  }
   var body: some View {
     NavigationView {
       VStack {
         TabView (selection: $onboardingIndex){
-
           OnboardingView(onboardImage: "OnboardingOne", onboardTitle: "Berkomunikasi dengan tanaman", onboardDesc: "Satu alat dapat menghubungkan anda dengan tanaman ada dengan mudah").tag(1)
 
           OnboardingView(onboardImage: "OnboardingTwo", onboardTitle: "Merawat tanpa khawatir", onboardDesc: "Dengan aplikasi Plantara, Anda dapat mengetahui kebutuhan apa saja yang tanaman Anda butuhkan.").tag(2)
@@ -39,22 +44,31 @@ struct OnboardingContent: View {
 
           OnboardingView(onboardImage: "OnboardingFive", onboardTitle: "Mulai", onboardDesc: "Apa kebutuhan tanaman Anda? Bagaimana cara memenuhi kebutuhan tersebut? Daparkan semua jawabannya bersama PLANTARA!").tag(5)
         }
+        .padding(.horizontal, 10)
+        .accentColor(Color("SecondaryColor"))
         .tabViewStyle(.page(indexDisplayMode: .always))
         .indexViewStyle(.page(backgroundDisplayMode: .always))
 
-        Button("Next"){
 
+        Button(){
           onboardingIndex += 1
           if (onboardingIndex == 5) {
-            bool.toggle()
+            bool = true
+            buttonText = "Mulai"
+          }
+          else {
+            bool = false
+            buttonText = "Next"
           }
         }
+      label: {
+        Text(buttonText).font(.custom("Lato", size: 20))
+      }
         .frame(width: 350, height: 60)
-        .cornerRadius(50)
         .background(bool ? Color("SecondaryColor") : Color.white)
+        .cornerRadius(13)
         .foregroundColor(bool ? Color.white : Color("SecondaryColor"))
         .padding(.bottom, 10)
-
       }
 
 
@@ -80,7 +94,6 @@ struct OnboardingView: View {
   let onboardDesc: String
 
   var body: some View {
-
       VStack {
         Image(onboardImage)
           .resizable()
@@ -96,7 +109,6 @@ struct OnboardingView: View {
             .font(.custom("Lato", size: 20))
         }
     }
-      .padding(.vertical, 5)
   }
 }
 
