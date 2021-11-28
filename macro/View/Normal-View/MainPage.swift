@@ -36,9 +36,9 @@ struct MainPage: View {
                 }else{
                     ScrollView{
                         LazyVStack{
-                            ForEach(0..<dataFatched.count){i in
-                                let deviceData = dataFatched[i]
-                                CardDevice(statusTanaman: $plantStatus,deviceData: deviceData, index: i)
+                            ForEach(dataFatched){i in
+                                let deviceData = i
+                                CardDevice(statusTanaman: $plantStatus,deviceData: deviceData)
                             }
                         }
                     }

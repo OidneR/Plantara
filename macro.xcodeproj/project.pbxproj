@@ -18,6 +18,7 @@
 		84CBFD5E272948B100448758 /* ChoosePlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD5D272948B100448758 /* ChoosePlantViewModel.swift */; };
 		B80A9925273AE61D00F2ED45 /* firebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80A9924273AE61D00F2ED45 /* firebaseHelper.swift */; };
 		B80A9927273BC23300F2ED45 /* StatusTanaman.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80A9926273BC23300F2ED45 /* StatusTanaman.swift */; };
+		B80E50372752CA54008BEB86 /* Extention+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E50362752CA54008BEB86 /* Extention+String.swift */; };
 		B88E47DE272FE12300BDE109 /* CardDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47DD272FE12300BDE109 /* CardDevice.swift */; };
 		B88E47E0272FE12800BDE109 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47DF272FE12800BDE109 /* CircularProgressBar.swift */; };
 		B88E47E2272FE13D00BDE109 /* DeviceDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47E1272FE13D00BDE109 /* DeviceDetailPage.swift */; };
@@ -68,6 +69,7 @@
 		A83E8BF3ED62A1FC0753E16B /* Pods-macro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-macro.release.xcconfig"; path = "Target Support Files/Pods-macro/Pods-macro.release.xcconfig"; sourceTree = "<group>"; };
 		B80A9924273AE61D00F2ED45 /* firebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = firebaseHelper.swift; path = macro/View/Reusable/firebaseHelper.swift; sourceTree = SOURCE_ROOT; };
 		B80A9926273BC23300F2ED45 /* StatusTanaman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTanaman.swift; sourceTree = "<group>"; };
+		B80E50362752CA54008BEB86 /* Extention+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+String.swift"; sourceTree = "<group>"; };
 		B88E47DD272FE12300BDE109 /* CardDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDevice.swift; sourceTree = "<group>"; };
 		B88E47DF272FE12800BDE109 /* CircularProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		B88E47E1272FE13D00BDE109 /* DeviceDetailPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailPage.swift; sourceTree = "<group>"; };
@@ -218,6 +220,14 @@
 			path = "Normal-View";
 			sourceTree = "<group>";
 		};
+		B80E50352752CA3D008BEB86 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				B80E50362752CA54008BEB86 /* Extention+String.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		B88E47E7272FE69800BDE109 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +274,7 @@
 		B8BC16392726CA0200F5538E /* macro */ = {
 			isa = PBXGroup;
 			children = (
+				B80E50352752CA3D008BEB86 /* Util */,
 				B88E47FC272FE79300BDE109 /* Info.plist */,
 				B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */,
 				84CBFD592729476F00448758 /* Constant */,
@@ -427,6 +438,7 @@
 				5688E2832733C8460077603B /* (null) in Sources */,
 				B8D2686B274CFD0900E6F322 /* DataFromCoreData.swift in Sources */,
 				B8D26865274CF94900E6F322 /* MainPageViewModel.swift in Sources */,
+				B80E50372752CA54008BEB86 /* Extention+String.swift in Sources */,
 				84816DAE272FDB9400323D13 /* Warna.swift in Sources */,
 				BF5D9202273EB92F00AF65F9 /* KeyboardHeightHelper.swift in Sources */,
 				B8E044A9273916B900BD8841 /* StringConvert.swift in Sources */,

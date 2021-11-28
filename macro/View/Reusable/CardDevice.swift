@@ -1,12 +1,10 @@
 import SwiftUI
 
+
 struct CardDevice: View {
     
     @Binding var statusTanaman: StatusTanaman
     var deviceData: DeviceData
-    var index = 0
-    @State var deviceName = "Device Bayam 1"
-    @State var jenisTanaman = "Bayem lah ya"
     @State var valueProgressBar: Double = 70
     
     var body: some View {
@@ -16,12 +14,11 @@ struct CardDevice: View {
                 HStack{
                     //INI BAGIAN GAMBAR SAMA WARNINGNYA
                     ZStack (alignment: .topTrailing){
-                        Image(systemName: "")
-                            .font(.system(size: 90))
-                            .foregroundColor(Color.green)
-                        Image(systemName: "sun.max")
-                            .font(.system(size: 20))
-                            .foregroundColor(Color.red)
+                        Image("iconBayam")
+                            .resizable()
+                            .frame(width: 111, height: 111)
+                            //.font(.system(size: 90))
+                        
                     }
                     //INI BAGIAN DESKRIPSI DEVICE NYA
                     VStack (alignment: .leading){
@@ -48,7 +45,7 @@ struct CardDevice: View {
                             HStack (spacing: 1){
                                 Image(systemName: "calendar")
                                     .foregroundColor(Color.black)
-                                Text("14 Hari")
+                                Text("\(Calendar.current.dateComponents([.day], from: deviceData.tanggalMenanam ?? Date(), to: Date()).day ?? 0) Days")
                                     .font(.system(size: 12))
                                     .foregroundColor(Color.gray)
                                     .frame(width: 60, height: 10, alignment: .leading)

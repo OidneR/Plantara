@@ -54,7 +54,7 @@ struct SetupDevice: View {
                     Button {
                         viewModel.jenisTanaman = passItem
                         viewModel.saveData()
-                        backtomain = true
+                        backtomain.toggle()
                     } label: {
                         Text("Selesai")
                     }
@@ -63,7 +63,9 @@ struct SetupDevice: View {
                 }
             }
         }
+        
     }
+    
     
     var deviceNameValid: Bool{
         return !viewModel.deviceName.isEmpty
