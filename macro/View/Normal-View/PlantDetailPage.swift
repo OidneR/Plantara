@@ -30,7 +30,7 @@ struct PlantDetail_Top: View {
     var jenisTanaman: String = ""
     
     var body: some View {
-        let dataTanaman = PlantType(rawValue: jenisTanaman)?.getDataTanaman()
+        let dataTanaman = PlantType(rawValue: jenisTanaman)?.dataTanaman
         let dataKebutuhanTanaman = KebutuhanTanamanViewModel().getKebutuhanTanaman(jenisTanaman: jenisTanaman)
         
         VStack (alignment: .leading){

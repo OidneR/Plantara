@@ -6,6 +6,7 @@ struct CardDevice: View {
     @Binding var statusTanaman: StatusTanaman
     @State var deviceData: DeviceData
     @State var valueProgressBar: Double = 70
+    @State var plantType: TanamanBaru = PlantType.bayam.dataTanaman
     
     var body: some View {
         NavigationLink(destination: DeviceDetailPage(dataDevice: $deviceData, statusTanaman: $statusTanaman)) {
@@ -14,7 +15,7 @@ struct CardDevice: View {
                 HStack{
                     //INI BAGIAN GAMBAR SAMA WARNINGNYA
                     ZStack (alignment: .topTrailing){
-                        Image("iconBayam")
+                        Image(plantType.imageTanaman)
                             .resizable()
                             .frame(width: 111, height: 111)
                             //.font(.system(size: 90))
@@ -53,7 +54,6 @@ struct CardDevice: View {
                         }.padding(.top, 1)
                     }
                 }
-                .padding(.top, 20)
                 .padding(.bottom, 10)
                 .padding(.leading, 5)
 
@@ -62,7 +62,7 @@ struct CardDevice: View {
                     //INI BAGIAN KIRI (CAHAYA SAMA AIR)
                     VStack (alignment: .leading){
                         HStack{
-                            CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: $valueProgressBar, isCardView: true, diameter: 25)
+                            CircularProgressBar(percentage: $statusTanaman.sinarMatahari , circularProgressBarStyle: .sinar, amount: $valueProgressBar, isCardView: true, diameter: 25)
                             
                             VStack (alignment: .leading){
                                 Text("Sinar Matahari")
@@ -70,7 +70,7 @@ struct CardDevice: View {
                                     .foregroundColor(.gray)
                                 
                                 HStack{
-                                    Text("370 Lx")
+                                    Text("\(String(format: "%.f", statusTanaman.sinarMatahari))%")
                                         .font(.system(size: 12))
                                         .foregroundColor(Color.black)
                                         .frame(width: 40,  alignment: .leading)
@@ -142,7 +142,6 @@ struct CardDevice: View {
                     }
                 }
                 .padding(.horizontal, 20)
-                .padding(.bottom, 20)
             }
             .frame(maxWidth: .infinity)
             .background(RoundedRectangle(cornerRadius: 16)
@@ -150,7 +149,10 @@ struct CardDevice: View {
             
             .clipped()
             .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 8)
-            .padding(.horizontal, 20)
+            .onAppear(){
+                plantType = PlantType(rawValue: deviceData.namaTanaman ?? "Bayam")?.dataTanaman ?? PlantType.bayam.dataTanaman
+            }
         }
     }
 }
+ 

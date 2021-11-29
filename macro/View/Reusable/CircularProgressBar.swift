@@ -31,7 +31,7 @@ struct CircularProgressBar: View {
             
             switch circularProgressBarStyle {
             case .suhu:
-                Label(amount: "\(amount)°C", icon: "imgTemperature", diameter: $diameter,isCardView: $isCardView)
+                Label(amount: String(format: "%0.2f°C", amount), icon: "imgTemperature", diameter: $diameter,isCardView: $isCardView)
                     .animation(nil, value: valueAnimation)
                 Outline(percentage: $percentage, color: Warna.TempNormal, diameter: $diameter)
                 if(percentage>100){

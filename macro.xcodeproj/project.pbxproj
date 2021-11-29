@@ -19,6 +19,7 @@
 		B80A9925273AE61D00F2ED45 /* firebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80A9924273AE61D00F2ED45 /* firebaseHelper.swift */; };
 		B80A9927273BC23300F2ED45 /* StatusTanaman.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80A9926273BC23300F2ED45 /* StatusTanaman.swift */; };
 		B80E50372752CA54008BEB86 /* Extention+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E50362752CA54008BEB86 /* Extention+String.swift */; };
+		B80E50392753F784008BEB86 /* DeviceDetailPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E50382753F784008BEB86 /* DeviceDetailPageViewModel.swift */; };
 		B88E47DE272FE12300BDE109 /* CardDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47DD272FE12300BDE109 /* CardDevice.swift */; };
 		B88E47E0272FE12800BDE109 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47DF272FE12800BDE109 /* CircularProgressBar.swift */; };
 		B88E47E2272FE13D00BDE109 /* DeviceDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88E47E1272FE13D00BDE109 /* DeviceDetailPage.swift */; };
@@ -70,6 +71,7 @@
 		B80A9924273AE61D00F2ED45 /* firebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = firebaseHelper.swift; path = macro/View/Reusable/firebaseHelper.swift; sourceTree = SOURCE_ROOT; };
 		B80A9926273BC23300F2ED45 /* StatusTanaman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTanaman.swift; sourceTree = "<group>"; };
 		B80E50362752CA54008BEB86 /* Extention+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+String.swift"; sourceTree = "<group>"; };
+		B80E50382753F784008BEB86 /* DeviceDetailPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailPageViewModel.swift; sourceTree = "<group>"; };
 		B88E47DD272FE12300BDE109 /* CardDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDevice.swift; sourceTree = "<group>"; };
 		B88E47DF272FE12800BDE109 /* CircularProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		B88E47E1272FE13D00BDE109 /* DeviceDetailPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailPage.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */,
 				B8D26864274CF94900E6F322 /* MainPageViewModel.swift */,
 				B8D2686C274D6CB400E6F322 /* SetupDeviceViewModel.swift */,
+				B80E50382753F784008BEB86 /* DeviceDetailPageViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				B80A9927273BC23300F2ED45 /* StatusTanaman.swift in Sources */,
 				B8A37A362743A461003B144E /* GridViewIpad.swift in Sources */,
 				B8BC16472726CA0300F5538E /* macro.xcdatamodeld in Sources */,
+				B80E50392753F784008BEB86 /* DeviceDetailPageViewModel.swift in Sources */,
 				B8BC16442726CA0300F5538E /* Persistence.swift in Sources */,
 				B8A37A312743A414003B144E /* DeviceDetail.swift in Sources */,
 				B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */,

@@ -11,6 +11,7 @@ import UserNotifications
 struct DeviceSettings: View {
     @Binding var dataDevice: DeviceData
     let context = PersistenceController.shared.container.viewContext;
+    
     @AppStorage("BackToMain") var backtomain:Bool = false
     @State var datePickerSelection = Date()
     
@@ -20,8 +21,8 @@ struct DeviceSettings: View {
     @State var plantAgeSelection = 0
     var plantAge: Int = 0
     
-    @State var plantNameSelection = "Kangkung"
-    var plantNames = ["Bayam", "Kangkung", "Melon"]
+    @State var plantNameSelection: String
+    @State var plantNames:[String] = []
     
     @State var allowAllNotif: Bool = true
     @State var allowSoilNotif: Bool = true
@@ -35,6 +36,19 @@ struct DeviceSettings: View {
     
     @State var isPresented: Bool = false
     
+    init(dataDevice: Binding<DeviceData>) {
+        self._dataDevice = dataDevice
+        self._plantNameSelection = State(initialValue: dataDevice.namaTanaman.wrappedValue ?? "Kangkung")
+        self._deviceName = State(initialValue: dataDevice.namaDevice.wrappedValue ?? "Unnamed")
+        self._plantLocation = State(initialValue:dataDevice.lokasiTanaman.wrappedValue ?? "Unlocated")
+        self._allowAllNotif = State(initialValue:dataDevice.allowNotif.wrappedValue)
+        self._allowSoilNotif = State(initialValue:dataDevice.allowNotifSoil.wrappedValue)
+        self._allowTempNotif = State(initialValue:dataDevice.allowNotifTemp.wrappedValue)
+        self._allowSunNotif = State(initialValue:dataDevice.allowNotifSun.wrappedValue)
+        self._allowAirNotif = State(initialValue:dataDevice.allowNotifAir.wrappedValue)
+        self._datePickerSelection = State(initialValue:dataDevice.tanggalMenanam.wrappedValue ?? Date())
+    }
+    
     var body: some View {
         Form{
             Section(){
@@ -44,8 +58,8 @@ struct DeviceSettings: View {
                         .multilineTextAlignment(.trailing)
                 }
                 Picker(selection: $plantNameSelection, label: Text("Plant Name")) {
-                    ForEach(plantNames, id: \.self){
-                        Text($0)
+                    ForEach(PlantType.allCases, id: \.self){
+                        Text($0.rawValue).tag($0.rawValue)
                     }
                 }
             }
@@ -107,24 +121,25 @@ struct DeviceSettings: View {
                 }
             }
             
-            Section(footer: Text("If you do not recognise this device, remove it and see some butterfly 😎")){
+            Section(footer: Text("If you do not recognise this device, just simply remove it")){
                 Button {
-                    
+                    context.delete(dataDevice)
+                    do {
+                        try context.save()
+                    } catch  {
+                        
+                    }
                 } label: {
                     Text("Remove Device")
                 }.foregroundColor(.red)
             }
         }
         .onAppear{
-            deviceName = dataDevice.namaDevice ?? "Unnamed"
-            plantLocation = dataDevice.lokasiTanaman ?? "Unlocated"
-            plantNameSelection = dataDevice.namaTanaman ?? "Kangkung"
-            allowAllNotif = dataDevice.allowNotif
-            allowSoilNotif = dataDevice.allowNotifSoil
-            allowTempNotif = dataDevice.allowNotifTemp
-            allowSunNotif = dataDevice.allowNotifSun
-            allowAirNotif = dataDevice.allowNotifAir
-            datePickerSelection = dataDevice.tanggalMenanam ?? Date()
+            plantNames = []
+            for plant in PlantType.allCases{
+                plantNames.append(plant.rawValue)
+            }
+            
             notif()
         }
         .navigationBarTitle("Device Settings")
@@ -140,6 +155,7 @@ struct DeviceSettings: View {
                         dataDevice.allowNotifSun = allowSunNotif
                         dataDevice.allowNotifAir = allowAirNotif
                         dataDevice.tanggalMenanam = datePickerSelection
+                        dataDevice.namaTanaman = plantNameSelection
                         do {
                             try context.save()
                         } catch {

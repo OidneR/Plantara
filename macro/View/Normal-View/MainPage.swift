@@ -35,10 +35,11 @@ struct MainPage: View {
                     }.offset(y:-50)
                 }else{
                     ScrollView{
-                        LazyVStack{
+                        LazyVStack(spacing: 0){
                             ForEach(dataFatched){i in
                                 let deviceData = i
                                 CardDevice(statusTanaman: $plantStatus,deviceData: deviceData)
+                                    .padding(16)
                             }
                         }
                     }
