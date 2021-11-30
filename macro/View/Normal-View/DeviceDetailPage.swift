@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct DeviceDetailPage: View {
-    @State var valueProgressBarSinar: Double = 0
-    @State var valueProgressBarSuhu: Double = 0
-    @State var valueProgressBarUdara: Double = 0
-    @State var valueProgressBarTanah: Double = 0
+
     @Binding var dataDevice: DeviceData
     @State var valueAnimation = true
     @Binding var statusTanaman: StatusTanaman
+    @State var dataTanaman: TanamanBaru = PlantType.bayam.dataTanaman
+    @StateObject var viewModel = DeviceDetailPageViewModel()
+    
+    init(dataDevice: Binding<DeviceData>, statusTanaman: Binding<StatusTanaman>){
+        self._dataDevice = dataDevice
+        self._statusTanaman = statusTanaman
+        self._dataTanaman = State(initialValue: PlantType(rawValue: dataDevice.namaTanaman.wrappedValue ?? "Bayam")!.dataTanaman)
+        
+    }
     
     var body: some View {
         VStack (alignment: .center) {
@@ -51,25 +57,25 @@ struct DeviceDetailPage: View {
                 ScrollView (showsIndicators: false){
                     VStack (alignment: .leading){
                         HStack {
-                            CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .suhu, amount: $valueProgressBarSuhu, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $viewModel.percentageProgressBarSuhu, circularProgressBarStyle: .suhu, amount: $viewModel.valueProgressBarSuhu, isCardView: false, diameter: 100)
                                 .frame(maxWidth: 100, maxHeight: 100)
                                 .padding(.trailing, 10)
                                 .onAppear {
                                     withAnimation(.easeIn(duration: 2)){
-                                        valueProgressBarSuhu = statusTanaman.suhu
+                                        viewModel.valueProgressBarSuhu = statusTanaman.suhu
                                         valueAnimation = false
                                     }
                                 }
                                 .onChange(of: statusTanaman.suhu) { newValue in
                                     withAnimation(.easeIn(duration: 2)){
-                                        valueProgressBarSuhu = newValue
+                                        viewModel.valueProgressBarSuhu = newValue
                                     }
                                 }
                             
                             VStack (alignment: .leading) {
                                 Text("Suhu")
                                     .bold()
-                                Text("Ideal: 20 C")
+                                Text("Ideal:"+String(format: "%0.2f°C - %0.2f°C", dataTanaman.minSuhu, dataTanaman.maxSuhu))
                                 HStack {
                                     Image(systemName: "exclamationmark.circle")
                                         .foregroundColor(Color.red)
@@ -86,12 +92,18 @@ struct DeviceDetailPage: View {
                         
                         
                         HStack {
-                            CircularProgressBar(percentage: $valueProgressBarSinar, circularProgressBarStyle: .sinar, amount: $valueProgressBarSinar, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $viewModel.percentageProgressBarSinar, circularProgressBarStyle: .sinar, amount: $viewModel.valueProgressBarSinar, isCardView: false, diameter: 100)
                                 .frame(width: 100, height: 100)
                                 .padding(.trailing, 10)
                                 .onAppear {
                                     withAnimation(.easeIn(duration: 2)){
-                                        valueProgressBarSinar = 80
+                                        viewModel.valueProgressBarSinar = statusTanaman.sinarMatahari
+                                        valueAnimation = false
+                                    }
+                                }
+                                .onChange(of: statusTanaman.sinarMatahari) { newValue in
+                                    withAnimation(.easeIn(duration: 2)){
+                                        viewModel.valueProgressBarSinar = newValue
                                     }
                                 }
                             
@@ -113,17 +125,17 @@ struct DeviceDetailPage: View {
                         
                         
                         HStack {
-                            CircularProgressBar(percentage: $valueProgressBarTanah, circularProgressBarStyle: .tanah, amount: $valueProgressBarTanah, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $viewModel.percentageProgressBarTanah, circularProgressBarStyle: .tanah, amount: $viewModel.valueProgressBarTanah, isCardView: false, diameter: 100)
                                 .frame(width: 100, height: 100)
                                 .padding(.trailing, 10)
                                 .onAppear {
                                     withAnimation(.easeIn(duration: 2)){
-                                        valueProgressBarTanah = statusTanaman.kelembabanTanah
+                                        viewModel.valueProgressBarTanah = statusTanaman.kelembabanTanah
                                     }
                                 }
                                 .onChange(of: statusTanaman.kelembabanTanah) { newValue in
                                     withAnimation(.easeIn(duration: 2)){
-                                        valueProgressBarTanah = newValue
+                                        viewModel.valueProgressBarTanah = newValue
                                     }
                                 }
                             
@@ -143,17 +155,17 @@ struct DeviceDetailPage: View {
                         }.padding(.top, 20)
                         
                         HStack {
-                            CircularProgressBar(percentage: $valueProgressBarUdara, circularProgressBarStyle: .udara, amount: $valueProgressBarUdara, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $viewModel.percentageProgressBarUdara, circularProgressBarStyle: .udara, amount: $viewModel.valueProgressBarUdara, isCardView: false, diameter: 100)
                                 .frame(width: 100, height: 100)
                                 .padding(.trailing, 10)
                                 .onAppear {
                                     withAnimation(.easeIn(duration: 2)){
-                                        valueProgressBarUdara = statusTanaman.kelembabanUdara
+                                        viewModel.valueProgressBarUdara = statusTanaman.kelembabanUdara
                                     }
                                 }
                                 .onChange(of: statusTanaman.kelembabanUdara) { newValue in
                                     withAnimation(.easeIn(duration: 2)){
-                                        valueProgressBarUdara = newValue
+                                        viewModel.valueProgressBarUdara = newValue
                                     }
                                 }
                             
@@ -188,6 +200,13 @@ struct DeviceDetailPage: View {
                         .ignoresSafeArea()
         )
         .navigationBarTitle(dataDevice.namaDevice ?? "")
+        .onAppear(){
+            viewModel.valueProgressBarSuhu = statusTanaman.suhu
+            viewModel.valueProgressBarSinar = statusTanaman.sinarMatahari
+            viewModel.valueProgressBarTanah = statusTanaman.kelembabanTanah
+            viewModel.valueProgressBarUdara = statusTanaman.kelembabanUdara
+            viewModel.getPlantConditionPersentage()
+        }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
