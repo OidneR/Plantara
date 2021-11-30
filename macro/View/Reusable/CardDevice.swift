@@ -6,15 +6,17 @@ struct CardDevice: View {
     @Binding var statusTanaman: StatusTanaman
     @State var deviceData: DeviceData
     @State var valueProgressBar: Double = 70
+    @StateObject var viewModel = SetupDeviceViewModel()
     
     var body: some View {
         NavigationLink(destination: DeviceDetailPage(dataDevice: $deviceData, statusTanaman: $statusTanaman)) {
+//            DeviceDetailPage(dataDevice: $deviceData, statusTanaman: $statusTanaman)
             VStack (alignment: .leading){
                 //INI BAGIAN ATASNYA YANG GAMBAR DAN TULISAN
                 HStack{
                     //INI BAGIAN GAMBAR SAMA WARNINGNYA
                     ZStack (alignment: .topTrailing){
-                        Image("iconBayam")
+                        Image("icon\(deviceData.namaTanaman ?? "")")
                             .resizable()
                             .frame(width: 111, height: 111)
                             //.font(.system(size: 90))

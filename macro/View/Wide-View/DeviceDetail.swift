@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct DeviceDetail: View {
-    @State var valueProgressBar: Double = 80
+    @State var valueProgressBarSinar: Double = 0
+    @State var valueProgressBarSuhu: Double = 0
+    @State var valueProgressBarUdara: Double = 0
+    @State var valueProgressBarTanah: Double = 0
+    @Binding var dataDevice: DeviceData
+    @Binding var statusTanaman: StatusTanaman
     
     @State var showPengaturan: Bool = false
-    
     @ObservedObject var keyboardHeightHelper = KeyboardHeightHelper()
     @State var listHeight: CGFloat = 656
     
-    init(){
-        listHeight = 656 - keyboardHeightHelper.keyboardHeight
-    }
-    
     var body: some View {
-        NavigationView{
             ZStack{
                 VStack{
                     HStack{
@@ -56,22 +55,22 @@ struct DeviceDetail: View {
                                 
                                 HStack (spacing: 40){
                                     VStack{
-                                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .suhu, amount: $valueProgressBar, isCardView: true, diameter: 100)
+                                        CircularProgressBar(percentage: $valueProgressBarSuhu, circularProgressBarStyle: .suhu, amount: $valueProgressBarSuhu, isCardView: true, diameter: 100)
                                         ReusableDescriptionProgressBar(titleProgressBar: "Suhu", normalProgressBar: "22C", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextSafe)
                                     }
                                     
                                     VStack{
-                                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .tanah, amount: $valueProgressBar, isCardView: true, diameter: 100)
+                                        CircularProgressBar(percentage: $valueProgressBarTanah, circularProgressBarStyle: .tanah, amount: $valueProgressBarTanah, isCardView: true, diameter: 100)
                                         ReusableDescriptionProgressBar(titleProgressBar: "Kelembapan Tanah", normalProgressBar: "200 RH", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextSafe)
                                     }
                                     
                                     VStack{
-                                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .sinar, amount: $valueProgressBar, isCardView: true, diameter: 100)
+                                        CircularProgressBar(percentage: $valueProgressBarSinar, circularProgressBarStyle: .sinar, amount: $valueProgressBarSinar, isCardView: true, diameter: 100)
                                         ReusableDescriptionProgressBar(titleProgressBar: "Sinar Matahari", normalProgressBar: "370 Lumens", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextWarning)
                                     }
                                     
                                     VStack{
-                                        CircularProgressBar(percentage: $valueProgressBar, circularProgressBarStyle: .udara, amount: $valueProgressBar, isCardView: true, diameter: 100)
+                                        CircularProgressBar(percentage: $valueProgressBarUdara, circularProgressBarStyle: .udara, amount: $valueProgressBarUdara, isCardView: true, diameter: 100)
                                         ReusableDescriptionProgressBar(titleProgressBar: "Kelembapan Udara", normalProgressBar: "200 RH", statusTanaman: "Status Tanaman", warnaStatus: Warna.TextWarning)
                                     }
                                 }
@@ -82,8 +81,8 @@ struct DeviceDetail: View {
                         .onChange(of: keyboardHeightHelper.keyboardHeight, perform: { newValue in
                             listHeight = 656 - newValue
                         })
+                        .navigationBarTitle("Device Detail")
                         .navigationBarTitleDisplayMode(.inline)
-                        .navigationTitle("Device Detail")
                         .toolbar {
                             ToolbarItem(placement: .navigationBarTrailing) {
                                 HStack{
@@ -94,7 +93,6 @@ struct DeviceDetail: View {
                                         ZStack{
                                             PengaturanDeviceDetail(height: $listHeight)
                                         }
-//                                        .frame(width: 375, height: 656 + self.keyboardHeightHelper.keyboardHeight)
                                     }
                                 }
                             }
@@ -104,9 +102,6 @@ struct DeviceDetail: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Warna.primary)
             }
-            .ignoresSafeArea(edgesIgnoringSafeArea(.bottom) as! SafeAreaRegions)
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -132,13 +127,6 @@ struct ReusableDescriptionProgressBar: View{
                     .foregroundColor(warnaStatus)
             }
         }
-    }
-}
-
-struct DeviceDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        DeviceDetail()
-            .previewInterfaceOrientation(.landscapeRight)
     }
 }
 
@@ -206,7 +194,6 @@ struct PengaturanDeviceDetail: View{
         .frame(width: 375, height: height)
     }
 }
-
 //struct PengaturanDeviceDetail_Previews: PreviewProvider {
 //    static var previews: some View {
 //        PengaturanDeviceDetail()

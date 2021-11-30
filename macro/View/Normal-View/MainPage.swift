@@ -20,7 +20,7 @@ struct MainPage: View {
         ]
     )var dataFatched: FetchedResults<DeviceData>
     
-    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
    
     var body: some View {
         NavigationView{
@@ -46,16 +46,29 @@ struct MainPage: View {
                 
                 VStack{
                     Spacer()
-                    NavigationLink(destination: ChoosePlantPage()) {
-                        Text("Tambah Perangkat")
-                            .frame(maxWidth: .infinity ,maxHeight: 50)
-                            .foregroundColor(.white)
-                            .font(.system(size: 20 ,weight: .regular))
-                            .background(RoundedRectangle(cornerRadius: 10)
-                                            .fill(Warna.Secondary)
-                            .padding(.horizontal, 20))
-                            .animation(nil)
-                    }
+                    if UIDevice.current.userInterfaceIdiom == .pad{
+                        NavigationLink(destination: ChoosePlantIpad()) {
+                            Text("Tambah Perangkat")
+                                .frame(maxWidth: .infinity ,maxHeight: 50)
+                                .foregroundColor(.white)
+                                .font(.system(size: 20 ,weight: .regular))
+                                .background(RoundedRectangle(cornerRadius: 10)
+                                                .fill(Warna.Secondary)
+                                .padding(.horizontal, 20))
+                                .animation(nil)
+                            }
+                        } else{
+                            NavigationLink(destination: ChoosePlantPage()) {
+                                Text("Tambah Perangkat")
+                                    .frame(maxWidth: .infinity ,maxHeight: 50)
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 20 ,weight: .regular))
+                                    .background(RoundedRectangle(cornerRadius: 10)
+                                                    .fill(Warna.Secondary)
+                                    .padding(.horizontal, 20))
+                                    .animation(nil)
+                            }
+                        }
                 }
             }
             .navigationTitle("Semua Perangkat")
@@ -63,6 +76,7 @@ struct MainPage: View {
                 print(newValue)
             })
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Warna.Secondary)
     }
 }

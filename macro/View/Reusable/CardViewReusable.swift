@@ -27,6 +27,11 @@ struct CardViewReusable : View {
                             .font(.system(size : 17))
                             .padding(.horizontal, 8)
                         
+                        Text(dataTanaman.harvestTime)
+                            .foregroundColor(Warna.Gray3)
+                            .font(.system(size: 14))
+                            .padding(.horizontal, 8)
+                        
                         if dataTanaman.difficultyTanaman == "Easy"{
                             Text(dataTanaman.difficultyTanaman)
                                 .foregroundColor(.green)

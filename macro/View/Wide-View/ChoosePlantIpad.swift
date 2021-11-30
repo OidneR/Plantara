@@ -14,13 +14,7 @@ struct ChoosePlantIpad: View {
     @State var Grid : [Int] = []
     @State var namaTanaman: String = ""
     
-    init() {
-        UINavigationBar.appearance().backgroundColor = UIColor(.white)
-    }
-    
     var body: some View {
-        NavigationView{
-            
             VStack{
                 customSearchBar(keyword: $keyword)
                 GridViewIpad(viewModel: $viewModel.result, Grid: $Grid)
@@ -35,23 +29,6 @@ struct ChoosePlantIpad: View {
                 self.generateGrid()
                 print(Grid)
             })
-            
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {print("Hello World")}) {
-                Image(systemName: "chevron.left")
-                        .foregroundColor(Warna.Secondary)
-                        Text("Kembali")
-                        .foregroundColor(Warna.Secondary)
-                        }
-                    }
-                }
-            
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarTitle("Pilih Tanaman")
-            
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     func generateGrid(){
@@ -67,7 +44,7 @@ struct ChoosePlantIpad: View {
 struct ChoosePlantIpad_Previews: PreviewProvider {
     static var previews: some View {
         ChoosePlantIpad()
-.previewInterfaceOrientation(.landscapeLeft)
+.previewInterfaceOrientation(.portrait)
     }
 }
 
