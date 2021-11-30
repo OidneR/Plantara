@@ -16,12 +16,10 @@ class DeviceDetailPageViewModel: ObservableObject{
     @Published var percentageProgressBarSuhu: Double = 0
     @Published var percentageProgressBarUdara: Double = 0
     @Published var percentageProgressBarTanah: Double = 0
-    func getPlantConditionPersentage(min: Double,max:Double,current: Double)->Double{
-        let range = max-min
-        if(current<=min){
-            return 0
-        }else{
-            return current/range * 100;
-        }
+    func getPlantConditionPersentage(){
+        percentageProgressBarSuhu = valueProgressBarSuhu/40 * 100
+        percentageProgressBarSinar = valueProgressBarSinar
+        percentageProgressBarUdara = valueProgressBarUdara
+        percentageProgressBarTanah = valueProgressBarTanah
     }
 }

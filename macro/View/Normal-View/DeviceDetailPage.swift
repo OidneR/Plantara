@@ -184,14 +184,11 @@ struct DeviceDetailPage: View {
                         .ignoresSafeArea()
         )
         .onAppear(){
-            viewModel.percentageProgressBarSinar = viewModel.getPlantConditionPersentage(min: dataTanaman.minSun, max: dataTanaman.maxSun, current: statusTanaman.sinarMatahari)
-            viewModel.percentageProgressBarSuhu = viewModel.getPlantConditionPersentage(min: dataTanaman.minSuhu, max: dataTanaman.maxSuhu, current: statusTanaman.suhu)
-            viewModel.percentageProgressBarTanah = viewModel.getPlantConditionPersentage(min: dataTanaman.minKelembabanTanah, max: dataTanaman.maxKelembabanTanah, current: statusTanaman.kelembabanTanah)
-            viewModel.percentageProgressBarUdara = viewModel.getPlantConditionPersentage(min: dataTanaman.minKelembabanUdara, max: dataTanaman.maxKelembabanUdara, current: statusTanaman.kelembabanUdara)
             viewModel.valueProgressBarSuhu = statusTanaman.suhu
             viewModel.valueProgressBarSinar = statusTanaman.sinarMatahari
             viewModel.valueProgressBarTanah = statusTanaman.kelembabanTanah
             viewModel.valueProgressBarUdara = statusTanaman.kelembabanUdara
+            viewModel.getPlantConditionPersentage()
         }
         .navigationBarTitle("Device Name")
         .navigationBarTitleDisplayMode(.inline)
