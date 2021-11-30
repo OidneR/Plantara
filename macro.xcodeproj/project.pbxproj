@@ -10,6 +10,7 @@
 		4017131F7C9C6ECFC0466D8C /* Pods_macro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93B42348EDCE1422490EF37 /* Pods_macro.framework */; };
 		5688E2832733C8460077603B /* (null) in Sources */ = {isa = PBXBuildFile; };
 		56AF839727312BE9005C2E06 /* PlantDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF839627312BE9005C2E06 /* PlantDetailPage.swift */; };
+		8450EEDB2753D1F00050E330 /* iPadPlantDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450EEDA2753D1F00050E330 /* iPadPlantDetailPage.swift */; };
 		84816DAC272FD09800323D13 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84816DAB272FD09800323D13 /* CardView.swift */; };
 		84816DAE272FDB9400323D13 /* Warna.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84816DAD272FDB9400323D13 /* Warna.swift */; };
 		84CBFD5227281D7900448758 /* CardViewReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBFD5127281D7900448758 /* CardViewReusable.swift */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		56AF839627312BE9005C2E06 /* PlantDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailPage.swift; sourceTree = "<group>"; };
+		8450EEDA2753D1F00050E330 /* iPadPlantDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadPlantDetailPage.swift; sourceTree = "<group>"; };
 		84816DAB272FD09800323D13 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		84816DAD272FDB9400323D13 /* Warna.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warna.swift; sourceTree = "<group>"; };
 		84CBFD5127281D7900448758 /* CardViewReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewReusable.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			children = (
 				B8A37A2F2743A414003B144E /* ChoosePlantIpad.swift */,
 				B8A37A2E2743A414003B144E /* DeviceDetail.swift */,
+				8450EEDA2753D1F00050E330 /* iPadPlantDetailPage.swift */,
 			);
 			path = "Wide-View";
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			files = (
 				B8A37A322743A414003B144E /* ChoosePlantIpad.swift in Sources */,
 				84CBFD5227281D7900448758 /* CardViewReusable.swift in Sources */,
+				8450EEDB2753D1F00050E330 /* iPadPlantDetailPage.swift in Sources */,
 				5688E2832733C8460077603B /* (null) in Sources */,
 				B8D2686B274CFD0900E6F322 /* DataFromCoreData.swift in Sources */,
 				B8D26865274CF94900E6F322 /* MainPageViewModel.swift in Sources */,
@@ -614,7 +618,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"macro/Preview Content\"";
-				DEVELOPMENT_TEAM = FYAQ2W36J9;
+				DEVELOPMENT_TEAM = 99GMPVPXYW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = macro/Info.plist;
@@ -646,7 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"macro/Preview Content\"";
-				DEVELOPMENT_TEAM = FYAQ2W36J9;
+				DEVELOPMENT_TEAM = 99GMPVPXYW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = macro/Info.plist;

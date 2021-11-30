@@ -23,20 +23,36 @@ struct DeviceDetailPage: View {
     }
     
     var body: some View {
-        VStack (alignment: .leading) {
+        VStack (alignment: .center) {
             
-            Image("biji")
-                .frame(maxWidth: .infinity, maxHeight: 194)
+            Image("icon\(dataDevice.namaTanaman ?? "")")
+                .resizable()
+                .frame(maxWidth: 194, maxHeight: 194)
                 .background(Color("BackgroundCardPlant"))
                 .animation(nil, value: valueAnimation)
             
             VStack(alignment: .leading){
-                Text("Bayam Hijau")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.leading, 24)
-                    .padding(.top, 24)
-                    .animation(nil, value: valueAnimation)
+                HStack{
+                    Text(dataDevice.namaTanaman ?? "")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding(.leading, 24)
+                        .padding(.top, 24)
+                        .animation(nil, value: valueAnimation)
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: PlantDetailPage(jenisTanaman: dataDevice.namaTanaman ?? "")){
+                        Text("Device Detail")
+                            .font(.system(size: 20))
+                            .foregroundColor(Warna.Secondary)
+                            .font(.title)
+                            .padding(.horizontal, 24)
+                            .padding(.top, 24)
+                            .animation(nil, value: valueAnimation)
+                    }
+                    
+                }
                 
                 ScrollView (showsIndicators: false){
                     VStack (alignment: .leading){
@@ -183,6 +199,7 @@ struct DeviceDetailPage: View {
                         .fill(Warna.primary)
                         .ignoresSafeArea()
         )
+        .navigationBarTitle(dataDevice.namaDevice ?? "")
         .onAppear(){
             viewModel.valueProgressBarSuhu = statusTanaman.suhu
             viewModel.valueProgressBarSinar = statusTanaman.sinarMatahari
@@ -190,7 +207,6 @@ struct DeviceDetailPage: View {
             viewModel.valueProgressBarUdara = statusTanaman.kelembabanUdara
             viewModel.getPlantConditionPersentage()
         }
-        .navigationBarTitle("Device Name")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

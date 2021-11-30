@@ -11,6 +11,7 @@ struct Tanaman: Hashable{
     let namaTanaman: String
     let imageTanaman: String
     let difficultyTanaman: String
+    let harvestTime: String
 }
 
 
