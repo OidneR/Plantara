@@ -52,8 +52,11 @@
 		B8D2686F274D7E7400E6F322 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D2686E274D7E7400E6F322 /* WeatherAPI.swift */; };
 		B8E044A9273916B900BD8841 /* StringConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E044A8273916B900BD8841 /* StringConvert.swift */; };
 		B8E044AB27391A9700BD8841 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */; };
+		BF44BEE72755529400ECFE94 /* MainPageIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44BEE62755529400ECFE94 /* MainPageIpad.swift */; };
 		BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF599600272AAA2500429D5D /* DeviceSettings.swift */; };
 		BF5D9202273EB92F00AF65F9 /* KeyboardHeightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D9201273EB92F00AF65F9 /* KeyboardHeightHelper.swift */; };
+		BFD2DC2D2755174200790D4C /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2DC2C2755174200790D4C /* Onboarding.swift */; };
+		BFD2DC2F2755177400790D4C /* CardDeviceIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2DC2E2755177400790D4C /* CardDeviceIpad.swift */; };
 		E0068DE32743A95A0032AACF /* CardViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0068DE22743A95A0032AACF /* CardViewIpad.swift */; };
 		E0BB4E8A274218DC009C70E5 /* DataTanamanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -106,8 +109,11 @@
 		B8D2686E274D7E7400E6F322 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		B8E044A8273916B900BD8841 /* StringConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringConvert.swift; path = macro/View/Reusable/StringConvert.swift; sourceTree = SOURCE_ROOT; };
 		B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BF44BEE62755529400ECFE94 /* MainPageIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageIpad.swift; sourceTree = "<group>"; };
 		BF599600272AAA2500429D5D /* DeviceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSettings.swift; sourceTree = "<group>"; };
 		BF5D9201273EB92F00AF65F9 /* KeyboardHeightHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHeightHelper.swift; sourceTree = "<group>"; };
+		BFD2DC2C2755174200790D4C /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		BFD2DC2E2755177400790D4C /* CardDeviceIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeviceIpad.swift; sourceTree = "<group>"; };
 		C93B42348EDCE1422490EF37 /* Pods_macro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_macro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0068DE22743A95A0032AACF /* CardViewIpad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewIpad.swift; sourceTree = "<group>"; };
 		E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTanamanViewModel.swift; sourceTree = "<group>"; };
@@ -206,6 +212,7 @@
 				B88E47DD272FE12300BDE109 /* CardDevice.swift */,
 				84816DAB272FD09800323D13 /* CardView.swift */,
 				B88E48032733D2CC00BDE109 /* customSearchBar.swift */,
+				BFD2DC2E2755177400790D4C /* CardDeviceIpad.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -219,6 +226,8 @@
 				B88E47E1272FE13D00BDE109 /* DeviceDetailPage.swift */,
 				B88E47E5272FE14E00BDE109 /* SetupDevice.swift */,
 				84CBFD5B2729481400448758 /* ChoosePlantPage.swift */,
+				BFD2DC2C2755174200790D4C /* Onboarding.swift */,
+				BF44BEE62755529400ECFE94 /* MainPageIpad.swift */,
 			);
 			path = "Normal-View";
 			sourceTree = "<group>";
@@ -454,12 +463,14 @@
 				84CBFD542729302000448758 /* ListDetailTanaman.swift in Sources */,
 				B80A9927273BC23300F2ED45 /* StatusTanaman.swift in Sources */,
 				B8A37A362743A461003B144E /* GridViewIpad.swift in Sources */,
+				BFD2DC2D2755174200790D4C /* Onboarding.swift in Sources */,
 				B8BC16472726CA0300F5538E /* macro.xcdatamodeld in Sources */,
 				B80E50392753F784008BEB86 /* DeviceDetailPageViewModel.swift in Sources */,
 				B8BC16442726CA0300F5538E /* Persistence.swift in Sources */,
 				B8A37A312743A414003B144E /* DeviceDetail.swift in Sources */,
 				B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */,
 				56AF839727312BE9005C2E06 /* PlantDetailPage.swift in Sources */,
+				BF44BEE72755529400ECFE94 /* MainPageIpad.swift in Sources */,
 				B88E47DE272FE12300BDE109 /* CardDevice.swift in Sources */,
 				B8A37A4527478E7D003B144E /* NotificationHelper.swift in Sources */,
 				BF599601272AAA2500429D5D /* DeviceSettings.swift in Sources */,
@@ -469,6 +480,7 @@
 				B88E47E6272FE14E00BDE109 /* SetupDevice.swift in Sources */,
 				B88E48042733D2CC00BDE109 /* customSearchBar.swift in Sources */,
 				84CBFD5C2729481400448758 /* ChoosePlantPage.swift in Sources */,
+				BFD2DC2F2755177400790D4C /* CardDeviceIpad.swift in Sources */,
 				B8D2686D274D6CB400E6F322 /* SetupDeviceViewModel.swift in Sources */,
 				B88E47E0272FE12800BDE109 /* CircularProgressBar.swift in Sources */,
 			);
