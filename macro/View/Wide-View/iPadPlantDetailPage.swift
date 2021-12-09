@@ -21,9 +21,7 @@ struct iPadPlantDetailBody: View {
     var jenisTanaman: String = ""
 
   var body: some View {
-      
-      
-      let dataTanaman = PlantType(rawValue: jenisTanaman)?.getDataTanaman()
+      let dataTanaman = PlantType(rawValue: jenisTanaman)?.getsDataTanaman(with: jenisTanaman)
       let dataKebutuhanTanaman = KebutuhanTanamanViewModel().getKebutuhanTanaman(jenisTanaman: jenisTanaman)
       
       HStack {

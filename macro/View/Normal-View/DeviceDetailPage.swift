@@ -19,10 +19,12 @@ struct DeviceDetailPage: View {
         self._dataDevice = dataDevice
         self._statusTanaman = statusTanaman
         self._dataTanaman = State(initialValue: PlantType(rawValue: dataDevice.namaTanaman.wrappedValue ?? "Bayam")!.dataTanaman)
-        
     }
     
     var body: some View {
+        let dataTanaman = PlantType(rawValue: dataDevice.namaTanaman ?? "")?.getsDataTanaman(with: dataDevice.namaTanaman ?? "")
+        let dataKebutuhanTanaman = KebutuhanTanamanViewModel().getKebutuhanTanaman(jenisTanaman: dataDevice.namaTanaman ?? "")
+        
         VStack (alignment: .center) {
             
             Image("icon\(dataDevice.namaTanaman ?? "")")
@@ -75,10 +77,11 @@ struct DeviceDetailPage: View {
                             VStack (alignment: .leading) {
                                 Text("Suhu")
                                     .bold()
-                                Text("Ideal:"+String(format: "%0.2f°C - %0.2f°C", dataTanaman.minSuhu, dataTanaman.maxSuhu))
+                                Text("Ideal:\(dataKebutuhanTanaman.kebutuhanSuhu)")
                                 HStack {
                                     Image(systemName: "exclamationmark.circle")
                                         .foregroundColor(Color.red)
+                                    
                                     Text("Please keep watering your plant everyday")
                                         .foregroundColor(Color.red)
                                         .font(.system(size: 14))
@@ -92,7 +95,7 @@ struct DeviceDetailPage: View {
                         
                         
                         HStack {
-                            CircularProgressBar(percentage: $viewModel.percentageProgressBarSinar, circularProgressBarStyle: .sinar, amount: $viewModel.valueProgressBarSinar, isCardView: false, diameter: 100)
+                            CircularProgressBar(percentage: $viewModel.valueProgressBarSinar, circularProgressBarStyle: .sinar, amount: $viewModel.valueProgressBarSinar, isCardView: false, diameter: 100)
                                 .frame(width: 100, height: 100)
                                 .padding(.trailing, 10)
                                 .onAppear {
@@ -110,7 +113,7 @@ struct DeviceDetailPage: View {
                             VStack (alignment: .leading) {
                                 Text("Sinar Matahari")
                                     .bold()
-                                Text("Ideal: 1200Lx")
+                                Text("Ideal: \(dataKebutuhanTanaman.kebutuhanSun)")
                                 HStack {
                                     Image(systemName: "exclamationmark.circle")
                                         .foregroundColor(Color.red)
@@ -142,7 +145,7 @@ struct DeviceDetailPage: View {
                             VStack (alignment: .leading) {
                                 Text("Kelembapan Tanah")
                                     .bold()
-                                Text("Ideal: 200 RH")
+                                Text("Ideal: \(dataKebutuhanTanaman.kebutuhanTanah)")
                                 HStack {
                                     Image(systemName: "exclamationmark.circle")
                                         .foregroundColor(Color.red)
@@ -172,7 +175,7 @@ struct DeviceDetailPage: View {
                             VStack (alignment: .leading) {
                                 Text("Kelembapan Udara")
                                     .bold()
-                                Text("Ideal: 200 RH")
+                                Text("Ideal: \(dataKebutuhanTanaman.kebutuhanUdara)")
                                 HStack {
                                     Image(systemName: "exclamationmark.circle")
                                         .foregroundColor(Color.red)

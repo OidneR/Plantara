@@ -63,7 +63,7 @@ enum PlantType: String, CaseIterable{
                         difficultyTanaman: "Medium",
                         harvestTime: "60-100 hari",
                         minSuhu: 16, maxSuhu: 27,
-                        minSun: 00, maxSun: 00, /* MASIH 0 */
+                        minSun: 00, maxSun: 00,
                         minKelembabanTanah: 80, maxKelembabanTanah: 100,
                         minKelembabanUdara: 65, maxKelembabanUdara: 78,
                         desc: "Tomat ceri adalah jenis tomat bulat yang lebih kecil dibandingkan tomat biasa, tomat ceri berasal dari campuran genetik antara tomat liar dengan tomat domestik kebun. Tomat ceri biasanya digunakan sebagai salad, dipanggang dan dijadikan soup maupun saus. Tomat ceri bermanfaat dalam mengontrol tekanan darah, menurunkan berat badan dan melindungi diri dari radikal bebas.",
@@ -218,18 +218,17 @@ enum PlantType: String, CaseIterable{
                             "2. Jika cuaca dingin atau bersalju pastikan untuk memanen kemangi Anda terlebih dahulu, karena suhu yang dingin akan merusak tanaman Anda"])
                 }
     }
-}
+}   
 
 class KebutuhanTanamanViewModel{
     func getKebutuhanTanaman(jenisTanaman: String) -> KebutuhanTanaman{
-        let dataTanaman = PlantType(rawValue: jenisTanaman)?.dataTanaman
+        let dataTanaman = PlantType(rawValue: jenisTanaman)?.getsDataTanaman(with: jenisTanaman)
         let suhuTanaman: String = "\(dataTanaman?.minSuhu ?? 0)°C - \(dataTanaman?.maxSuhu ?? 0)°C"
         let tanahTanaman: String = "\(dataTanaman?.minKelembabanTanah ?? 0)RH - \(dataTanaman?.maxKelembabanTanah ?? 0)RH"
         let udaraTanaman: String = "\(dataTanaman?.minKelembabanUdara ?? 0)RH - \(dataTanaman?.maxKelembabanUdara ?? 0)RH"
         let sinarTanaman: String = "\(dataTanaman?.minSun ?? 0)Lx - \(dataTanaman?.maxSun ?? 0)Lx"
         
         let dataKebutuhanTanaman = KebutuhanTanaman(kebutuhanSuhu: suhuTanaman, kebutuhanSun: sinarTanaman, kebutuhanTanah: tanahTanaman, kebutuhanUdara: udaraTanaman)
-        print(dataKebutuhanTanaman)
         
         return dataKebutuhanTanaman
     }

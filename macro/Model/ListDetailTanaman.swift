@@ -14,8 +14,6 @@ struct Tanaman: Hashable{
     let harvestTime: String
 }
 
-
-
 struct TanamanBaru: Hashable{
     let namaTanaman: String
     let imageTanaman: String

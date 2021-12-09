@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 struct CardDevice: View {
     
     @Binding var statusTanaman: StatusTanaman
@@ -20,8 +19,6 @@ struct CardDevice: View {
                         Image("icon\(deviceData.namaTanaman ?? "")")
                             .resizable()
                             .frame(width: 111, height: 111)
-                            //.font(.system(size: 90))
-                        
                     }
                     //INI BAGIAN DESKRIPSI DEVICE NYA
                     VStack (alignment: .leading){
