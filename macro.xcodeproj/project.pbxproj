@@ -58,6 +58,7 @@
 		BF5D9202273EB92F00AF65F9 /* KeyboardHeightHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D9201273EB92F00AF65F9 /* KeyboardHeightHelper.swift */; };
 		BFD2DC2D2755174200790D4C /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2DC2C2755174200790D4C /* Onboarding.swift */; };
 		BFD2DC2F2755177400790D4C /* CardDeviceIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD2DC2E2755177400790D4C /* CardDeviceIpad.swift */; };
+		BFD38164275E30D20006E6DB /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD38163275E30D20006E6DB /* PushNotificationSender.swift */; };
 		E0068DE32743A95A0032AACF /* CardViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0068DE22743A95A0032AACF /* CardViewIpad.swift */; };
 		E0BB4E8A274218DC009C70E5 /* DataTanamanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -116,6 +117,8 @@
 		BF5D9201273EB92F00AF65F9 /* KeyboardHeightHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHeightHelper.swift; sourceTree = "<group>"; };
 		BFD2DC2C2755174200790D4C /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		BFD2DC2E2755177400790D4C /* CardDeviceIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeviceIpad.swift; sourceTree = "<group>"; };
+		BFD38162275E23650006E6DB /* macro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macro.entitlements; sourceTree = "<group>"; };
+		BFD38163275E30D20006E6DB /* PushNotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSender.swift; sourceTree = "<group>"; };
 		C93B42348EDCE1422490EF37 /* Pods_macro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_macro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0068DE22743A95A0032AACF /* CardViewIpad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewIpad.swift; sourceTree = "<group>"; };
 		E0BB4E89274218DC009C70E5 /* DataTanamanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTanamanViewModel.swift; sourceTree = "<group>"; };
@@ -191,6 +194,7 @@
 				B8A37A4427478E7D003B144E /* NotificationHelper.swift */,
 				B8D2686A274CFD0900E6F322 /* DataFromCoreData.swift */,
 				B8D2686E274D7E7400E6F322 /* WeatherAPI.swift */,
+				BFD38163275E30D20006E6DB /* PushNotificationSender.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -288,6 +292,7 @@
 		B8BC16392726CA0200F5538E /* macro */ = {
 			isa = PBXGroup;
 			children = (
+				BFD38162275E23650006E6DB /* macro.entitlements */,
 				B80E50352752CA3D008BEB86 /* Util */,
 				B88E47FC272FE79300BDE109 /* Info.plist */,
 				B8E044AA27391A9700BD8841 /* GoogleService-Info.plist */,
@@ -471,6 +476,7 @@
 				B8BC16472726CA0300F5538E /* macro.xcdatamodeld in Sources */,
 				B80E50392753F784008BEB86 /* DeviceDetailPageViewModel.swift in Sources */,
 				B8BC16442726CA0300F5538E /* Persistence.swift in Sources */,
+				BFD38164275E30D20006E6DB /* PushNotificationSender.swift in Sources */,
 				B8A37A312743A414003B144E /* DeviceDetail.swift in Sources */,
 				B8BC163B2726CA0200F5538E /* macroApp.swift in Sources */,
 				56AF839727312BE9005C2E06 /* PlantDetailPage.swift in Sources */,
@@ -615,10 +621,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macro/macro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"macro/Preview Content\"";
-				DEVELOPMENT_TEAM = 99GMPVPXYW;
+				DEVELOPMENT_TEAM = FYAQ2W36J9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = macro/Info.plist;
@@ -647,10 +654,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macro/macro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"macro/Preview Content\"";
-				DEVELOPMENT_TEAM = 99GMPVPXYW;
+				DEVELOPMENT_TEAM = FYAQ2W36J9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = macro/Info.plist;

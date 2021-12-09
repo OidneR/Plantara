@@ -7,5 +7,7 @@ target 'macro' do
 
   # Pods for macro
  pod 'Firebase/Database'
+ pod 'Firebase/Messaging'
+ pod 'Firebase/Analytics'
 
 end
