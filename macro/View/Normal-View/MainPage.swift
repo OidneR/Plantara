@@ -7,6 +7,9 @@
 
 import SwiftUI
 import CoreData
+import FirebaseMessaging
+import Firebase
+import FirebaseAnalytics
 
 struct MainPage: View {
     @StateObject var firebaseHelper: firebaseHelper
@@ -21,7 +24,9 @@ struct MainPage: View {
     )var dataFatched: FetchedResults<DeviceData>
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-   
+    
+    var sendNotif = PushNotificationSender()
+    
     var body: some View {
         NavigationView{
             ZStack{
@@ -73,9 +78,19 @@ struct MainPage: View {
                 }
             }
             .navigationTitle("Semua Perangkat")
-            .onChange(of: plantStatus.suhu, perform: { newValue in
+            .onChange(of: plantStatus.kelembabanTanah, perform: { newValue in
                 print(newValue)
+                if newValue < 20{
+                    sendNotif.sendPushNotification(title: "Kelembaban Tanah Menurun!", body: "Segera siram tanaman Anda sebelum tanaman Anda layu")
+                }else if newValue > 80{
+                    sendNotif.sendPushNotification(title: "Kelembaban Tanah Kembali Normal!", body: "Kerja bagus! Terus rawat tanaman Anda!")
+                }
             })
+        }
+        .onAppear{
+            Messaging.messaging().subscribe(toTopic: "weather") { error in
+              print("Subscribed to weather topic")
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Warna.Secondary)
