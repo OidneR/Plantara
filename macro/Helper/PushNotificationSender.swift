@@ -12,11 +12,13 @@ import Firebase
 import UIKit
 
 class PushNotificationSender {
+    
+    var deviceToken = UserDefaults.standard.string(forKey: "deviceToken")
 
     func sendPushNotification(title: String, body: String) {
         let urlString = "https://fcm.googleapis.com/fcm/send"
         let url = NSURL(string: urlString)!
-        let paramString: [String : Any] = ["to" : "f4W6evP_Vke7rbmmi35iVb:APA91bEq_8N28bRzJ4Lr-axLYXTSZsVE7JJB6FpGMuUJb32cSFV0gh-7zBaP7QgGZGXSwKu40Rp4FL8xEOjb6aJa0_hicY4WjIJhMcaViLiIRO4ELfV2aUmpJIP_7VnlWuXmJKD2OFn5",
+        let paramString: [String : Any] = ["to" : deviceToken,
                                            "notification": [
                                             "title" : title,
                                             "body" : body,

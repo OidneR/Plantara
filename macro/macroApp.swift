@@ -96,6 +96,7 @@ extension AppDelegate: MessagingDelegate {
 
       let deviceToken:[String: String] = ["token": fcmToken ?? ""]
         print("Device token: ", deviceToken) // This token can be used for testing notifications on FCM
+        UserDefaults.standard.set(fcmToken, forKey: "deviceToken")
     }
 }
 
