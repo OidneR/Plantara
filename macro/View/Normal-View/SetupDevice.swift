@@ -14,7 +14,7 @@ struct SetupDevice: View {
     @AppStorage("BackToMain") var backtomain:Bool = false
     var passItem: String
     
-    
+        
     var body: some View {
         VStack{
             Form{

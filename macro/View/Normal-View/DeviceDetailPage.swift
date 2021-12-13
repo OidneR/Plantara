@@ -45,7 +45,7 @@ struct DeviceDetailPage: View {
                     Spacer()
                     
                     NavigationLink(destination: PlantDetailPage(jenisTanaman: dataDevice.namaTanaman ?? "")){
-                        Text("Device Detail")
+                        Text("Detail Perangkat")
                             .font(.system(size: 20))
                             .foregroundColor(Warna.Secondary)
                             .font(.title)
@@ -71,6 +71,7 @@ struct DeviceDetailPage: View {
                                 .onChange(of: statusTanaman.suhu) { newValue in
                                     withAnimation(.easeIn(duration: 2)){
                                         viewModel.valueProgressBarSuhu = newValue
+                                        viewModel.percentageProgressBarSuhu = newValue
                                     }
                                 }
                             
@@ -79,15 +80,20 @@ struct DeviceDetailPage: View {
                                     .bold()
                                 Text("Ideal:\(dataKebutuhanTanaman.kebutuhanSuhu)")
                                 HStack {
-                                    Image(systemName: "exclamationmark.circle")
-                                        .foregroundColor(Color.red)
-                                    
-                                    Text("Please keep watering your plant everyday")
-                                        .foregroundColor(Color.red)
-                                        .font(.system(size: 14))
-                                        .padding(.trailing, 20)
+                                    if statusTanaman.suhu < dataTanaman?.minSuhu ?? 0 || statusTanaman.suhu > dataTanaman?.maxSuhu ?? 0{
+                                        Image(systemName: "exclamationmark.circle")
+                                            .foregroundColor(Color.red)
+                                        Text("Pindahkan tanaman di tempat dengan suhu yang sesuai")
+                                            .foregroundColor(Warna.TextWarning)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }else{
+                                        Text("Normal")
+                                            .foregroundColor(Warna.TextSafe)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }
                                 }
-                                
                                 .foregroundColor(Color.red)
                             }
                             
@@ -115,12 +121,20 @@ struct DeviceDetailPage: View {
                                     .bold()
                                 Text("Ideal: \(dataKebutuhanTanaman.kebutuhanSun)")
                                 HStack {
-                                    Image(systemName: "exclamationmark.circle")
-                                        .foregroundColor(Color.red)
-                                    Text("Your plant isn't in the right place")
-                                        .foregroundColor(Color.red)
-                                        .font(.system(size: 14))
-                                        .padding(.trailing, 20)
+                                    if statusTanaman.sinarMatahari < dataTanaman?.minSun ?? 0 || statusTanaman.sinarMatahari > dataTanaman?.maxSun ?? 0{
+                                        Image(systemName: "exclamationmark.circle")
+                                            .foregroundColor(Color.red)
+                                        
+                                        Text("Pindahkan tanaman agar mendapatkan cahaya matahari yang sesuai")
+                                            .foregroundColor(Warna.TextWarning)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }else{
+                                        Text("Normal")
+                                            .foregroundColor(Warna.TextSafe)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }
                                 }
                             }
                             
@@ -139,6 +153,7 @@ struct DeviceDetailPage: View {
                                 .onChange(of: statusTanaman.kelembabanTanah) { newValue in
                                     withAnimation(.easeIn(duration: 2)){
                                         viewModel.valueProgressBarTanah = newValue
+                                        viewModel.percentageProgressBarTanah = newValue
                                     }
                                 }
                             
@@ -147,12 +162,21 @@ struct DeviceDetailPage: View {
                                     .bold()
                                 Text("Ideal: \(dataKebutuhanTanaman.kebutuhanTanah)")
                                 HStack {
-                                    Image(systemName: "exclamationmark.circle")
-                                        .foregroundColor(Color.red)
-                                    Text("Please move your plant")
-                                        .foregroundColor(Color.red)
-                                        .font(.system(size: 14))
-                                        .padding(.trailing, 20)
+                                    if statusTanaman.kelembabanTanah < dataTanaman?.minKelembabanTanah ?? 0 || statusTanaman.kelembabanTanah > dataTanaman?.maxKelembabanTanah ?? 0{
+                                        
+                                        Image(systemName: "exclamationmark.circle")
+                                            .foregroundColor(Color.red)
+                                        
+                                        Text("Kelembaban tanah kurang ideal")
+                                            .foregroundColor(Warna.TextWarning)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }else{
+                                        Text("Normal")
+                                            .foregroundColor(Warna.TextSafe)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }
                                 }
                             }
                         }.padding(.top, 20)
@@ -169,6 +193,7 @@ struct DeviceDetailPage: View {
                                 .onChange(of: statusTanaman.kelembabanUdara) { newValue in
                                     withAnimation(.easeIn(duration: 2)){
                                         viewModel.valueProgressBarUdara = newValue
+                                        viewModel.percentageProgressBarUdara = newValue
                                     }
                                 }
                             
@@ -177,12 +202,21 @@ struct DeviceDetailPage: View {
                                     .bold()
                                 Text("Ideal: \(dataKebutuhanTanaman.kebutuhanUdara)")
                                 HStack {
-                                    Image(systemName: "exclamationmark.circle")
-                                        .foregroundColor(Color.red)
-                                    Text("Your plant isn't in the right place")
-                                        .foregroundColor(Color.red)
-                                        .font(.system(size: 14))
-                                        .padding(.trailing, 20)
+                                    if statusTanaman.kelembabanUdara < dataTanaman?.minKelembabanUdara ?? 0 || statusTanaman.kelembabanUdara > dataTanaman?.maxKelembabanUdara ?? 0{
+                                        
+                                        Image(systemName: "exclamationmark.circle")
+                                            .foregroundColor(Color.red)
+                                        
+                                        Text("Pindahkan tanaman pada tempat dengan kelembaban udara yang ideal")
+                                            .foregroundColor(Warna.TextWarning)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }else{
+                                        Text("Normal")
+                                            .foregroundColor(Warna.TextSafe)
+                                            .font(.system(size: 14))
+                                            .padding(.trailing, 20)
+                                    }
                                 }
                                 .foregroundColor(Color.red)
                             }
